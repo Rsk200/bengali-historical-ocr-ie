@@ -73,3 +73,17 @@ preprocessing:
   deskew:
     enabled: false
     max_angle_deg: 10.0
+
+# Chunking strategies configuration
+chunking:
+  strategy: "S1"  # "S1" (structure-aware), "S2" (fixed with 10% overlap), or "S3" (sentence-level)
+  max_chars: 2500
+  overlap_chars: 250
+
+# LLM Extraction configuration
+extraction:
+  model_name: "gemini-1.5-pro"
+  temperature: 0.0
+  max_retries: 3
+  shot_mode: "zero_shot"  # "zero_shot" or "few_shot"
+  extraction_mode: "joint"  # "joint" or "per_type"
