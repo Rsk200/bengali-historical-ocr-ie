@@ -1,0 +1,36 @@
+{
+  "page_id": "p001",
+  "chapter_id": "ch01",
+  "split": "dev",
+  "gold_text": "১৯৪৮ সালের ২৩শে ফেব্রুয়ারি করাচিতে পাকিস্তান গণপরিষদের প্রথম অধিবেশন শুরু হয়। ধীরেন্দ্রনাথ দত্ত বাংলা ব্যবহারের দাবি জানান।",
+  "entities": [
+    {
+      "entity_id": "ent_1",
+      "name": "ধীরেন্দ্রনাথ দত্ত",
+      "entity_type": "PERSON",
+      "char_start": 80,
+      "char_end": 97,
+      "evidence_span": "ধীরেন্দ্রনাথ দত্ত"
+    },
+    {
+      "entity_id": "ent_2",
+      "name": "করাচিতে",
+      "entity_type": "LOCATION",
+      "char_start": 28,
+      "char_end": 35,
+      "evidence_span": "করাচিতে"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "rel_1",
+      "head_text": "ধীরেন্দ্রনাথ দত্ত",
+      "head_type": "PERSON",
+      "relation_type": "participated_in",
+      "tail_text": "করাচিতে",
+      "tail_type": "LOCATION",
+      "evidence_span": "ধীরেন্দ্রনাথ দত্ত ... করাচিতে"
+    }
+  ],
+  "events": []
+}
