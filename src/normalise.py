@@ -47,6 +47,7 @@ INFLECTIONAL_SUFFIXES = [
     r"তে$",        # -তে (locative, e.g., ভারতে)
     r"য়ে$",       # -য়ে (locative)
     r"য়$",        # -য় (locative, e.g., ঢাকায়, বাংলায়, পূর্ববাংলায়)
+    r"ে$",         # -ে (locative e-kar, e.g., গণপরিষদে, অধিবেশনে)
     r"র$",         # -র (genitive, e.g., জিন্নাহর, ভাষার)
 ]
 

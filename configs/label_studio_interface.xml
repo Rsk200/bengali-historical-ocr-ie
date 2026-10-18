@@ -1,0 +1,50 @@
+<View>
+  <Header value="NCTB Class 9-10 BGS Historical Information Extraction (Class 9-10 BGS Corpus)"/>
+  <View style="display: flex; flex-direction: row; gap: 20px;">
+    <!-- Left Pane: 300 DPI Original Scan -->
+    <View style="flex: 1; max-width: 50%;">
+      <Header value="Scanned Page Image (300 DPI)"/>
+      <Image name="image" value="$image_url" zoom="true" rotateControl="true"/>
+    </View>
+
+    <!-- Right Pane: Direct Human Transcribed Bengali Text & Labeling Controls -->
+    <View style="flex: 1; max-width: 50%;">
+      <Header value="Human-Transcribed Bengali Gold Text"/>
+      <Text name="text" value="$text"/>
+
+      <Header value="Historical Entity &amp; Event Clause Spans"/>
+      <Labels name="entity_labels" toName="text">
+        <Label value="PERSON" background="#FFA39E"/>
+        <Label value="ORGANIZATION" background="#FFBB96"/>
+        <Label value="LOCATION" background="#FFD591"/>
+        <Label value="EVENT" background="#ADC6FF"/>
+        <Label value="DATE/PERIOD" background="#87E8DE"/>
+        <Label value="DOCUMENT/TREATY/LAW" background="#B7EB8F"/>
+        <!-- Event-level trigger and narrative clauses -->
+        <Label value="TRIGGER" background="#D3ADF7"/>
+        <Label value="CAUSE" background="#FFADD2"/>
+        <Label value="CONSEQUENCE" background="#FFE58F"/>
+      </Labels>
+
+      <Header value="Directed Relations &amp; Event Argument Links"/>
+      <Relations>
+        <!-- 10 Domain-Constrained Directed Relation Types -->
+        <Relation value="participated_in"/>
+        <Relation value="led_by"/>
+        <Relation value="member_of"/>
+        <Relation value="occurred_at"/>
+        <Relation value="occurred_on"/>
+        <Relation value="caused"/>
+        <Relation value="resulted_in"/>
+        <Relation value="preceded"/>
+        <Relation value="signed_issued"/>
+        <Relation value="located_in"/>
+        <!-- Event Slot Links -->
+        <Relation value="has_trigger"/>
+        <Relation value="has_cause"/>
+        <Relation value="has_consequence"/>
+        <Relation value="has_participant"/>
+      </Relations>
+    </View>
+  </View>
+</View>
