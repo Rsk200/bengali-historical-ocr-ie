@@ -1,0 +1,8 @@
+PyMuPDF==1.24.10
+opencv-python==4.10.0.84
+numpy==1.26.4
+pandas==2.2.2
+pyyaml==6.0.2
+pydantic==2.9.2
+jiwer==3.0.4
+rapidfuzz==3.9.7

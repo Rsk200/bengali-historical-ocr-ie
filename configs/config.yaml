@@ -1,0 +1,49 @@
+seed: 42
+dpi: 300
+pdf_filename: "Secondary (BV)-2026_Class 9-10_BGS_compressed (1).pdf"
+pdf_page_offset: 6
+one_file_per_page: true
+test_set_read_only: true
+
+# Chapters configuration for corpus extraction
+chapters:
+  ch01:
+    name: "Chapter 1"
+    split: "dev"
+    ranges:
+      - start_book_page: 1
+        end_book_page: 11
+        page_type: "core_prose"
+      - start_book_page: 12
+        end_book_page: 13
+        page_type: "exercise"
+  ch02:
+    name: "Chapter 2"
+    split: "test"
+    ranges:
+      - start_book_page: 14
+        end_book_page: 24
+        page_type: "core_prose"
+      - start_book_page: 25
+        end_book_page: 25
+        page_type: "exercise"
+  ch08:
+    name: "Chapter 8"
+    split: "test"
+    ranges:
+      - start_book_page: 98
+        end_book_page: 105
+        page_type: "core_prose"
+      - start_book_page: 106
+        end_book_page: 106
+        page_type: "exercise"
+  ch09:
+    name: "Chapter 9"
+    split: "test"
+    ranges:
+      - start_book_page: 107
+        end_book_page: 114
+        page_type: "core_prose"
+      - start_book_page: 115
+        end_book_page: 116
+        page_type: "exercise"
