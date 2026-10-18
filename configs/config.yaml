@@ -1,7 +1,7 @@
 seed: 42
 dpi: 300
 pdf_filename: "Secondary (BV)-2026_Class 9-10_BGS_compressed (1).pdf"
-pdf_page_offset: 6
+pdf_page_offset: 5
 one_file_per_page: true
 test_set_read_only: true
 
@@ -47,3 +47,29 @@ chapters:
       - start_book_page: 115
         end_book_page: 116
         page_type: "exercise"
+
+# Bangla Unicode normalisation settings
+normalisation:
+  unicode_nfc: true
+  unify_nukta: true
+  clean_zwj_zwnj: true
+  digits: "bangla"  # "bangla", "western", or "none"
+  standardise_punct_whitespace: true
+  strip_suffixes_for_matching: false  # Dedicated for entity matching
+
+# OpenCV image pre-processing switches
+preprocessing:
+  mode: "custom"  # "raw" bypasses all pre-processing
+  to_greyscale: true
+  median_blur:
+    enabled: false
+    ksize: 3
+  clahe:
+    enabled: false
+    clip_limit: 2.0
+    tile_grid_size: [8, 8]
+  otsu_binarisation:
+    enabled: false
+  deskew:
+    enabled: false
+    max_angle_deg: 10.0
