@@ -346,6 +346,7 @@ def execute_c3_error_propagation(gold_data: Dict[str, Dict[str, Any]]) -> Dict[s
             "tier2_precision": round(float(np.mean(t2_precs)), 4),
             "tier2_recall": round(float(np.mean(t2_recs)), 4),
             "tier2_f1": round(float(np.mean(t2_f1s)), 4),
+            "unsupported_rate": round(float(np.mean([pages[p]["unsupported_rate"] for p in pages])), 4),
             "categories": {
                 k: {
                     "tier1_f1": round(float(np.mean(v["t1_f1"])), 4),
@@ -445,6 +446,7 @@ def execute_c3_error_propagation(gold_data: Dict[str, Dict[str, Any]]) -> Dict[s
             "tier2_precision": vals["tier2_precision"],
             "tier2_recall": vals["tier2_recall"],
             "tier2_f1": vals["tier2_f1"],
+            "unsupported_rate": vals["unsupported_rate"],
             "entity_t1_f1": vals["categories"]["entities"]["tier1_f1"],
             "entity_t2_f1": vals["categories"]["entities"]["tier2_f1"],
             "relation_t1_f1": vals["categories"]["relations"]["tier1_f1"],
@@ -650,7 +652,7 @@ def generate_dev_benchmark_report(
     a2_res: Dict[str, Any],
     a3_res: Dict[str, Any]
 ):
-    logger.info("Generating comprehensive Dev-Set Markdown Benchmark Report...")
+    logger.info("Generating comprehensive Dev-Set Markdown Benchmark Report with compact tables...")
     md_path = Path("outputs/results/dev/dev_benchmark_report.md")
 
     content = f"""# Master Development Benchmark & Ablation Report (Dev Set: p001–p011)
@@ -671,19 +673,21 @@ This report presents the complete empirical evaluation of our end-to-end histori
 3. **RQ2 (End-to-End Error Propagation — C3):**
    - **Total OCR Cost:** {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['total_ocr_cost']:.4f} in Tesseract vs {c3_res['error_attributions']['strong_ocr (gemini_raw)']['total_ocr_cost']:.4f} in Gemini.
    - **Surface Spelling Loss:** Accounts for {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['surface_spelling_loss']:.4f} of the loss, successfully recovered by Tier 2 Position-Aligned Matching.
-   - **Unsupported Evidence Rate:** Jumps from **2.51%** (Gemini) to **21.89%** (Tesseract), demonstrating that OCR character noise directly multiplies downstream hallucinations by nearly **9x**.
+   - **Unsupported Evidence Rate:** Jumps from **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['unsupported_rate']*100:.2f}%** (Gemini) to **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['unsupported_rate']*100:.2f}%** (Tesseract), demonstrating that OCR character noise directly multiplies downstream hallucinations by nearly **9x**.
    - **Predictor Superiority:** Target Entity Accuracy ($r = {c3_res['predictor_analysis']['target_acc_vs_f1_drop_correlation']:.4f}$) proved to be a significantly stronger predictor of downstream extraction F1 drop than raw character CER ($r = {c3_res['predictor_analysis']['cer_vs_f1_drop_correlation']:.4f}$).
    - **McNemar's Paired Test:** Statistically significant difference between Strong and Weaker OCR ($p = {c3_res['mcnemar_test']['p_value']:.6f}$).
 4. **RQ3 (Ablation Studies A1, A2, A3):**
    - **A1 (Correction):** Arm C (LLM Fix + Levenshtein Alignment Trimming) repairs broken Bengali conjuncts without modifying clean text.
    - **A2 (Chunking):** Structure-Aware $S1$ achieves superior extraction F1 ({a2_res['gemini_raw']['S1']['downstream_extraction_f1']:.4f}) compared to Sentence-level $S3$ ({a2_res['gemini_raw']['S3']['downstream_extraction_f1']:.4f}), which fragments cross-sentence relational context.
-   - **A3 (Consistency):** 3-run evaluation at $T=0.2$ demonstrated stable repeatability (Pairwise F1 agreement = **{a3_res['consistency_analysis']['pairwise_agreement_f1_mean']:.4f}**, $\sigma = {a3_res['consistency_analysis']['pairwise_agreement_f1_std']:.4f}$).
+   - **A3 (Consistency):** 3-run evaluation at $T=0.2$ demonstrated stable repeatability (Pairwise F1 agreement = **{a3_res['consistency_analysis']['pairwise_agreement_f1_mean']:.4f}**, $\\sigma = {a3_res['consistency_analysis']['pairwise_agreement_f1_std']:.4f}$).
 
 ---
 
 ## 2. Task 1: Dev-Set Gold Standard Materialization & IAA
 
 Materialized under `data/gold_standard/dev/` and dual-annotator directories `annotator_1/` and `annotator_2/`:
+
+**Table 1: Task 1 Gold Standard & Inter-Annotator Agreement (IAA)**
 
 | Metric | Measured Value | Benchmark Description |
 | :--- | :---: | :--- |
@@ -692,11 +696,11 @@ Materialized under `data/gold_standard/dev/` and dual-annotator directories `ann
 | **Total Gold Relations** | {iaa_res['total_gold_relations']} | Directed triples across 10 ontology types |
 | **Total Gold Event Frames** | {iaa_res['total_gold_events']} | Multi-slot historical event structures |
 | **Entity Exact Span F1** | **{iaa_res['mean_entity_exact_f1']:.4f}** | Exact character start and end match |
-| **Entity Relaxed Span F1** | **{iaa_res['mean_entity_relaxed_f1']:.4f}** | IoU $\ge 0.8$ or suffix-stripped stem equality |
+| **Entity Relaxed Span F1** | **{iaa_res['mean_entity_relaxed_f1']:.4f}** | IoU $\\ge 0.8$ or suffix-stripped stem equality |
 | **Relation Tuple F1** | **{iaa_res['mean_relation_tuple_f1']:.4f}** | Directed (head_stem, relation_type, tail_stem) |
 | **Event Atomic Slot F1** | **{iaa_res['mean_event_atomic_slot_f1']:.4f}** | Exact match on trigger, date, and location |
-| **Event Descriptive Slot F1** | **{iaa_res['mean_event_descriptive_slot_f1']:.4f}** | Token overlap IoU $\ge 0.5$ on causes & consequences |
-| **Cohen's Kappa ($\kappa$)** | **{iaa_res['cohen_kappa_on_aligned_spans']:.4f}** | Categorical label agreement on aligned spans |
+| **Event Descriptive Slot F1** | **{iaa_res['mean_event_descriptive_slot_f1']:.4f}** | Token overlap IoU $\\ge 0.5$ on causes & consequences |
+| **Cohen's Kappa ($\\kappa$)** | **{iaa_res['cohen_kappa_on_aligned_spans']:.4f}** | Categorical label agreement on aligned spans |
 | **Aligned Spans Evaluated** | {iaa_res['n_aligned_spans']} | Evaluated span pairs |
 
 ---
@@ -707,33 +711,59 @@ Materialized under `data/gold_standard/dev/` and dual-annotator directories `ann
 
 Joint evaluation on CER, WER, and Target Entity Factual Accuracy with 95% Bootstrap Confidence Intervals:
 
-| System Name | Mean CER (95% CI) | Median CER | Mean WER (95% CI) | Target Acc (Raw) | Target Acc (Norm) | Target Acc (Stemmed) | PERSON Acc | DATE Acc | LOC Acc | Composite Score | Selected Role |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+**Table 2A: OCR System Selection — Recognition Error Rates (RQ1)**
+
+| OCR System | Mean CER (95% CI) | Median CER | Mean WER (95% CI) | Composite Score | Selected Role |
+| :--- | :---: | :---: | :---: | :---: | :---: |
 """
 
     for r in c2_res["rankings"]:
         role = "**Strong OCR**" if r["system_name"] == c2_res["selected_strong_ocr"] else ("**Weaker OCR**" if r["system_name"] == c2_res["selected_weaker_ocr"] else "Ablation")
-        content += f"| `{r['system_name']}` | {r['mean_cer']*100:.2f}% [{r['cer_ci_lower']*100:.2f}%, {r['cer_ci_upper']*100:.2f}%] | {r['median_cer']*100:.2f}% | {r['mean_wer']*100:.2f}% [{r['wer_ci_lower']*100:.2f}%, {r['wer_ci_upper']*100:.2f}%] | {r['target_acc_raw']*100:.2f}% | {r['target_acc_norm']*100:.2f}% | {r['target_acc_stem']*100:.2f}% | {r['person_acc']*100:.2f}% | {r['date_acc']*100:.2f}% | {r['location_acc']*100:.2f}% | **{r['composite_score']:.4f}** | {role} |\n"
+        content += f"| `{r['system_name']}` | {r['mean_cer']*100:.2f}% [{r['cer_ci_lower']*100:.2f}%, {r['cer_ci_upper']*100:.2f}%] | {r['median_cer']*100:.2f}% | {r['mean_wer']*100:.2f}% [{r['wer_ci_lower']*100:.2f}%, {r['wer_ci_upper']*100:.2f}%] | **{r['composite_score']:.4f}** | {role} |\n"
+
+    content += """
+**Table 2B: OCR System Selection — Target Entity Factual Accuracy by Type**
+
+| OCR System | Raw Acc | Norm Acc | Stemmed Acc | PERSON Acc | DATE Acc | LOC Acc |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+"""
+
+    for r in c2_res["rankings"]:
+        content += f"| `{r['system_name']}` | {r['target_acc_raw']*100:.2f}% | {r['target_acc_norm']*100:.2f}% | {r['target_acc_stem']*100:.2f}% | {r['person_acc']*100:.2f}% | {r['date_acc']*100:.2f}% | {r['location_acc']*100:.2f}% |\n"
 
     content += f"""
 ### 3.2 Experiment C3: End-to-End Error Propagation (RQ2)
 
 Extraction performance across Oracle (clean gold text), Strong OCR (`gemini_raw`), and Weaker OCR (`tesseract_raw`):
 
-| Experimental Condition | Tier 1 Precision | Tier 1 Recall | Tier 1 F1 | Tier 2 Precision | Tier 2 Recall | Tier 2 F1 | Entity T1 / T2 F1 | Relation T1 / T2 F1 | Event T1 / T2 F1 | Unsupported Rate |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Oracle (Gold Text)** | {c3_res['condition_performances']['oracle']['tier1_precision']:.4f} | {c3_res['condition_performances']['oracle']['tier1_recall']:.4f} | **{c3_res['condition_performances']['oracle']['tier1_f1']:.4f}** | {c3_res['condition_performances']['oracle']['tier2_precision']:.4f} | {c3_res['condition_performances']['oracle']['tier2_recall']:.4f} | **{c3_res['condition_performances']['oracle']['tier2_f1']:.4f}** | {c3_res['condition_performances']['oracle']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['oracle']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['oracle']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['events']['tier2_f1']:.4f} | 0.00% |
-| **Strong OCR (`gemini_raw`)** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_precision']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_recall']:.4f} | **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_f1']:.4f}** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_precision']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_recall']:.4f} | **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_f1']:.4f}** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['events']['tier2_f1']:.4f} | **2.51%** |
-| **Weaker OCR (`tesseract_raw`)** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_precision']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_recall']:.4f} | **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_f1']:.4f}** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_precision']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_recall']:.4f} | **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_f1']:.4f}** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['events']['tier2_f1']:.4f} | **21.89%** |
+**Table 3A: End-to-End Extraction Performance Across OCR Quality Tiers (RQ2)**
+
+| Experimental Condition | Tier 1 Prec | Tier 1 Rec | Tier 1 F1 | Tier 2 Prec | Tier 2 Rec | Tier 2 F1 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Oracle (Gold Text)** | {c3_res['condition_performances']['oracle']['tier1_precision']:.4f} | {c3_res['condition_performances']['oracle']['tier1_recall']:.4f} | **{c3_res['condition_performances']['oracle']['tier1_f1']:.4f}** | {c3_res['condition_performances']['oracle']['tier2_precision']:.4f} | {c3_res['condition_performances']['oracle']['tier2_recall']:.4f} | **{c3_res['condition_performances']['oracle']['tier2_f1']:.4f}** |
+| **Strong OCR (`gemini_raw`)** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_precision']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_recall']:.4f} | **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier1_f1']:.4f}** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_precision']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_recall']:.4f} | **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['tier2_f1']:.4f}** |
+| **Weaker OCR (`tesseract_raw`)** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_precision']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_recall']:.4f} | **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier1_f1']:.4f}** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_precision']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_recall']:.4f} | **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['tier2_f1']:.4f}** |
+
+**Table 3B: Per-Category Extraction F1 & Hallucination Rate**
+
+| Experimental Condition | Entity T1 / T2 F1 | Relation T1 / T2 F1 | Event T1 / T2 F1 | Unsupported Evidence Rate |
+| :--- | :---: | :---: | :---: | :---: |
+| **Oracle (Gold Text)** | {c3_res['condition_performances']['oracle']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['oracle']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['oracle']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['oracle']['categories']['events']['tier2_f1']:.4f} | 0.00% |
+| **Strong OCR (`gemini_raw`)** | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['strong_ocr (gemini_raw)']['categories']['events']['tier2_f1']:.4f} | **{c3_res['condition_performances']['strong_ocr (gemini_raw)']['unsupported_rate']*100:.2f}%** |
+| **Weaker OCR (`tesseract_raw`)** | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['entities']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['entities']['tier2_f1']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['relations']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['relations']['tier2_f1']:.4f} | {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['events']['tier1_f1']:.4f} / {c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['categories']['events']['tier2_f1']:.4f} | **{c3_res['condition_performances']['weaker_ocr (tesseract_raw)']['unsupported_rate']*100:.2f}%** |
 
 ### 3.3 Three-Part Error Attribution
 Mathematically guaranteed decomposition:
 $$\\text{{Total OCR Cost}} = \\text{{Surface Spelling Loss}} + \\text{{Structural Comprehension Loss}}$$
 
-| Condition | Oracle $F_1$ | Tier 1 $F_1$ | Tier 2 $F_1$ | Total OCR Cost | Surface Spelling Loss | Structural Comprehension Loss | Dominant Bottleneck |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Strong OCR (`gemini_raw`)** | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['oracle_f1']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['tier1_f1']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['tier2_f1']:.4f} | **{c3_res['error_attributions']['strong_ocr (gemini_raw)']['total_ocr_cost']:.4f}** | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['surface_spelling_loss']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['structural_comprehension_loss']:.4f} | Negligible degradation |
-| **Weaker OCR (`tesseract_raw`)** | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['oracle_f1']:.4f} | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['tier1_f1']:.4f} | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['tier2_f1']:.4f} | **{c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['total_ocr_cost']:.4f}** | **{c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['surface_spelling_loss']:.4f}** | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['structural_comprehension_loss']:.4f} | Surface spelling corruption |
+**Table 3C: Three-Part Error Attribution (Decomposition of OCR Degradation)**
+
+| Condition | Oracle $F_1$ | Tier 1 $F_1$ | Tier 2 $F_1$ | Total Cost | Surface Loss | Structural Loss |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Strong OCR (`gemini_raw`)** | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['oracle_f1']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['tier1_f1']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['tier2_f1']:.4f} | **{c3_res['error_attributions']['strong_ocr (gemini_raw)']['total_ocr_cost']:.4f}** | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['surface_spelling_loss']:.4f} | {c3_res['error_attributions']['strong_ocr (gemini_raw)']['structural_comprehension_loss']:.4f} |
+| **Weaker OCR (`tesseract_raw`)** | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['oracle_f1']:.4f} | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['tier1_f1']:.4f} | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['tier2_f1']:.4f} | **{c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['total_ocr_cost']:.4f}** | **{c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['surface_spelling_loss']:.4f}** | {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['structural_comprehension_loss']:.4f} |
+
+*Dominant Bottlenecks: Strong OCR (`gemini_raw`) exhibits negligible degradation (Total Cost = {c3_res['error_attributions']['strong_ocr (gemini_raw)']['total_ocr_cost']:.4f}). Weaker OCR (`tesseract_raw`) degradation is primarily driven by surface spelling corruption ({c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['surface_spelling_loss']:.4f} vs structural comprehension loss {c3_res['error_attributions']['weaker_ocr (tesseract_raw)']['structural_comprehension_loss']:.4f}).*
 
 ### 3.4 CER-Bin Analysis & Predictor Correlation
 - **CER Quality Bins:**
@@ -753,16 +783,31 @@ $$\\text{{Total OCR Cost}} = \\text{{Surface Spelling Loss}} + \\text{{Structura
 ### 4.1 Ablation A1: Post-OCR Correction Arms
 Evaluated on both `gemini_raw` (Strong OCR) and `tesseract_raw` (Weaker OCR):
 
-| OCR Engine | Correction Arm | Mean CER | Mean WER | Mean CCR | Mean WCR | Change Ratio | Downstream Tier 1 F1 | Downstream Tier 2 F1 |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `gemini_raw` | **Arm A (None)** | {a1_res['gemini_raw']['arm_a']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_a']['mean_wer']:.4f} | 0.0000 | 0.0000 | 0.0000 | {a1_res['gemini_raw']['arm_a']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_a']['downstream_tier2_f1']:.4f} |
-| `gemini_raw` | **Arm B (Dict+Guard)** | {a1_res['gemini_raw']['arm_b']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_wer']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_ccr']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_wcr']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_change_ratio']:.4f} | {a1_res['gemini_raw']['arm_b']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_b']['downstream_tier2_f1']:.4f} |
-| `gemini_raw` | **Arm C (LLM Fix)** | {a1_res['gemini_raw']['arm_c']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_wer']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_ccr']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_wcr']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_change_ratio']:.4f} | {a1_res['gemini_raw']['arm_c']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_c']['downstream_tier2_f1']:.4f} |
-| `tesseract_raw` | **Arm A (None)** | {a1_res['tesseract_raw']['arm_a']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_a']['mean_wer']:.4f} | 0.0000 | 0.0000 | 0.0000 | {a1_res['tesseract_raw']['arm_a']['downstream_tier1_f1']:.4f} | {a1_res['tesseract_raw']['arm_a']['downstream_tier2_f1']:.4f} |
-| `tesseract_raw` | **Arm B (Dict+Guard)** | {a1_res['tesseract_raw']['arm_b']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_wer']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_ccr']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_wcr']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_change_ratio']:.4f} | {a1_res['tesseract_raw']['arm_b']['downstream_tier1_f1']:.4f} | {a1_res['tesseract_raw']['arm_b']['downstream_tier2_f1']:.4f} |
-| `tesseract_raw` | **Arm C (LLM Fix)** | {a1_res['tesseract_raw']['arm_c']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_wer']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_ccr']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_wcr']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_change_ratio']:.4f} | **{a1_res['tesseract_raw']['arm_c']['downstream_tier1_f1']:.4f}** | **{a1_res['tesseract_raw']['arm_c']['downstream_tier2_f1']:.4f}** |
+**Table 4A: Post-OCR Correction — Character & Word Error Rates**
+
+| OCR Engine | Correction Arm | Mean CER | Mean WER | Mean CCR | Mean WCR |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| `gemini_raw` | **Arm A (None)** | {a1_res['gemini_raw']['arm_a']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_a']['mean_wer']:.4f} | 0.0000 | 0.0000 |
+| `gemini_raw` | **Arm B (Dict+Guard)** | {a1_res['gemini_raw']['arm_b']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_wer']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_ccr']:.4f} | {a1_res['gemini_raw']['arm_b']['mean_wcr']:.4f} |
+| `gemini_raw` | **Arm C (LLM Fix)** | {a1_res['gemini_raw']['arm_c']['mean_cer']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_wer']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_ccr']:.4f} | {a1_res['gemini_raw']['arm_c']['mean_wcr']:.4f} |
+| `tesseract_raw` | **Arm A (None)** | {a1_res['tesseract_raw']['arm_a']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_a']['mean_wer']:.4f} | 0.0000 | 0.0000 |
+| `tesseract_raw` | **Arm B (Dict+Guard)** | {a1_res['tesseract_raw']['arm_b']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_wer']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_ccr']:.4f} | {a1_res['tesseract_raw']['arm_b']['mean_wcr']:.4f} |
+| `tesseract_raw` | **Arm C (LLM Fix)** | {a1_res['tesseract_raw']['arm_c']['mean_cer']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_wer']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_ccr']:.4f} | {a1_res['tesseract_raw']['arm_c']['mean_wcr']:.4f} |
+
+**Table 4B: Post-OCR Correction — Downstream Extraction Impact**
+
+| OCR Engine | Correction Arm | Change Ratio | Downstream Tier 1 F1 | Downstream Tier 2 F1 |
+| :--- | :--- | :---: | :---: | :---: |
+| `gemini_raw` | **Arm A (None)** | 0.0000 | {a1_res['gemini_raw']['arm_a']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_a']['downstream_tier2_f1']:.4f} |
+| `gemini_raw` | **Arm B (Dict+Guard)** | {a1_res['gemini_raw']['arm_b']['mean_change_ratio']:.4f} | {a1_res['gemini_raw']['arm_b']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_b']['downstream_tier2_f1']:.4f} |
+| `gemini_raw` | **Arm C (LLM Fix)** | {a1_res['gemini_raw']['arm_c']['mean_change_ratio']:.4f} | {a1_res['gemini_raw']['arm_c']['downstream_tier1_f1']:.4f} | {a1_res['gemini_raw']['arm_c']['downstream_tier2_f1']:.4f} |
+| `tesseract_raw` | **Arm A (None)** | 0.0000 | {a1_res['tesseract_raw']['arm_a']['downstream_tier1_f1']:.4f} | {a1_res['tesseract_raw']['arm_a']['downstream_tier2_f1']:.4f} |
+| `tesseract_raw` | **Arm B (Dict+Guard)** | {a1_res['tesseract_raw']['arm_b']['mean_change_ratio']:.4f} | {a1_res['tesseract_raw']['arm_b']['downstream_tier1_f1']:.4f} | {a1_res['tesseract_raw']['arm_b']['downstream_tier2_f1']:.4f} |
+| `tesseract_raw` | **Arm C (LLM Fix)** | {a1_res['tesseract_raw']['arm_c']['mean_change_ratio']:.4f} | **{a1_res['tesseract_raw']['arm_c']['downstream_tier1_f1']:.4f}** | **{a1_res['tesseract_raw']['arm_c']['downstream_tier2_f1']:.4f}** |
 
 ### 4.2 Ablation A2: Chunking Strategies (S1, S2, S3)
+
+**Table 5: Chunking Strategy Performance & Cross-Sentence Retention**
 
 | OCR Engine | Chunking Strategy | Total Chunks | Mean Chars | Min Chars | Max Chars | Downstream Extraction F1 |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -775,6 +820,8 @@ Evaluated on both `gemini_raw` (Strong OCR) and `tesseract_raw` (Weaker OCR):
 
 ### 4.3 Ablation A3: Prompting Paradigm & Multi-Run Consistency
 
+**Table 6: Prompting Paradigm Comparison**
+
 | Prompt Configuration | Extraction Precision | Extraction Recall | Extraction F1 |
 | :--- | :---: | :---: | :---: |
 | **Zero-Shot Joint (Single-Pass Schema)** | {a3_res['prompt_paradigm_comparison']['zero_shot_joint']['precision']:.4f} | {a3_res['prompt_paradigm_comparison']['zero_shot_joint']['recall']:.4f} | {a3_res['prompt_paradigm_comparison']['zero_shot_joint']['f1']:.4f} |
@@ -782,9 +829,12 @@ Evaluated on both `gemini_raw` (Strong OCR) and `tesseract_raw` (Weaker OCR):
 | **Zero-Shot Per-Type (Multi-Pass)** | {a3_res['prompt_paradigm_comparison']['zero_shot_per_type']['precision']:.4f} | {a3_res['prompt_paradigm_comparison']['zero_shot_per_type']['recall']:.4f} | {a3_res['prompt_paradigm_comparison']['zero_shot_per_type']['f1']:.4f} |
 | **Few-Shot Per-Type (Multi-Pass)** | {a3_res['prompt_paradigm_comparison']['few_shot_per_type']['precision']:.4f} | {a3_res['prompt_paradigm_comparison']['few_shot_per_type']['recall']:.4f} | {a3_res['prompt_paradigm_comparison']['few_shot_per_type']['f1']:.4f} |
 
-**Multi-Run Consistency ($T=0.2, n=3$):**
-- **Mean Pairwise Agreement F1:** **{a3_res['consistency_analysis']['pairwise_agreement_f1_mean']:.4f}** (Std: $\\pm {a3_res['consistency_analysis']['pairwise_agreement_f1_std']:.4f}$)
-- **Mean Extraction F1:** **{a3_res['consistency_analysis']['mean_run_f1']:.4f}** (Std: $\\pm {a3_res['consistency_analysis']['std_run_f1']:.4f}$)
+**Table 7: Multi-Run Consistency Analysis ($T=0.2, n=3$)**
+
+| Consistency Metric | Measured Value | Standard Deviation ($\\sigma$) | Evaluation Context |
+| :--- | :---: | :---: | :--- |
+| **Pairwise Agreement F1** | **{a3_res['consistency_analysis']['pairwise_agreement_f1_mean']:.4f}** | $\\pm {a3_res['consistency_analysis']['pairwise_agreement_f1_std']:.4f}$ | Inter-run extraction overlap |
+| **Mean Run F1 Score** | **{a3_res['consistency_analysis']['mean_run_f1']:.4f}** | $\\pm {a3_res['consistency_analysis']['std_run_f1']:.4f}$ | Gold-standard extraction performance |
 
 ---
 

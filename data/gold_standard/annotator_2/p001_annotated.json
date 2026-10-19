@@ -3,208 +3,184 @@
   "entities": [
     {
       "entity_id": "p001_e01",
-      "name": "ভারতবর্ষ",
+      "name": "ভারতবর্ষে",
       "entity_type": "LOCATION",
-      "char_start": 91,
-      "char_end": 99,
-      "evidence_span": "ভারতবর্ষ"
+      "char_start": 103,
+      "char_end": 112,
+      "evidence_span": "ভারতবর্ষে"
     },
     {
       "entity_id": "p001_e02",
       "name": "ভারত",
       "entity_type": "LOCATION",
-      "char_start": 91,
-      "char_end": 95,
+      "char_start": 103,
+      "char_end": 107,
       "evidence_span": "ভারত"
     },
     {
       "entity_id": "p001_e03",
       "name": "পাকিস্তান",
       "entity_type": "LOCATION",
-      "char_start": 144,
-      "char_end": 153,
+      "char_start": 156,
+      "char_end": 165,
       "evidence_span": "পাকিস্তান"
     },
     {
       "entity_id": "p001_e04",
-      "name": "পূর্ববাংলা",
-      "entity_type": "LOCATION",
-      "char_start": 14,
-      "char_end": 24,
-      "evidence_span": "পূর্ববাংলা"
-    },
-    {
-      "entity_id": "p001_e05",
-      "name": "পূর্ব পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 351,
-      "char_end": 366,
-      "evidence_span": "পূর্ব পাকিস্তান"
-    },
-    {
-      "entity_id": "p001_e06",
-      "name": "পশ্চিম পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 378,
-      "char_end": 394,
-      "evidence_span": "পশ্চিম পাকিস্তান"
-    },
-    {
-      "entity_id": "p001_e07",
       "name": "১৯৪৭ সাল",
       "entity_type": "DATE/PERIOD",
-      "char_start": 81,
-      "char_end": 89,
+      "char_start": 93,
+      "char_end": 101,
       "evidence_span": "১৯৪৭ সাল"
     },
     {
-      "entity_id": "p001_e08",
-      "name": "১৯৪৭ সালের ১৪ই আগস্ট",
+      "entity_id": "p001_e05",
+      "name": "১৪ই আগস্ট",
       "entity_type": "DATE/PERIOD",
-      "char_start": 181,
-      "char_end": 201,
-      "evidence_span": "১৯৪৭ সালের ১৪ই আগস্ট"
+      "char_start": 204,
+      "char_end": 213,
+      "evidence_span": "১৪ই আগস্ট"
     },
     {
-      "entity_id": "p001_e09",
+      "entity_id": "p001_e06",
       "name": "১৫ই আগস্ট",
       "entity_type": "DATE/PERIOD",
-      "char_start": 216,
-      "char_end": 225,
+      "char_start": 228,
+      "char_end": 237,
       "evidence_span": "১৫ই আগস্ট"
     },
     {
-      "entity_id": "p001_e10",
+      "entity_id": "p001_e07",
+      "name": "পূর্ব পাকিস্তান",
+      "entity_type": "LOCATION",
+      "char_start": 363,
+      "char_end": 378,
+      "evidence_span": "পূর্ব পাকিস্তান"
+    },
+    {
+      "entity_id": "p001_e08",
+      "name": "পশ্চিম পাকিস্তান",
+      "entity_type": "LOCATION",
+      "char_start": 390,
+      "char_end": 406,
+      "evidence_span": "পশ্চিম পাকিস্তান"
+    },
+    {
+      "entity_id": "p001_e09",
       "name": "ভাষা আন্দোলন",
       "entity_type": "EVENT",
-      "char_start": 771,
-      "char_end": 783,
+      "char_start": 783,
+      "char_end": 795,
       "evidence_span": "ভাষা আন্দোলন"
+    },
+    {
+      "entity_id": "p001_e10",
+      "name": "১৯৫৪ সাল",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1002,
+      "char_end": 1010,
+      "evidence_span": "১৯৫৪ সাল"
     },
     {
       "entity_id": "p001_e11",
       "name": "যুক্তফ্রন্ট",
       "entity_type": "ORGANIZATION",
-      "char_start": 1000,
-      "char_end": 1011,
+      "char_start": 1012,
+      "char_end": 1023,
       "evidence_span": "যুক্তফ্রন্ট"
     },
     {
       "entity_id": "p001_e12",
-      "name": "১৯৫৪ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 990,
-      "char_end": 998,
-      "evidence_span": "১৯৫৪ সাল"
+      "name": "সাধারণ নির্বাচনে",
+      "entity_type": "EVENT",
+      "char_start": 1045,
+      "char_end": 1061,
+      "evidence_span": "সাধারণ নির্বাচনে"
     },
     {
       "entity_id": "p001_e13",
-      "name": "১৯৭০ সালের সাধারণ নির্বাচন",
-      "entity_type": "EVENT",
-      "char_start": 1022,
-      "char_end": 1048,
-      "evidence_span": "১৯৭০ সালের সাধারণ নির্বাচন"
+      "name": "আওয়ামী লীগকে",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1062,
+      "char_end": 1074,
+      "evidence_span": "আওয়ামী লীগকে"
     },
     {
       "entity_id": "p001_e14",
-      "name": "আওয়ামী লীগ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1050,
-      "char_end": 1060,
-      "evidence_span": "আওয়ামী লীগ"
-    },
-    {
-      "entity_id": "p001_e15",
       "name": "১৯৭১ সাল",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1247,
-      "char_end": 1255,
+      "char_start": 1259,
+      "char_end": 1267,
       "evidence_span": "১৯৭১ সাল"
     },
     {
+      "entity_id": "p001_e15",
+      "name": "স্বাধীন-সার্বভৌম বাংলাদেশ",
+      "entity_type": "LOCATION",
+      "char_start": 1301,
+      "char_end": 1326,
+      "evidence_span": "স্বাধীন-সার্বভৌম বাংলাদেশ"
+    },
+    {
       "entity_id": "p001_e16",
-      "name": "মুক্তিযুদ্ধ",
-      "entity_type": "EVENT",
-      "char_start": 1225,
-      "char_end": 1236,
-      "evidence_span": "মুক্তিযুদ্ধ"
+      "name": "১৯৩৭ সালে",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 2076,
+      "char_end": 2085,
+      "evidence_span": "১৯৩৭ সালে"
     },
     {
       "entity_id": "p001_e17",
-      "name": "বাংলাদেশ",
-      "entity_type": "LOCATION",
-      "char_start": 1306,
-      "char_end": 1314,
-      "evidence_span": "বাংলাদেশ"
-    },
-    {
-      "entity_id": "p001_e18",
       "name": "মোহাম্মদ আলী জিন্নাহ",
       "entity_type": "PERSON",
-      "char_start": 2077,
-      "char_end": 2097,
+      "char_start": 2086,
+      "char_end": 2106,
       "evidence_span": "মোহাম্মদ আলী জিন্নাহ"
     },
     {
-      "entity_id": "p001_e19",
+      "entity_id": "p001_e18",
       "name": "মুসলিম লীগ",
       "entity_type": "ORGANIZATION",
-      "char_start": 2098,
-      "char_end": 2108,
+      "char_start": 2107,
+      "char_end": 2117,
       "evidence_span": "মুসলিম লীগ"
     },
     {
-      "entity_id": "p001_e20",
+      "entity_id": "p001_e19",
       "name": "শেরে বাংলা এ. কে. ফজলুল হক",
       "entity_type": "PERSON",
-      "char_start": 2162,
-      "char_end": 2188,
+      "char_start": 2171,
+      "char_end": 2197,
       "evidence_span": "শেরে বাংলা এ. কে. ফজলুল হক"
-    },
-    {
-      "entity_id": "p001_e21",
-      "name": "১৯৩৭ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2067,
-      "char_end": 2075,
-      "evidence_span": "১৯৩৭ সাল"
-    },
-    {
-      "entity_id": "p001_e22",
-      "name": "১৯৪৭ সালের এপ্রিল মাস",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2207,
-      "char_end": 2228,
-      "evidence_span": "১৯৪৭ সালের এপ্রিল মাস"
     }
   ],
   "relations": [
     {
       "relation_id": "p001_r01",
-      "head_text": "যুক্তফ্রন্ট",
+      "head_text": "যুক্তফ্রন্টকে",
       "head_type": "ORGANIZATION",
       "relation_type": "occurred_on",
-      "tail_text": "১৯৫৪ সাল",
+      "tail_text": "১৯৫৪ সালে",
       "tail_type": "DATE/PERIOD",
-      "evidence_span": "প্রথম ১৯৫৪ সালে যুক্তফ্রন্টকে"
+      "evidence_span": "প্রথম ১৯৫৪ সালে যুক্তফ্রন্টকে এবং পরে ১৯৭০ সালের সাধারণ নির্বাচনে আওয়ামী লীগকে এদেশের মানুষ বিপুল ভোটে জয়যুক্ত করে।"
     },
     {
       "relation_id": "p001_r02",
-      "head_text": "আওয়ামী লীগ",
+      "head_text": "আওয়ামী লীগকে",
       "head_type": "ORGANIZATION",
       "relation_type": "participated_in",
-      "tail_text": "১৯৭০ সালের সাধারণ নির্বাচন",
+      "tail_text": "১৯৭০ সালের সাধারণ নির্বাচনে",
       "tail_type": "EVENT",
-      "evidence_span": "পরে ১৯৭০ সালের সাধারণ নির্বাচনে আওয়ামী লীগকে"
+      "evidence_span": "প্রথম ১৯৫৪ সালে যুক্তফ্রন্টকে এবং পরে ১৯৭০ সালের সাধারণ নির্বাচনে আওয়ামী লীগকে এদেশের মানুষ বিপুল ভোটে জয়যুক্ত করে।"
     },
     {
       "relation_id": "p001_r03",
       "head_text": "মোহাম্মদ আলী জিন্নাহ",
       "head_type": "PERSON",
       "relation_type": "member_of",
-      "tail_text": "মুসলিম লীগ",
+      "tail_text": "মুসলিম লীগের",
       "tail_type": "ORGANIZATION",
-      "evidence_span": "মোহাম্মদ আলী জিন্নাহ মুসলিম লীগের"
+      "evidence_span": "১৯৩৭ সালে মোহাম্মদ আলী জিন্নাহ মুসলিম লীগের দাপ্তরিক ভাষা উর্দু করার প্রস্তাব করলে বাঙালি নেতা শেরে বাংলা এ. কে. ফজলুল হক এর বিরোধিতা করেন।"
     }
   ],
   "events": [
@@ -217,47 +193,38 @@
       "participants": [
         {
           "name": "পাকিস্তান",
-          "entity_type": "ORGANIZATION",
-          "role": "State"
+          "role": "state"
         }
       ],
-      "causes": [],
-      "consequences": [],
+      "causes": [
+        "ব্রিটিশ শাসনের অবসান"
+      ],
+      "consequences": [
+        "ভারত এবং পাকিস্তান নামে দুটি স্বাধীন রাষ্ট্র জন্ম নেয়"
+      ],
       "evidence_span": "১৯৪৭ সালের ১৪ই আগস্ট পাকিস্তান এবং ১৫ই আগস্ট ভারত স্বাধীনতা লাভ করে।"
     },
     {
       "event_id": "p001_ev02",
       "trigger_name": "ভাষা আন্দোলন",
       "event_type": "POLITICAL MOVEMENT",
-      "date": "",
-      "location": "পূর্ববাংলা",
+      "date": "১৯৪৮-১৯৫২",
+      "location": "পূর্ব পাকিস্তান",
       "participants": [
         {
           "name": "পূর্ববাংলার জনগণ",
-          "entity_type": "ORGANIZATION",
-          "role": "Participant"
+          "role": "protester"
         }
       ],
       "causes": [
-        "বাংলা ভাষাকে পাকিস্তানের অন্যতম রাষ্ট্রভাষা করার দাবি"
+        "বাংলা ভাষাকে রাষ্ট্রভাষা করার দাবি",
+        "পশ্চিম পাকিস্তানি শাসকগোষ্ঠীর রাজনৈতিক নিপীড়ন"
       ],
       "consequences": [
-        "পূর্ববাংলার জনগোষ্ঠী ঐক্যবদ্ধ হয়"
+        "বাঙালির জাতীয়তাবাদী স্বাধিকার আন্দোলন বেগবান হওয়া",
+        "একুশে ফেব্রুয়ারি শহীদ দিবস"
       ],
-      "evidence_span": "বাংলা ভাষাকে পাকিস্তানের অন্যতম রাষ্ট্রভাষা করার দাবিতে ভাষা আন্দোলন শুরু হয়। এর মাধ্যমে পূর্ববাংলার জনগোষ্ঠী ঐক্যবদ্ধ হয়।"
-    },
-    {
-      "event_id": "p001_ev03",
-      "trigger_name": "মুক্তিযুদ্ধ",
-      "event_type": "WAR",
-      "date": "১৯৭১ সাল",
-      "location": "বাংলাদেশ",
-      "participants": [],
-      "causes": [],
-      "consequences": [
-        "স্বাধীন-সার্বভৌম বাংলাদেশ প্রতিষ্ঠিত হয়"
-      ],
-      "evidence_span": "নয় মাস রক্তক্ষয়ী সশস্ত্র মুক্তিযুদ্ধের মাধ্যমে ১৯৭১ সালে প্রতিষ্ঠিত হয় আমাদের প্রাণপ্রিয় স্বাধীন-সার্বভৌম বাংলাদেশ।"
+      "evidence_span": "বাংলা ভাষাকে পাকিস্তানের অন্যতম রাষ্ট্রভাষা করার দাবিতে ভাষা আন্দোলন শুরু হয়।"
     }
   ]
 }

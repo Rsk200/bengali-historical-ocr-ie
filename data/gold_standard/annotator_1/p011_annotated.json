@@ -3,123 +3,99 @@
   "entities": [
     {
       "entity_id": "p011_e01",
-      "name": "জেনারেল ইয়াহিয়া খান",
-      "entity_type": "PERSON",
-      "char_start": 131,
-      "char_end": 150,
-      "evidence_span": "জেনারেল ইয়াহিয়া খান"
+      "name": "১৯৬৯ সালের ২৫শে মার্চ",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 99,
+      "char_end": 120,
+      "evidence_span": "১৯৬৯ সালের ২৫শে মার্চ"
     },
     {
       "entity_id": "p011_e02",
-      "name": "১৯৭০ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 541,
-      "char_end": 549,
-      "evidence_span": "১৯৭০ সাল"
-    },
-    {
-      "entity_id": "p011_e03",
-      "name": "১৯৭১ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2146,
-      "char_end": 2154,
-      "evidence_span": "১৯৭১ সাল"
-    },
-    {
-      "entity_id": "p011_e04",
-      "name": "১৯৬৯ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 576,
-      "char_end": 584,
-      "evidence_span": "১৯৬৯ সাল"
-    },
-    {
-      "entity_id": "p011_e05",
       "name": "আইয়ুব খান",
       "entity_type": "PERSON",
-      "char_start": 598,
-      "char_end": 607,
+      "char_start": 121,
+      "char_end": 130,
       "evidence_span": "আইয়ুব খান"
     },
     {
+      "entity_id": "p011_e03",
+      "name": "জেনারেল ইয়াহিয়া খান",
+      "entity_type": "PERSON",
+      "char_start": 159,
+      "char_end": 178,
+      "evidence_span": "জেনারেল ইয়াহিয়া খান"
+    },
+    {
+      "entity_id": "p011_e04",
+      "name": "১৯৭০ সালে",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 26,
+      "char_end": 35,
+      "evidence_span": "১৯৭০ সালে"
+    },
+    {
+      "entity_id": "p011_e05",
+      "name": "সাধারণ নির্বাচনের",
+      "entity_type": "EVENT",
+      "char_start": 271,
+      "char_end": 288,
+      "evidence_span": "সাধারণ নির্বাচনের"
+    },
+    {
       "entity_id": "p011_e06",
-      "name": "আওয়ামী লীগ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1009,
-      "char_end": 1019,
-      "evidence_span": "আওয়ামী লীগ"
+      "name": "৭ই ডিসেম্বর",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 311,
+      "char_end": 322,
+      "evidence_span": "৭ই ডিসেম্বর"
     },
     {
       "entity_id": "p011_e07",
-      "name": "ন্যাপ (ওয়ালী)",
+      "name": "জাতীয় পরিষদ",
       "entity_type": "ORGANIZATION",
-      "char_start": 1021,
-      "char_end": 1034,
-      "evidence_span": "ন্যাপ (ওয়ালী)"
+      "char_start": 335,
+      "char_end": 346,
+      "evidence_span": "জাতীয় পরিষদ"
     },
     {
       "entity_id": "p011_e08",
-      "name": "মুসলিম লীগ (কাইয়ুম)",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1036,
-      "char_end": 1055,
-      "evidence_span": "মুসলিম লীগ (কাইয়ুম)"
+      "name": "১৭ই ডিসেম্বর",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 351,
+      "char_end": 363,
+      "evidence_span": "১৭ই ডিসেম্বর"
     },
     {
       "entity_id": "p011_e09",
-      "name": "মুসলিম লীগ (কনভেনশন)",
+      "name": "প্রাদেশিক পরিষদ",
       "entity_type": "ORGANIZATION",
-      "char_start": 1057,
-      "char_end": 1077,
-      "evidence_span": "মুসলিম লীগ (কনভেনশন)"
+      "char_start": 364,
+      "char_end": 379,
+      "evidence_span": "প্রাদেশিক পরিষদ"
     },
     {
       "entity_id": "p011_e10",
-      "name": "ডেমোক্রেটিক পার্টি",
+      "name": "আওয়ামী লীগ",
       "entity_type": "ORGANIZATION",
-      "char_start": 1104,
-      "char_end": 1122,
-      "evidence_span": "ডেমোক্রেটিক পার্টি"
+      "char_start": 403,
+      "char_end": 413,
+      "evidence_span": "আওয়ামী লীগ"
     },
     {
       "entity_id": "p011_e11",
-      "name": "জামায়াতে ইসলামী",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1124,
-      "char_end": 1139,
-      "evidence_span": "জামায়াতে ইসলামী"
+      "name": "জুলফিকার আলী ভুট্টো",
+      "entity_type": "PERSON",
+      "char_start": 753,
+      "char_end": 772,
+      "evidence_span": "জুলফিকার আলী ভুট্টো"
     },
     {
       "entity_id": "p011_e12",
-      "name": "পূর্ব পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 1263,
-      "char_end": 1278,
-      "evidence_span": "পূর্ব পাকিস্তান"
-    },
-    {
-      "entity_id": "p011_e13",
-      "name": "পশ্চিম পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 2080,
-      "char_end": 2096,
-      "evidence_span": "পশ্চিম পাকিস্তান"
-    },
-    {
-      "entity_id": "p011_e14",
-      "name": "স্বাধীন বাংলাদেশ",
-      "entity_type": "LOCATION",
-      "char_start": 2156,
-      "char_end": 2172,
-      "evidence_span": "স্বাধীন বাংলাদেশ"
-    },
-    {
-      "entity_id": "p011_e15",
-      "name": "১৯৭০ সালের ৭ই ডিসেম্বর",
+      "name": "১৯৭১ সালের ১লা মার্চ",
       "entity_type": "DATE/PERIOD",
-      "char_start": 905,
-      "char_end": 927,
-      "evidence_span": "১৯৭০ সালের ৭ই ডিসেম্বর"
+      "char_start": 859,
+      "char_end": 879,
+      "evidence_span": "১৯৭১ সালের ১লা মার্চ"
     }
   ],
   "relations": [
@@ -127,57 +103,46 @@
       "relation_id": "p011_r01",
       "head_text": "আওয়ামী লীগ",
       "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৭০ সালের ৭ই ডিসেম্বর",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "নির্বাচনে আওয়ামী লীগ, ন্যাপ (ওয়ালী), মুসলিম লীগ (কাইয়ুম), মুসলিম লীগ (কনভেনশন), পাকিস্তান পিপলস্ পার্টি, ডেমোক্রেটিক পার্টি, জামায়াতে ইসলামী প্রভৃতি দল অংশগ্রহণ করে।"
+      "relation_type": "participated_in",
+      "tail_text": "জাতীয় পরিষদ",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "আওয়ামী লীগ ৬ দফাকে ভিত্তি করে নির্বাচনে অংশগ্রহণ করে।"
     },
     {
       "relation_id": "p011_r02",
-      "head_text": "ন্যাপ (ওয়ালী)",
-      "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৭০ সালের ৭ই ডিসেম্বর",
+      "head_text": "জেনারেল ইয়াহিয়া খান",
+      "head_type": "PERSON",
+      "relation_type": "signed_issued",
+      "tail_text": "১৯৭১ সালের ১লা মার্চ",
       "tail_type": "DATE/PERIOD",
-      "evidence_span": "নির্বাচনে আওয়ামী লীগ, ন্যাপ (ওয়ালী), মুসলিম লীগ (কাইয়ুম), মুসলিম লীগ (কনভেনশন), পাকিস্তান পিপলস্ পার্টি, ডেমোক্রেটিক পার্টি, জামায়াতে ইসলামী প্রভৃতি দল অংশগ্রহণ করে।"
-    },
-    {
-      "relation_id": "p011_r03",
-      "head_text": "জামায়াতে ইসলামী",
-      "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৭০ সালের ৭ই ডিসেম্বর",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "নির্বাচনে আওয়ামী লীগ, ন্যাপ (ওয়ালী), মুসলিম লীগ (কাইয়ুম), মুসলিম লীগ (কনভেনশন), পাকিস্তান পিপলস্ পার্টি, ডেমোক্রেটিক পার্টি, জামায়াতে ইসলামী প্রভৃতি দল অংশগ্রহণ করে।"
+      "evidence_span": "১১ বাংলাদেশ ও বিশ্বপরিচয়  ১৯৭০ সালের সাধারণ নির্বাচন ও মুক্তিযুদ্ধের প্রস্তুতি গণঅভ্যুত্থানের চাপে ১৯৬৯ সালের ২৫শে মার্চ আইয়ুব খান পদত্যাগ করেন এবং সেনাপ্রধান জেনারেল ইয়াহিয়া খান ক্ষমতা গ্রহণ করে সামরিক শাসন জারি করেন।"
     }
   ],
   "events": [
     {
       "event_id": "p011_ev01",
-      "trigger_name": "সাধারণ নির্বাচন",
-      "event_type": "GENERAL_ELECTION",
-      "date": "১৯৭০ সালের ৭ই ডিসেম্বর",
+      "trigger_name": "১৯৭০ সালের সাধারণ নির্বাচনে নিরঙ্কুশ বিজয়",
+      "event_type": "ELECTION VICTORY",
+      "date": "১৯৭০ সালের ৭ই ও ১৭ই ডিসেম্বর",
       "location": "পাকিস্তান",
       "participants": [
         {
           "name": "আওয়ামী লীগ",
-          "entity_type": "ORGANIZATION",
-          "role": "participant"
+          "role": "victor"
         },
         {
-          "name": "ন্যাপ (ওয়ালী)",
-          "entity_type": "ORGANIZATION",
-          "role": "participant"
-        },
-        {
-          "name": "জামায়াতে ইসলামী",
-          "entity_type": "ORGANIZATION",
-          "role": "participant"
+          "name": "জুলফিকার আলী ভুট্টো",
+          "role": "rival"
         }
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "জেনারেল ইয়াহিয়া খানের নতুন সামরিক সরকার বাধ্য হয় ১৯৭০ সালে পাকিস্তানে সাধারণ নির্বাচন দিতে।"
+      "causes": [
+        "৬ দফার ভিত্তিতে বাঙালি জাতীয়তাবাদী ঐক্য"
+      ],
+      "consequences": [
+        "বাঙালির স্বাধিকারের চূড়ান্ত সাংবিধানিক বৈধতা",
+        "অসহযোগ আন্দোলন ও মুক্তিযুদ্ধ"
+      ],
+      "evidence_span": "নির্বাচনে পূর্ব পাকিস্তানের ১৬৯টি জাতীয় পরিষদ আসনের মধ্যে আওয়ামী লীগ ১৬৭টি আসনে নিরঙ্কুশ বিজয় অর্জন করে।"
     }
   ]
 }

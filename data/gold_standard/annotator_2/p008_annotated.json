@@ -3,178 +3,121 @@
   "entities": [
     {
       "entity_id": "p008_e01",
-      "name": "১৯৪৭",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 62,
-      "char_end": 66,
-      "evidence_span": "১৯৪৭"
+      "name": "পূর্ব পাকিস্তান",
+      "entity_type": "LOCATION",
+      "char_start": 29,
+      "char_end": 44,
+      "evidence_span": "পূর্ব পাকিস্তান"
     },
     {
       "entity_id": "p008_e02",
       "name": "পশ্চিম পাকিস্তান",
       "entity_type": "LOCATION",
-      "char_start": 72,
-      "char_end": 88,
+      "char_start": 71,
+      "char_end": 87,
       "evidence_span": "পশ্চিম পাকিস্তান"
     },
     {
       "entity_id": "p008_e03",
-      "name": "পূর্ব পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 30,
-      "char_end": 45,
-      "evidence_span": "পূর্ব পাকিস্তান"
+      "name": "অর্থনৈতিক বৈষম্য",
+      "entity_type": "EVENT",
+      "char_start": 298,
+      "char_end": 314,
+      "evidence_span": "অর্থনৈতিক বৈষম্য"
     },
     {
       "entity_id": "p008_e04",
-      "name": "১৯৫৫-১৯৫৬ থেকে ১৯৫৯-১৯৬০ অর্থবছর",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 429,
-      "char_end": 461,
-      "evidence_span": "১৯৫৫-১৯৫৬ থেকে ১৯৫৯-১৯৬০ অর্থবছর"
+      "name": "প্রশাসনিক বৈষম্য",
+      "entity_type": "EVENT",
+      "char_start": 1012,
+      "char_end": 1028,
+      "evidence_span": "প্রশাসনিক বৈষম্য"
     },
     {
       "entity_id": "p008_e05",
-      "name": "১৯৬০-৬১ থেকে ১৯৬৪-১৯৬৫ সাল",
+      "name": "১৯৫৬ সাল",
       "entity_type": "DATE/PERIOD",
-      "char_start": 608,
-      "char_end": 634,
-      "evidence_span": "১৯৬০-৬১ থেকে ১৯৬৪-১৯৬৫ সাল"
+      "char_start": 1674,
+      "char_end": 1682,
+      "evidence_span": "১৯৫৬ সাল"
     },
     {
       "entity_id": "p008_e06",
-      "name": "১৯৬৬",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1139,
-      "char_end": 1143,
-      "evidence_span": "১৯৬৬"
+      "name": "দৈনিক ডন",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1684,
+      "char_end": 1692,
+      "evidence_span": "দৈনিক ডন"
     },
     {
       "entity_id": "p008_e07",
-      "name": "পাকিস্তান",
-      "entity_type": "ORGANIZATION",
-      "char_start": 36,
-      "char_end": 45,
-      "evidence_span": "পাকিস্তান"
+      "name": "আইয়ুব খানের",
+      "entity_type": "PERSON",
+      "char_start": 2706,
+      "char_end": 2717,
+      "evidence_span": "আইয়ুব খানের"
     },
     {
       "entity_id": "p008_e08",
-      "name": "দৈনিক ডন পত্রিকা",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1648,
-      "char_end": 1664,
-      "evidence_span": "দৈনিক ডন পত্রিকা"
+      "name": "হোসেন শহীদ সোহরাওয়ার্দীকে",
+      "entity_type": "PERSON",
+      "char_start": 2870,
+      "char_end": 2895,
+      "evidence_span": "হোসেন শহীদ সোহরাওয়ার্দীকে"
     },
     {
       "entity_id": "p008_e09",
-      "name": "১৯৫৬",
+      "name": "১৯৬২ সালে",
       "entity_type": "DATE/PERIOD",
-      "char_start": 434,
-      "char_end": 438,
-      "evidence_span": "১৯৫৬"
-    },
-    {
-      "entity_id": "p008_e10",
-      "name": "আইয়ুব খান",
-      "entity_type": "PERSON",
-      "char_start": 2638,
-      "char_end": 2647,
-      "evidence_span": "আইয়ুব খান"
-    },
-    {
-      "entity_id": "p008_e11",
-      "name": "১৯৬১ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2673,
-      "char_end": 2681,
-      "evidence_span": "১৯৬১ সাল"
-    },
-    {
-      "entity_id": "p008_e12",
-      "name": "১৯৬২ সালের জানুয়ারি মাস",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2722,
-      "char_end": 2745,
-      "evidence_span": "১৯৬২ সালের জানুয়ারি মাস"
-    },
-    {
-      "entity_id": "p008_e13",
-      "name": "হোসেন শহীদ সোহ্রাওয়ার্দ্দী",
-      "entity_type": "PERSON",
-      "char_start": 2802,
-      "char_end": 2828,
-      "evidence_span": "হোসেন শহীদ সোহ্রাওয়ার্দ্দী"
-    },
-    {
-      "entity_id": "p008_e14",
-      "name": "১৯৬২ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2722,
-      "char_end": 2730,
-      "evidence_span": "১৯৬২ সাল"
-    },
-    {
-      "entity_id": "p008_e15",
-      "name": "জাতীয় গণতান্ত্রিক ফ্রন্ট (এনডিএফ)",
-      "entity_type": "ORGANIZATION",
-      "char_start": 3112,
-      "char_end": 3145,
-      "evidence_span": "জাতীয় গণতান্ত্রিক ফ্রন্ট (এনডিএফ)"
-    },
-    {
-      "entity_id": "p008_e16",
-      "name": "১৯৬৫ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 626,
-      "char_end": 634,
-      "evidence_span": "১৯৬৫ সাল"
+      "char_start": 2790,
+      "char_end": 2799,
+      "evidence_span": "১৯৬২ সালে"
     }
   ],
   "relations": [
     {
       "relation_id": "p008_r01",
-      "head_text": "১৯৬৬",
-      "head_type": "DATE/PERIOD",
-      "relation_type": "occurred_on",
-      "tail_text": "পাকিস্তান",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "১৯৬৬ সালে পাকিস্তান প্রশাসনের চিত্র ছিল নিম্নরূপ"
+      "head_text": "আইয়ুব খানের",
+      "head_type": "PERSON",
+      "relation_type": "caused",
+      "tail_text": "অর্থনৈতিক বৈষম্য",
+      "tail_type": "EVENT",
+      "evidence_span": "**অর্থনৈতিক বৈষম্য :** পাকিস্তান সরকারের বৈষম্যমূলক নীতির কারণে পূর্ববাংলার চেয়ে পশ্চিম পাকিস্তান অনেক বেশি অর্থনৈতিক সুবিধা লাভ করেছিল।"
+    },
+    {
+      "relation_id": "p008_r02",
+      "head_text": "হোসেন শহীদ সোহরাওয়ার্দীকে",
+      "head_type": "PERSON",
+      "relation_type": "participated_in",
+      "tail_text": "১৯৬২ সালে",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "১৯৬২ সালের জানুয়ারি মাসে বাঙালিদের প্রিয় নেতা ও পাকিস্তানের সাবেক প্রধানমন্ত্রী হোসেন শহীদ সোহরাওয়ার্দীকে গ্রেফতার করা হলে আন্দোলন তীব্র হয়ে ওঠে।"
     }
   ],
   "events": [
     {
       "event_id": "p008_ev01",
-      "trigger_name": "আন্দোলন",
-      "event_type": "POLITICAL MOVEMENT",
-      "date": "১৯৬১ সাল",
+      "trigger_name": "অর্থনৈতিক বৈষম্য নীতি",
+      "event_type": "ECONOMIC EXPLOITATION",
+      "date": "১৯৪৭-১৯৬৯",
       "location": "পূর্ব পাকিস্তান",
       "participants": [
         {
-          "name": "আইয়ুব খান",
-          "entity_type": "PERSON",
-          "role": "Opponent"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "আইয়ুব খানের সামরিক শাসনের বিরুদ্ধে ১৯৬১ সাল থেকেই পূর্ব পাকিস্তানে আন্দোলন শুরু হয়।"
-    },
-    {
-      "event_id": "p008_ev02",
-      "trigger_name": "গ্রেফতার",
-      "event_type": "ARREST",
-      "date": "১৯৬২ সালের জানুয়ারি মাস",
-      "location": "",
-      "participants": [
+          "name": "পাকিস্তান সরকার",
+          "role": "exploiter"
+        },
         {
-          "name": "হোসেন শহীদ সোহ্রাওয়ার্দ্দী",
-          "entity_type": "PERSON",
-          "role": "Arrestee"
+          "name": "পূর্ব পাকিস্তান",
+          "role": "victim"
         }
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "১৯৬২ সালের জানুয়ারি মাসে বাঙালিদের প্রিয় নেতা ও পাকিস্তানের সাবেক প্রধানমন্ত্রী হোসেন শহীদ সোহ্রাওয়ার্দ্দীকে গ্রেফতার করা হলে আন্দোলন তীব্র হয়ে ওঠে।"
+      "causes": [
+        "উন্নয়ন ও রাজস্ব ব্যয়ের সিংহভাগ পশ্চিম পাকিস্তানে ব্যয় করা"
+      ],
+      "consequences": [
+        "পূর্ব বাংলায় তীব্র ক্ষোভ ও স্বাধিকার আন্দোলনের সূচনা"
+      ],
+      "evidence_span": "ফলে ব্যবসা-বাণিজ্য, শিল্প উৎপাদন, কৃষিসহ অর্থনীতির সকল ক্ষেত্রে পূর্ব পাকিস্তান পশ্চিম পাকিস্তানের চাইতে কয়েকগুণ পিছিয়ে পড়ে।"
     }
   ]
 }

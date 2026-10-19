@@ -5,252 +5,194 @@
       "entity_id": "p010_e01",
       "name": "পাকিস্তান সরকার",
       "entity_type": "ORGANIZATION",
-      "char_start": 49,
-      "char_end": 64,
+      "char_start": 118,
+      "char_end": 133,
       "evidence_span": "পাকিস্তান সরকার"
     },
     {
       "entity_id": "p010_e02",
-      "name": "আগরতলা ষড়যন্ত্র মামলা",
-      "entity_type": "EVENT",
-      "char_start": 26,
-      "char_end": 47,
-      "evidence_span": "আগরতলা ষড়যন্ত্র মামলা"
+      "name": "১৯৬৮ সালের",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 134,
+      "char_end": 144,
+      "evidence_span": "১৯৬৮ সালের"
     },
     {
       "entity_id": "p010_e03",
-      "name": "রাষ্ট্র বনাম শেখ মুজিবুর রহমান এবং অন্যান্য",
-      "entity_type": "EVENT",
-      "char_start": 99,
-      "char_end": 142,
-      "evidence_span": "রাষ্ট্র বনাম শেখ মুজিবুর রহমান এবং অন্যান্য"
-    },
-    {
-      "entity_id": "p010_e04",
-      "name": "১৯৬৮ সাল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 65,
-      "char_end": 73,
-      "evidence_span": "১৯৬৮ সাল"
-    },
-    {
-      "entity_id": "p010_e05",
       "name": "শেখ মুজিবুর রহমান",
       "entity_type": "PERSON",
-      "char_start": 112,
-      "char_end": 129,
+      "char_start": 159,
+      "char_end": 176,
       "evidence_span": "শেখ মুজিবুর রহমান"
     },
     {
-      "entity_id": "p010_e06",
-      "name": "পাকিস্তান দণ্ডবিধির ১২১ (ক) ও ১৩১ ধারা",
-      "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 412,
-      "char_end": 450,
-      "evidence_span": "পাকিস্তান দণ্ডবিধির ১২১ (ক) ও ১৩১ ধারা"
+      "entity_id": "p010_e04",
+      "name": "আগরতলা ষড়যন্ত্র মামলা",
+      "entity_type": "EVENT",
+      "char_start": 318,
+      "char_end": 339,
+      "evidence_span": "আগরতলা ষড়যন্ত্র মামলা"
     },
     {
-      "entity_id": "p010_e07",
+      "entity_id": "p010_e05",
       "name": "ঢাকা ক্যান্টনমেন্ট",
       "entity_type": "LOCATION",
-      "char_start": 588,
-      "char_end": 606,
+      "char_start": 354,
+      "char_end": 372,
       "evidence_span": "ঢাকা ক্যান্টনমেন্ট"
     },
     {
+      "entity_id": "p010_e06",
+      "name": "সর্বদলীয় ছাত্র সংগ্রাম পরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 454,
+      "char_end": 482,
+      "evidence_span": "সর্বদলীয় ছাত্র সংগ্রাম পরিষদ"
+    },
+    {
+      "entity_id": "p010_e07",
+      "name": "১১ দফা কর্মসূচি",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 504,
+      "char_end": 519,
+      "evidence_span": "১১ দফা কর্মসূচি"
+    },
+    {
       "entity_id": "p010_e08",
-      "name": "১৯৬৮ সালের ১৯শে জুন",
+      "name": "১৫ই ফেব্রুয়ারি",
       "entity_type": "DATE/PERIOD",
-      "char_start": 639,
-      "char_end": 658,
-      "evidence_span": "১৯৬৮ সালের ১৯শে জুন"
+      "char_start": 591,
+      "char_end": 605,
+      "evidence_span": "১৫ই ফেব্রুয়ারি"
     },
     {
       "entity_id": "p010_e09",
-      "name": "ঊনসত্তরের গণঅভ্যুত্থান",
-      "entity_type": "EVENT",
-      "char_start": 1149,
-      "char_end": 1171,
-      "evidence_span": "ঊনসত্তরের গণঅভ্যুত্থান"
+      "name": "সার্জেন্ট জহুরুল হককে",
+      "entity_type": "PERSON",
+      "char_start": 649,
+      "char_end": 670,
+      "evidence_span": "সার্জেন্ট জহুরুল হককে"
     },
     {
       "entity_id": "p010_e10",
-      "name": "১৯৬৯ সাল",
+      "name": "১৮ই ফেব্রুয়ারি",
       "entity_type": "DATE/PERIOD",
-      "char_start": 986,
-      "char_end": 994,
-      "evidence_span": "১৯৬৯ সাল"
+      "char_start": 694,
+      "char_end": 708,
+      "evidence_span": "১৮ই ফেব্রুয়ারি"
     },
     {
       "entity_id": "p010_e11",
-      "name": "আসাদুজ্জামান আসাদ",
-      "entity_type": "PERSON",
-      "char_start": 1352,
-      "char_end": 1369,
-      "evidence_span": "আসাদুজ্জামান আসাদ"
-    },
-    {
-      "entity_id": "p010_e12",
-      "name": "ড. শামসুজ্জোহা",
-      "entity_type": "PERSON",
-      "char_start": 1403,
-      "char_end": 1417,
-      "evidence_span": "ড. শামসুজ্জোহা"
-    },
-    {
-      "entity_id": "p010_e13",
-      "name": "ঢাকা বিশ্ববিদ্যালয়",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1325,
-      "char_end": 1343,
-      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়"
-    },
-    {
-      "entity_id": "p010_e14",
       "name": "রাজশাহী বিশ্ববিদ্যালয়",
       "entity_type": "ORGANIZATION",
-      "char_start": 1372,
-      "char_end": 1393,
+      "char_start": 709,
+      "char_end": 730,
       "evidence_span": "রাজশাহী বিশ্ববিদ্যালয়"
     },
     {
-      "entity_id": "p010_e15",
-      "name": "মওলানা ভাসানী",
+      "entity_id": "p010_e12",
+      "name": "ড. শামসুজ্জোহাকে",
       "entity_type": "PERSON",
-      "char_start": 1515,
-      "char_end": 1528,
-      "evidence_span": "মওলানা ভাসানী"
+      "char_start": 741,
+      "char_end": 757,
+      "evidence_span": "ড. শামসুজ্জোহাকে"
     },
     {
-      "entity_id": "p010_e16",
-      "name": "১৯৬৯ সালের ২২শে ফেব্রুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1563,
-      "char_end": 1589,
-      "evidence_span": "১৯৬৯ সালের ২২শে ফেব্রুয়ারি"
-    },
-    {
-      "entity_id": "p010_e17",
+      "entity_id": "p010_e13",
       "name": "আইয়ুব খান",
       "entity_type": "PERSON",
-      "char_start": 1590,
-      "char_end": 1599,
+      "char_start": 896,
+      "char_end": 905,
       "evidence_span": "আইয়ুব খান"
     },
     {
-      "entity_id": "p010_e18",
+      "entity_id": "p010_e14",
+      "name": "২২শে ফেব্রুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 906,
+      "char_end": 921,
+      "evidence_span": "২২শে ফেব্রুয়ারি"
+    },
+    {
+      "entity_id": "p010_e15",
       "name": "২৩শে ফেব্রুয়ারি",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1723,
-      "char_end": 1738,
+      "char_start": 1014,
+      "char_end": 1029,
       "evidence_span": "২৩শে ফেব্রুয়ারি"
     },
     {
-      "entity_id": "p010_e19",
-      "name": "রেসকোর্স ময়দানে (বর্তমান সোহরাওয়ার্দী উদ্যান)",
+      "entity_id": "p010_e16",
+      "name": "রেসকোর্স ময়দান",
       "entity_type": "LOCATION",
-      "char_start": 1739,
-      "char_end": 1784,
-      "evidence_span": "রেসকোর্স ময়দানে (বর্তমান সোহরাওয়ার্দী উদ্যান)"
+      "char_start": 1030,
+      "char_end": 1044,
+      "evidence_span": "রেসকোর্স ময়দান"
     },
     {
-      "entity_id": "p010_e20",
-      "name": "ছাত্র সংগ্রাম পরিষদ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1785,
-      "char_end": 1804,
-      "evidence_span": "ছাত্র সংগ্রাম পরিষদ"
+      "entity_id": "p010_e17",
+      "name": "তোফায়েল আহমেদ",
+      "entity_type": "PERSON",
+      "char_start": 1099,
+      "char_end": 1112,
+      "evidence_span": "তোফায়েল আহমেদ"
+    },
+    {
+      "entity_id": "p010_e18",
+      "name": "বঙ্গবন্ধু",
+      "entity_type": "PERSON",
+      "char_start": 1134,
+      "char_end": 1143,
+      "evidence_span": "বঙ্গবন্ধু"
     }
   ],
   "relations": [
     {
       "relation_id": "p010_r01",
-      "head_text": "আগরতলা ষড়যন্ত্র মামলা",
-      "head_type": "EVENT",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৬৮ সালের ১৯শে জুন",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "পাকিস্তান সরকার ১৯৬৮ সালে আগরতলা ষড়যন্ত্র মামলা"
+      "head_text": "তোফায়েল আহমেদ",
+      "head_type": "PERSON",
+      "relation_type": "signed_issued",
+      "tail_text": "বঙ্গবন্ধু",
+      "tail_type": "PERSON",
+      "evidence_span": "২৩শে ফেব্রুয়ারি রেসকোর্স ময়দানে কেন্দ্রীয় ছাত্র সংগ্রাম পরিষদের পক্ষ থেকে ডাকসু ভিপি তোফায়েল আহমেদ শেখ মুজিবুর রহমানকে ‘বঙ্গবন্ধু’ উপাধিতে ভূষিত করেন।"
     },
     {
       "relation_id": "p010_r02",
-      "head_text": "ঊনসত্তরের গণঅভ্যুত্থান",
-      "head_type": "EVENT",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৬৯ সালের ২২শে ফেব্রুয়ারি",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৬৯ সালে সবচেয়ে গুরুত্বপূর্ণ আন্দোলন সংঘটিত হয়। ইতিহাসে এটি ঊনসত্তরের গণঅভ্যুত্থান নামে পরিচিত।"
-    },
-    {
-      "relation_id": "p010_r03",
-      "head_text": "আসাদুজ্জামান আসাদ",
+      "head_text": "ড. শামসুজ্জোহাকে",
       "head_type": "PERSON",
       "relation_type": "member_of",
-      "tail_text": "ঢাকা বিশ্ববিদ্যালয়",
+      "tail_text": "রাজশাহী বিশ্ববিদ্যালয়ের",
       "tail_type": "ORGANIZATION",
-      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের ছাত্র আসাদুজ্জামান আসাদ"
-    },
-    {
-      "relation_id": "p010_r04",
-      "head_text": "ড. শামসুজ্জোহা",
-      "head_type": "PERSON",
-      "relation_type": "member_of",
-      "tail_text": "রাজশাহী বিশ্ববিদ্যালয়",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "রাজশাহী বিশ্ববিদ্যালয়ের শিক্ষক ড. শামসুজ্জোহা"
+      "evidence_span": "১৮ই ফেব্রুয়ারি রাজশাহী বিশ্ববিদ্যালয়ের প্রক্টর ড. শামসুজ্জোহাকে পাকিস্তানি সেনারা বেয়নেট দিয়ে খুঁচিয়ে নির্মমভাবে হত্যা করে।"
     }
   ],
   "events": [
     {
       "event_id": "p010_ev01",
-      "trigger_name": "মামলা",
-      "event_type": "LEGAL CASE / CONSPIRACY TRIAL",
-      "date": "১৯৬৮ সালের ১৯শে জুন",
-      "location": "ঢাকা ক্যান্টনমেন্ট",
-      "participants": [
-        {
-          "name": "পাকিস্তান সরকার",
-          "entity_type": "ORGANIZATION",
-          "role": "Prosecutor"
-        },
-        {
-          "name": "শেখ মুজিবুর রহমান",
-          "entity_type": "PERSON",
-          "role": "Accused"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "পাকিস্তান সরকার ১৯৬৮ সালে আগরতলা ষড়যন্ত্র মামলা (‘রাষ্ট্র বনাম শেখ মুজিবুর রহমান এবং অন্যান্য’) দায়ের করে।"
-    },
-    {
-      "event_id": "p010_ev02",
-      "trigger_name": "গণঅভ্যুত্থান",
-      "event_type": "MASS UPRISING",
-      "date": "১৯৬৯ সাল",
+      "trigger_name": "১৯৬৯ সালের গণঅভ্যুত্থান",
+      "event_type": "MASS UPSURGE",
+      "date": "১৯৬৯",
       "location": "পূর্ব পাকিস্তান",
       "participants": [
         {
-          "name": "আসাদুজ্জামান আসাদ",
-          "entity_type": "PERSON",
-          "role": "Participant / Martyr"
+          "name": "ছাত্রসমাজ",
+          "role": "protester"
         },
         {
-          "name": "ড. শামসুজ্জোহা",
-          "entity_type": "PERSON",
-          "role": "Participant / Martyr"
-        },
-        {
-          "name": "মওলানা ভাসানী",
-          "entity_type": "PERSON",
-          "role": "Leader"
+          "name": "শেখ মুজিবুর রহমান",
+          "role": "leader"
         }
       ],
-      "causes": [],
-      "consequences": [
-        "শেখ মুজিবুর রহমানকে নিঃশর্ত মুক্তি"
+      "causes": [
+        "আগরতলা মিথ্যা ষড়যন্ত্র মামলা",
+        "সার্জেন্ট জহুরুল হক ও ড. শামসুজ্জোহা হত্যাকাণ্ড"
       ],
-      "evidence_span": "পাকিস্তান রাষ্ট্রের বিরুদ্ধে পূর্ব পাকিস্তানের জনগণের স্বতঃস্ফূর্ত অংশগ্রহণে ১৯৬৯ সালে সবচেয়ে গুরুত্বপূর্ণ আন্দোলন সংঘটিত হয়। ইতিহাসে এটি ঊনসত্তরের গণঅভ্যুত্থান নামে পরিচিত।"
+      "consequences": [
+        "আগরতলা মামলা প্রত্যাহার",
+        "আইয়ুব খানের পতন",
+        "বঙ্গবন্ধু উপাধি লাভ"
+      ],
+      "evidence_span": "গণঅভ্যুত্থানের মুখে আইয়ুব খান ২২শে ফেব্রুয়ারি ১৯৬৯ আগরতলা মামলা প্রত্যাহার করতে এবং শেখ মুজিবসহ সকল বন্দীকে নিঃশর্ত মুক্তি দিতে বাধ্য হন।"
     }
   ]
 }

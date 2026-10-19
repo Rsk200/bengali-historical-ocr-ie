@@ -3,254 +3,139 @@
   "entities": [
     {
       "entity_id": "p007_e01",
-      "name": "এ.কে. ফজলুল হক",
-      "entity_type": "PERSON",
-      "char_start": 257,
-      "char_end": 271,
-      "evidence_span": "এ.কে. ফজলুল হক"
+      "name": "১৯৫৬ সালে",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 25,
+      "char_end": 34,
+      "evidence_span": "১৯৫৬ সালে"
     },
     {
       "entity_id": "p007_e02",
-      "name": "কৃষক শ্রমিক পার্টি",
-      "entity_type": "ORGANIZATION",
-      "char_start": 232,
-      "char_end": 250,
-      "evidence_span": "কৃষক শ্রমিক পার্টি"
+      "name": "সংবিধান",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 53,
+      "char_end": 60,
+      "evidence_span": "সংবিধান"
     },
     {
       "entity_id": "p007_e03",
-      "name": "যুক্তফ্রন্ট সরকার",
-      "entity_type": "ORGANIZATION",
-      "char_start": 58,
-      "char_end": 75,
-      "evidence_span": "যুক্তফ্রন্ট সরকার"
-    },
-    {
-      "entity_id": "p007_e04",
-      "name": "পাকিস্তান সরকার",
-      "entity_type": "ORGANIZATION",
-      "char_start": 352,
-      "char_end": 367,
-      "evidence_span": "পাকিস্তান সরকার"
-    },
-    {
-      "entity_id": "p007_e05",
-      "name": "গোলাম মোহাম্মদ",
-      "entity_type": "PERSON",
-      "char_start": 568,
-      "char_end": 582,
-      "evidence_span": "গোলাম মোহাম্মদ"
-    },
-    {
-      "entity_id": "p007_e06",
-      "name": "১৯৫৪ সালের ৩রা এপ্রিল",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 193,
-      "char_end": 214,
-      "evidence_span": "১৯৫৪ সালের ৩রা এপ্রিল"
-    },
-    {
-      "entity_id": "p007_e07",
-      "name": "১৯৫৪ সালের ৩০ মে",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 583,
-      "char_end": 599,
-      "evidence_span": "১৯৫৪ সালের ৩০ মে"
-    },
-    {
-      "entity_id": "p007_e08",
-      "name": "শাহেদ আলী",
-      "entity_type": "PERSON",
-      "char_start": 1313,
-      "char_end": 1322,
-      "evidence_span": "শাহেদ আলী"
-    },
-    {
-      "entity_id": "p007_e09",
-      "name": "ইস্কান্দার মীর্জা",
-      "entity_type": "PERSON",
-      "char_start": 1411,
-      "char_end": 1428,
-      "evidence_span": "ইস্কান্দার মীর্জা"
-    },
-    {
-      "entity_id": "p007_e10",
-      "name": "১৯৫৬ সালের সংবিধান",
-      "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 1524,
-      "char_end": 1542,
-      "evidence_span": "১৯৫৬ সালের সংবিধান"
-    },
-    {
-      "entity_id": "p007_e11",
-      "name": "আইয়ুব খান",
-      "entity_type": "PERSON",
-      "char_start": 1709,
-      "char_end": 1718,
-      "evidence_span": "আইয়ুব খান"
-    },
-    {
-      "entity_id": "p007_e12",
       "name": "১৯৫৮ সালের ৭ই অক্টোবর",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1377,
-      "char_end": 1398,
+      "char_start": 199,
+      "char_end": 220,
       "evidence_span": "১৯৫৮ সালের ৭ই অক্টোবর"
     },
     {
-      "entity_id": "p007_e13",
-      "name": "১৯৫৮ সালের ২৭শে অক্টোবর",
+      "entity_id": "p007_e04",
+      "name": "ইস্কান্দার মির্জা",
+      "entity_type": "PERSON",
+      "char_start": 258,
+      "char_end": 275,
+      "evidence_span": "ইস্কান্দার মির্জা"
+    },
+    {
+      "entity_id": "p007_e05",
+      "name": "সামরিক শাসন",
+      "entity_type": "EVENT",
+      "char_start": 281,
+      "char_end": 292,
+      "evidence_span": "সামরিক শাসন"
+    },
+    {
+      "entity_id": "p007_e06",
+      "name": "২৭শে অক্টোবর",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1733,
-      "char_end": 1756,
-      "evidence_span": "১৯৫৮ সালের ২৭শে অক্টোবর"
+      "char_start": 374,
+      "char_end": 386,
+      "evidence_span": "২৭শে অক্টোবর"
     },
     {
-      "entity_id": "p007_e14",
-      "name": "১৯৬৫",
+      "entity_id": "p007_e07",
+      "name": "জেনারেল আইয়ুব খান",
+      "entity_type": "PERSON",
+      "char_start": 398,
+      "char_end": 415,
+      "evidence_span": "জেনারেল আইয়ুব খান"
+    },
+    {
+      "entity_id": "p007_e08",
+      "name": "মৌলিক গণতন্ত্র",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 488,
+      "char_end": 502,
+      "evidence_span": "মৌলিক গণতন্ত্র"
+    },
+    {
+      "entity_id": "p007_e09",
+      "name": "১৯৬২ সালে",
       "entity_type": "DATE/PERIOD",
-      "char_start": 2487,
-      "char_end": 2491,
-      "evidence_span": "১৯৬৫"
+      "char_start": 661,
+      "char_end": 670,
+      "evidence_span": "১৯৬২ সালে"
     },
     {
-      "entity_id": "p007_e15",
-      "name": "পূর্ব পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 2231,
-      "char_end": 2246,
-      "evidence_span": "পূর্ব পাকিস্তান"
+      "entity_id": "p007_e10",
+      "name": "শরিফ শিক্ষা কমিশন",
+      "entity_type": "ORGANIZATION",
+      "char_start": 671,
+      "char_end": 688,
+      "evidence_span": "শরিফ শিক্ষা কমিশন"
     },
     {
-      "entity_id": "p007_e16",
-      "name": "পশ্চিম পাকিস্তান",
-      "entity_type": "LOCATION",
-      "char_start": 1038,
-      "char_end": 1054,
-      "evidence_span": "পশ্চিম পাকিস্তান"
+      "entity_id": "p007_e11",
+      "name": "১৯৬৫ সালের ৬ই সেপ্টেম্বর",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 779,
+      "char_end": 803,
+      "evidence_span": "১৯৬৫ সালের ৬ই সেপ্টেম্বর"
     }
   ],
   "relations": [
     {
       "relation_id": "p007_r01",
-      "head_text": "এ.কে. ফজলুল হক",
+      "head_text": "ইস্কান্দার মির্জা",
       "head_type": "PERSON",
-      "relation_type": "member_of",
-      "tail_text": "কৃষক শ্রমিক পার্টি",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "কৃষক শ্রমিক পার্টির নেতা এ.কে. ফজলুল হক"
+      "relation_type": "signed_issued",
+      "tail_text": "সামরিক শাসন",
+      "tail_type": "EVENT",
+      "evidence_span": "১৯৫৮ সালের ৭ই অক্টোবর পাকিস্তানের প্রেসিডেন্ট মেজর জেনারেল ইস্কান্দার মির্জা দেশে সামরিক শাসন জারি করেন।"
     },
     {
       "relation_id": "p007_r02",
-      "head_text": "যুক্তফ্রন্ট সরকার",
-      "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৫৪ সালের ৩রা এপ্রিল",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৫৪ সালের ৩রা এপ্রিল যুক্তফ্রন্টভুক্ত কৃষক শ্রমিক পার্টির নেতা এ.কে. ফজলুল হক মুখ্যমন্ত্রী হিসেবে শপথ গ্রহণ করেন।"
-    },
-    {
-      "relation_id": "p007_r03",
-      "head_text": "যুক্তফ্রন্ট সরকার",
-      "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৫৪ সালের ৩০ মে",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৫৪ সালের ৩০ মে যুক্তফ্রন্ট সরকারকে বরখাস্ত করে।"
-    },
-    {
-      "relation_id": "p007_r04",
-      "head_text": "১৯৫৬ সালের সংবিধান",
-      "head_type": "DOCUMENT/TREATY/LAW",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৫৮ সালের ৭ই অক্টোবর",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৫৮ সালের ৭ই অক্টোবর প্রেসিডেন্ট ইস্কান্দার মীর্জা সামরিক আইন জারি করেন। তিনি দায়িত্ব নিয়ে যেসব পদক্ষেপ গ্রহণ করেন তার মধ্যে উল্লেখযোগ্য হলো : ১. ১৯৫৬ সালের সংবিধান বাতিল"
+      "head_text": "জেনারেল আইয়ুব খান",
+      "head_type": "PERSON",
+      "relation_type": "signed_issued",
+      "tail_text": "মৌলিক গণতন্ত্র",
+      "tail_type": "DOCUMENT/TREATY/LAW",
+      "evidence_span": "আইয়ুব খান মৌলিক গণতন্ত্র নামক এক বিশেষ নির্বাচনী ব্যবস্থা চালু করেন, যেখানে ৮০,০০০ মৌলিক গণতন্ত্রী ভোটার প্রেসিডেন্ট নির্বাচনের সুযোগ পায়।"
     }
   ],
   "events": [
     {
       "event_id": "p007_ev01",
-      "trigger_name": "শপথ গ্রহণ",
-      "event_type": "शपथ ग्रहण",
-      "date": "১৯৫৪ সালের ৩রা এপ্রিল",
-      "location": "",
+      "trigger_name": "সামরিক শাসন জারি",
+      "event_type": "COUP/MARTIAL LAW",
+      "date": "১৯৫৮ সালের ৭ই অক্টোবর",
+      "location": "পাকিস্তান",
       "participants": [
         {
-          "name": "এ.কে. ফজলুল হক",
-          "entity_type": "PERSON",
-          "role": "মুখ্যমন্ত্রী"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "১৯৫৪ সালের ৩রা এপ্রিল যুক্তফ্রন্টভুক্ত কৃষক শ্রমিক পার্টির নেতা এ.কে. ফজলুল হক মুখ্যমন্ত্রী হিসেবে শপথ গ্রহণ করেন।"
-    },
-    {
-      "event_id": "p007_ev02",
-      "trigger_name": "বরখাস্ত",
-      "event_type": "বরখাস্ত",
-      "date": "১৯৫৪ সালের ৩০ মে",
-      "location": "",
-      "participants": [
-        {
-          "name": "গোলাম মোহাম্মদ",
-          "entity_type": "PERSON",
-          "role": "গভর্নর জেনারেল"
+          "name": "ইস্কান্দার মির্জা",
+          "role": "president"
         },
         {
-          "name": "যুক্তফ্রন্ট সরকার",
-          "entity_type": "ORGANIZATION",
-          "role": "victim"
+          "name": "জেনারেল আইয়ুব খান",
+          "role": "army_chief"
         }
       ],
       "causes": [
-        "আদমজী পাটকল ও কর্ণফুলি কাগজের কলে বাঙালি-অবাঙালি দাঙ্গাকে অজুহাত হিসেবে দাঁড় করানো"
+        "রাজনৈতিক অস্থিতিশীলতা ও গণতান্ত্রিক ধারা ব্যাহত হওয়া"
       ],
-      "consequences": [],
-      "evidence_span": "পাকিস্তানের গভর্নর জেনারেল গোলাম মোহাম্মদ ১৯৫৪ সালের ৩০ মে যুক্তফ্রন্ট সরকারকে বরখাস্ত করে।"
-    },
-    {
-      "event_id": "p007_ev03",
-      "trigger_name": "সামরিক আইন জারি",
-      "event_type": "POLITICAL/MILITARY EVENT",
-      "date": "১৯৫৮ সালের ৭ই অক্টোবর",
-      "location": null,
-      "participants": [
-        {
-          "name": "ইস্কান্দার মীর্জা",
-          "entity_type": "PERSON",
-          "role": "Issuer of Martial Law"
-        }
-      ],
-      "causes": [],
       "consequences": [
-        "১৯৫৬ সালের সংবিধান বাতিল",
-        "কেন্দ্রীয় ও প্রাদেশিক পরিষদ ভেঙে দেওয়া"
+        "সংবিধান বাতিল",
+        "রাজনৈতিক দল নিষিদ্ধ",
+        "আইয়ুব খানের ক্ষমতা দখল"
       ],
-      "evidence_span": "১৯৫৮ সালের ৭ই অক্টোবর প্রেসিডেন্ট ইস্কান্দার মীর্জা সামরিক আইন জারি করেন।"
-    },
-    {
-      "event_id": "p007_ev04",
-      "trigger_name": "ক্ষমতা দখল",
-      "event_type": "POWER SEIZURE",
-      "date": "১৯৫৮ সালের ২৭শে অক্টোবর",
-      "location": null,
-      "participants": [
-        {
-          "name": "আইয়ুব খান",
-          "entity_type": "PERSON",
-          "role": "Actor"
-        },
-        {
-          "name": "ইস্কান্দার মীর্জা",
-          "entity_type": "PERSON",
-          "role": "Ousted person"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "১৯৫৮ সালের ২৭শে অক্টোবর জেনারেল আইয়ুব খান ইস্কান্দার মীর্জাকে উৎখাত ও দেশত্যাগে বাধ্য করে ক্ষমতা দখল করেন।"
+      "evidence_span": "১৯৫৮ সালের ৭ই অক্টোবর পাকিস্তানের প্রেসিডেন্ট মেজর জেনারেল ইস্কান্দার মির্জা দেশে সামরিক শাসন জারি করেন।"
     }
   ]
 }

@@ -138,12 +138,19 @@ def normalise_whitespace_and_punct(text: str) -> str:
     # Non-breaking space and tabs to space
     text = text.replace("\u00a0", " ").replace("\u202f", " ").replace("\t", " ")
 
-    # Standardise ASCII pipes to Bangla danda:
-    # First handle double pipe: '||' -> '।।'
-    text = re.sub(r"\|{2,}", "।।", text)
-    # Then handle single pipe preceded or followed by text
-    text = re.sub(r"(?<=[\u0980-\u09ff\w])\s*\|\s*", "। ", text)
-    text = re.sub(r"\s*\|\s*(?=[\u0980-\u09ff\w])", " ।", text)
+    # Standardise ASCII pipes to Bangla danda while preserving Markdown tables:
+    new_lines = []
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if (stripped.startswith("|") and stripped.endswith("|")) or ":---" in line:
+            # Markdown table row: preserve pipes
+            new_lines.append(line)
+        else:
+            l = re.sub(r"\|{2,}", "।।", line)
+            l = re.sub(r"(?<=[\u0980-\u09ff\w])\s*\|\s*", "। ", l)
+            l = re.sub(r"\s*\|\s*(?=[\u0980-\u09ff\w])", " ।", l)
+            new_lines.append(l)
+    text = "\n".join(new_lines)
 
     # Standardise multiple dandas (e.g., ।।। -> ।।)
     text = re.sub(r"।{3,}", "।।", text)

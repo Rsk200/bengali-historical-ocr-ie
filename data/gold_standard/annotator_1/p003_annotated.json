@@ -5,233 +5,97 @@
       "entity_id": "p003_e01",
       "name": "১৯৪৮ সালের ১৯শে মার্চ",
       "entity_type": "DATE/PERIOD",
-      "char_start": 58,
-      "char_end": 79,
+      "char_start": 25,
+      "char_end": 46,
       "evidence_span": "১৯৪৮ সালের ১৯শে মার্চ"
     },
     {
       "entity_id": "p003_e02",
       "name": "মোহাম্মদ আলী জিন্নাহ",
       "entity_type": "PERSON",
-      "char_start": 107,
-      "char_end": 127,
+      "char_start": 80,
+      "char_end": 100,
       "evidence_span": "মোহাম্মদ আলী জিন্নাহ"
     },
     {
       "entity_id": "p003_e03",
-      "name": "ঢাকা",
+      "name": "ঢাকায়",
       "entity_type": "LOCATION",
-      "char_start": 128,
-      "char_end": 132,
-      "evidence_span": "ঢাকা"
+      "char_start": 101,
+      "char_end": 106,
+      "evidence_span": "ঢাকায়"
     },
     {
       "entity_id": "p003_e04",
       "name": "২১শে মার্চ",
       "entity_type": "DATE/PERIOD",
-      "char_start": 140,
-      "char_end": 150,
+      "char_start": 113,
+      "char_end": 123,
       "evidence_span": "২১শে মার্চ"
     },
     {
       "entity_id": "p003_e05",
-      "name": "রেসকোর্স ময়দান",
+      "name": "রেসকোর্স ময়দানে",
       "entity_type": "LOCATION",
-      "char_start": 151,
-      "char_end": 165,
-      "evidence_span": "রেসকোর্স ময়দান"
+      "char_start": 124,
+      "char_end": 139,
+      "evidence_span": "রেসকোর্স ময়দানে"
     },
     {
       "entity_id": "p003_e06",
       "name": "সোহরাওয়ার্দী উদ্যান",
       "entity_type": "LOCATION",
-      "char_start": 176,
-      "char_end": 195,
+      "char_start": 149,
+      "char_end": 168,
       "evidence_span": "সোহরাওয়ার্দী উদ্যান"
     },
     {
       "entity_id": "p003_e07",
       "name": "২৪শে মার্চ",
       "entity_type": "DATE/PERIOD",
-      "char_start": 304,
-      "char_end": 314,
+      "char_start": 257,
+      "char_end": 267,
       "evidence_span": "২৪শে মার্চ"
     },
     {
       "entity_id": "p003_e08",
-      "name": "ঢাকা বিশ্ববিদ্যালয়",
+      "name": "ঢাকা বিশ্ববিদ্যালয়ের",
       "entity_type": "ORGANIZATION",
-      "char_start": 315,
-      "char_end": 333,
-      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়"
+      "char_start": 268,
+      "char_end": 288,
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের"
     },
     {
       "entity_id": "p003_e09",
-      "name": "আবদুল মতিন",
-      "entity_type": "PERSON",
-      "char_start": 403,
-      "char_end": 413,
-      "evidence_span": "আবদুল মতিন"
+      "name": "কার্জন হলে",
+      "entity_type": "LOCATION",
+      "char_start": 289,
+      "char_end": 299,
+      "evidence_span": "কার্জন হলে"
     },
     {
       "entity_id": "p003_e10",
-      "name": "১৯৫২ সালের ২৬শে জানুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 900,
-      "char_end": 924,
-      "evidence_span": "১৯৫২ সালের ২৬শে জানুয়ারি"
-    },
-    {
-      "entity_id": "p003_e11",
-      "name": "পল্টন ময়দান",
-      "entity_type": "LOCATION",
-      "char_start": 931,
-      "char_end": 942,
-      "evidence_span": "পল্টন ময়দান"
-    },
-    {
-      "entity_id": "p003_e12",
       "name": "খাজা নাজিমুদ্দীন",
       "entity_type": "PERSON",
-      "char_start": 991,
-      "char_end": 1007,
+      "char_start": 676,
+      "char_end": 692,
       "evidence_span": "খাজা নাজিমুদ্দীন"
     },
     {
-      "entity_id": "p003_e13",
-      "name": "৩০শে জানুয়ারি",
+      "entity_id": "p003_e11",
+      "name": "১৯৪৮ সালের নভেম্বর মাসে",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1109,
-      "char_end": 1122,
-      "evidence_span": "৩০শে জানুয়ারি"
+      "char_start": 821,
+      "char_end": 844,
+      "evidence_span": "১৯৪৮ সালের নভেম্বর মাসে"
     },
     {
-      "entity_id": "p003_e14",
-      "name": "রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1166,
-      "char_end": 1191,
-      "evidence_span": "রাষ্ট্রভাষা সংগ্রাম পরিষদ"
-    },
-    {
-      "entity_id": "p003_e15",
-      "name": "৩১শে জানুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1202,
-      "char_end": 1215,
-      "evidence_span": "৩১শে জানুয়ারি"
-    },
-    {
-      "entity_id": "p003_e16",
-      "name": "কাজী গোলাম মাহবুব",
+      "entity_id": "p003_e12",
+      "name": "শেখ মুজিবুর রহমানকে",
       "entity_type": "PERSON",
-      "char_start": 1216,
-      "char_end": 1233,
-      "evidence_span": "কাজী গোলাম মাহবুব"
-    },
-    {
-      "entity_id": "p003_e17",
-      "name": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1257,
-      "char_end": 1291,
-      "evidence_span": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ"
-    },
-    {
-      "entity_id": "p003_e18",
-      "name": "৪ঠা ফেব্রুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1367,
-      "char_end": 1381,
-      "evidence_span": "৪ঠা ফেব্রুয়ারি"
-    },
-    {
-      "entity_id": "p003_e19",
-      "name": "আবদুস সালাম",
-      "entity_type": "PERSON",
-      "char_start": 1490,
-      "char_end": 1501,
-      "evidence_span": "আবদুস সালাম"
-    },
-    {
-      "entity_id": "p003_e20",
-      "name": "আবুল বরকত",
-      "entity_type": "PERSON",
-      "char_start": 1503,
-      "char_end": 1512,
-      "evidence_span": "আবুল বরকত"
-    },
-    {
-      "entity_id": "p003_e21",
-      "name": "আবদুল জব্বার",
-      "entity_type": "PERSON",
-      "char_start": 1514,
-      "char_end": 1526,
-      "evidence_span": "আবদুল জব্বার"
-    },
-    {
-      "entity_id": "p003_e22",
-      "name": "শফিউর রহমান",
-      "entity_type": "PERSON",
-      "char_start": 1528,
-      "char_end": 1539,
-      "evidence_span": "শফিউর রহমান"
-    },
-    {
-      "entity_id": "p003_e23",
-      "name": "রফিকউদ্দিন আহমেদ",
-      "entity_type": "PERSON",
-      "char_start": 1541,
-      "char_end": 1557,
-      "evidence_span": "রফিকউদ্দিন আহমেদ"
-    },
-    {
-      "entity_id": "p003_e24",
-      "name": "১৯৫২ সালের ২০শে ফেব্রুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1686,
-      "char_end": 1712,
-      "evidence_span": "১৯৫২ সালের ২০শে ফেব্রুয়ারি"
-    },
-    {
-      "entity_id": "p003_e25",
-      "name": "২১শে ফেব্রুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 1416,
-      "char_end": 1431,
-      "evidence_span": "২১শে ফেব্রুয়ারি"
-    },
-    {
-      "entity_id": "p003_e26",
-      "name": "ঢাকা মেডিকেল কলেজ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1947,
-      "char_end": 1964,
-      "evidence_span": "ঢাকা মেডিকেল কলেজ"
-    },
-    {
-      "entity_id": "p003_e27",
-      "name": "ইডেন কলেজ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2128,
-      "char_end": 2137,
-      "evidence_span": "ইডেন কলেজ"
-    },
-    {
-      "entity_id": "p003_e28",
-      "name": "কামরুন্নেসা গার্লস স্কুল",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2139,
-      "char_end": 2163,
-      "evidence_span": "কামরুন্নেসা গার্লস স্কুল"
-    },
-    {
-      "entity_id": "p003_e29",
-      "name": "বাংলা বাজার গার্লস স্কুল",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2166,
-      "char_end": 2190,
-      "evidence_span": "বাংলা বাজার গার্লস স্কুল"
+      "char_start": 952,
+      "char_end": 971,
+      "evidence_span": "শেখ মুজিবুর রহমানকে"
     }
   ],
   "relations": [
@@ -239,149 +103,45 @@
       "relation_id": "p003_r01",
       "head_text": "মোহাম্মদ আলী জিন্নাহ",
       "head_type": "PERSON",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৪৮ সালের ১৯শে মার্চ",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৪৮ সালের ১৯শে মার্চ পাকিস্তানের গভর্নর জেনারেল মোহাম্মদ আলী জিন্নাহ ঢাকায় আসেন।"
+      "relation_type": "occurred_at",
+      "tail_text": "কার্জন হলে",
+      "tail_type": "LOCATION",
+      "evidence_span": "\" ২৪শে মার্চ ঢাকা বিশ্ববিদ্যালয়ের কার্জন হলে অনুষ্ঠিত সমাবর্তন অনুষ্ঠানে তিনি তাঁর বক্তব্যের পুনরাবৃত্তি করলে উপস্থিত ছাত্রসমাজ সমস্বরে ‘না, না’ বলে তীব্র প্রতিবাদ জানায়।"
     },
     {
       "relation_id": "p003_r02",
-      "head_text": "আবদুল মতিন",
+      "head_text": "মোহাম্মদ আলী জিন্নাহ",
       "head_type": "PERSON",
-      "relation_type": "member_of",
-      "tail_text": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "আবদুল মতিনকে আহ্বায়ক করে ‘রাষ্ট্রভাষা সংগ্রাম পরিষদ’ গঠিত হয়।"
-    },
-    {
-      "relation_id": "p003_r03",
-      "head_text": "কাজী গোলাম মাহবুব",
-      "head_type": "PERSON",
-      "relation_type": "member_of",
-      "tail_text": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "৩১শে জানুয়ারি কাজী গোলাম মাহবুবকে আহ্বায়ক করে নতুনভাবে সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ গঠন করা হয়।"
+      "relation_type": "occurred_at",
+      "tail_text": "রেসকোর্স ময়দানে",
+      "tail_type": "LOCATION",
+      "evidence_span": "২১শে মার্চ রেসকোর্স ময়দানে (বর্তমান সোহরাওয়ার্দী উদ্যান) এক জনসভায় তিনি স্পষ্ট ঘোষণা করেন, \"উর্দু এবং কেবল উর্দুই হবে পাকিস্তানের রাষ্ট্রভাষা।"
     }
   ],
   "events": [
     {
       "event_id": "p003_ev01",
-      "trigger_name": "আসেন",
-      "event_type": "POLITICAL VISIT / SPEECH",
-      "date": "১৯৪৮ সালের ১৯শে মার্চ",
-      "location": "ঢাকা",
+      "trigger_name": "উর্দুকে রাষ্ট্রভাষা ঘোষণার প্রতিবাদ",
+      "event_type": "PROTEST",
+      "date": "১৯৪৮ সালের ২৪শে মার্চ",
+      "location": "কার্জন হল",
       "participants": [
         {
           "name": "মোহাম্মদ আলী জিন্নাহ",
-          "entity_type": "PERSON",
-          "role": "Governor General"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "১৯৪৮ সালের ১৯শে মার্চ পাকিস্তানের গভর্নর জেনারেল মোহাম্মদ আলী জিন্নাহ ঢাকায় আসেন।"
-    },
-    {
-      "event_id": "p003_ev02",
-      "trigger_name": "জনসভায়",
-      "event_type": "PUBLIC SPEECH",
-      "date": "২১শে মার্চ",
-      "location": "রেসকোর্স ময়দান",
-      "participants": [
-        {
-          "name": "মোহাম্মদ আলী জিন্নাহ",
-          "entity_type": "PERSON",
-          "role": "Speaker"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "২১শে মার্চ রেসকোর্স ময়দানে (বর্তমান সোহরাওয়ার্দী উদ্যান) অনুষ্ঠিত জনসভায় তিনি দ্ব্যর্থহীন কণ্ঠে ঘোষণা করেন, ‘উর্দু এবং উর্দুই হবে পাকিস্তানের একমাত্র রাষ্ট্রভাষা’।"
-    },
-    {
-      "event_id": "p003_ev03",
-      "trigger_name": "সমাবর্তনেও",
-      "event_type": "PUBLIC SPEECH",
-      "date": "২৪শে মার্চ",
-      "location": "ঢাকা বিশ্ববিদ্যালয়",
-      "participants": [
-        {
-          "name": "মোহাম্মদ আলী জিন্নাহ",
-          "entity_type": "PERSON",
-          "role": "Speaker"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "২৪শে মার্চ ঢাকা বিশ্ববিদ্যালয় সমাবর্তনেও তিনি অনুরূপ ঘোষণা দিলে ছাত্রসমাজ প্রতিবাদমুখর হয়ে ওঠে"
-    },
-    {
-      "event_id": "p003_ev04",
-      "trigger_name": "জনসভায়",
-      "event_type": "PUBLIC MEETING",
-      "date": "১৯৫২ সালের ২৬শে জানুয়ারি",
-      "location": "পল্টন ময়দান",
-      "participants": [
-        {
-          "name": "খাজা নাজিমুদ্দীন",
-          "entity_type": "PERSON",
-          "role": "Prime Minister"
-        }
-      ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "১৯৫২ সালের ২৬শে জানুয়ারি ঢাকার পল্টন ময়দানে অনুষ্ঠিত জনসভায় পাকিস্তানের নতুন প্রধানমন্ত্রী খাজা নাজিমুদ্দীন জিন্নাহর অনুকরণে উর্দুকে পাকিস্তানের রাষ্ট্রভাষা করার নতুন ঘোষণা প্রদান করেন।"
-    },
-    {
-      "event_id": "p003_ev05",
-      "trigger_name": "ধর্মঘট",
-      "event_type": "STRIKE",
-      "date": "৩০শে জানুয়ারি",
-      "location": "",
-      "participants": [
+          "role": "speaker"
+        },
         {
           "name": "ছাত্রসমাজ",
-          "entity_type": "ORGANIZATION",
-          "role": "Protesters"
+          "role": "protester"
         }
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "এর প্রতিবাদে ছাত্রসমাজ ৩০শে জানুয়ারি ধর্মঘট পালন করে।"
-    },
-    {
-      "event_id": "p003_ev06",
-      "trigger_name": "বিক্ষোভ",
-      "event_type": "PROTEST",
-      "date": "৪ঠা ফেব্রুয়ারি",
-      "location": "ঢাকা",
-      "participants": [
-        {
-          "name": "ছাত্র",
-          "entity_type": "ORGANIZATION",
-          "role": "Protesters"
-        }
+      "causes": [
+        "জিন্নাহর উর্দুকে একমাত্র রাষ্ট্রভাষা করার ঘোষণা"
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "৪ঠা ফেব্রুয়ারি ঢাকায় ছাত্র বিক্ষোভ প্রদর্শিত হয়।"
-    },
-    {
-      "event_id": "p003_ev07",
-      "trigger_name": "সভা",
-      "event_type": "MEETING",
-      "date": "২১শে ফেব্রুয়ারি",
-      "location": "আমতলা",
-      "participants": [
-        {
-          "name": "ঢাকা বিশ্ববিদ্যালয়",
-          "entity_type": "ORGANIZATION",
-          "role": "Host"
-        }
+      "consequences": [
+        "ছাত্রদের তাৎক্ষণিক 'না না' ধ্বনি ও প্রতিবাদ"
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "২১শে ফেব্রুয়ারি সকাল ১১টায় ঢাকা বিশ্ববিদ্যালয়ের আমতলায় (বর্তমান ঢাকা মেডিকেল কলেজের জরুরি বিভাগের পাশে ) একটি সভা অনুষ্ঠিত হয়।"
+      "evidence_span": "না, না বলে তীব্র প্রতিবাদ জানায়"
     }
   ]
 }

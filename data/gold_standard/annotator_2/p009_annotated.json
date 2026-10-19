@@ -3,153 +3,142 @@
   "entities": [
     {
       "entity_id": "p009_e01",
-      "name": "১৯৬৫ সাল",
+      "name": "১৯৬৫ সালে",
       "entity_type": "DATE/PERIOD",
-      "char_start": 72,
-      "char_end": 80,
-      "evidence_span": "১৯৬৫ সাল"
+      "char_start": 39,
+      "char_end": 48,
+      "evidence_span": "১৯৬৫ সালে"
     },
     {
       "entity_id": "p009_e02",
       "name": "পাকিস্তান",
       "entity_type": "LOCATION",
-      "char_start": 82,
-      "char_end": 91,
+      "char_start": 49,
+      "char_end": 58,
       "evidence_span": "পাকিস্তান"
     },
     {
       "entity_id": "p009_e03",
       "name": "ভারত",
       "entity_type": "LOCATION",
-      "char_start": 94,
-      "char_end": 98,
+      "char_start": 61,
+      "char_end": 65,
       "evidence_span": "ভারত"
     },
     {
       "entity_id": "p009_e04",
-      "name": "পূর্ববঙ্গ",
-      "entity_type": "LOCATION",
-      "char_start": 138,
-      "char_end": 147,
-      "evidence_span": "পূর্ববঙ্গ"
-    },
-    {
-      "entity_id": "p009_e05",
       "name": "পূর্ব পাকিস্তান",
       "entity_type": "LOCATION",
-      "char_start": 161,
-      "char_end": 176,
+      "char_start": 385,
+      "char_end": 400,
       "evidence_span": "পূর্ব পাকিস্তান"
     },
     {
+      "entity_id": "p009_e05",
+      "name": "৫-৬ই ফেব্রুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 297,
+      "char_end": 312,
+      "evidence_span": "৫-৬ই ফেব্রুয়ারি"
+    },
+    {
       "entity_id": "p009_e06",
-      "name": "আইয়ুব খান",
-      "entity_type": "PERSON",
-      "char_start": 772,
-      "char_end": 781,
-      "evidence_span": "আইয়ুব খান"
+      "name": "লাহোরে",
+      "entity_type": "LOCATION",
+      "char_start": 313,
+      "char_end": 319,
+      "evidence_span": "লাহোরে"
     },
     {
       "entity_id": "p009_e07",
-      "name": "শেখ মুজিবুর রহমান",
+      "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান",
       "entity_type": "PERSON",
-      "char_start": 811,
-      "char_end": 828,
-      "evidence_span": "শেখ মুজিবুর রহমান"
+      "char_start": 357,
+      "char_end": 384,
+      "evidence_span": "বঙ্গবন্ধু শেখ মুজিবুর রহমান"
     },
     {
       "entity_id": "p009_e08",
-      "name": "৬ দফা",
+      "name": "ঐতিহাসিক ৬ দফা",
       "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 58,
-      "char_end": 63,
-      "evidence_span": "৬ দফা"
+      "char_start": 435,
+      "char_end": 449,
+      "evidence_span": "ঐতিহাসিক ৬ দফা"
     },
     {
       "entity_id": "p009_e09",
-      "name": "১১ দফা",
+      "name": "মুক্তিসনদ",
       "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 912,
-      "char_end": 918,
-      "evidence_span": "১১ দফা"
+      "char_start": 488,
+      "char_end": 497,
+      "evidence_span": "মুক্তিসনদ"
     },
     {
       "entity_id": "p009_e10",
-      "name": "২১ দফা",
-      "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 921,
-      "char_end": 927,
-      "evidence_span": "২১ দফা"
+      "name": "আইয়ুব খান",
+      "entity_type": "PERSON",
+      "char_start": 1385,
+      "char_end": 1394,
+      "evidence_span": "আইয়ুব খান"
     },
     {
       "entity_id": "p009_e11",
-      "name": "১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি",
+      "name": "৭ই জুন",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1154,
-      "char_end": 1180,
-      "evidence_span": "১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি"
+      "char_start": 1511,
+      "char_end": 1517,
+      "evidence_span": "৭ই জুন"
     },
     {
       "entity_id": "p009_e12",
-      "name": "লাহোর",
-      "entity_type": "LOCATION",
-      "char_start": 1181,
-      "char_end": 1186,
-      "evidence_span": "লাহোর"
-    },
-    {
-      "entity_id": "p009_e13",
-      "name": "আওয়ামী লীগ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1237,
-      "char_end": 1247,
-      "evidence_span": "আওয়ামী লীগ"
-    },
-    {
-      "entity_id": "p009_e14",
-      "name": "আইয়ুব সরকার",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2224,
-      "char_end": 2235,
-      "evidence_span": "আইয়ুব সরকার"
-    },
-    {
-      "entity_id": "p009_e15",
-      "name": "পাকিস্তান সরকার",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2589,
-      "char_end": 2604,
-      "evidence_span": "পাকিস্তান সরকার"
+      "name": "মনু মিয়াসহ",
+      "entity_type": "PERSON",
+      "char_start": 1584,
+      "char_end": 1594,
+      "evidence_span": "মনু মিয়াসহ"
     }
   ],
   "relations": [
     {
       "relation_id": "p009_r01",
-      "head_text": "শেখ মুজিবুর রহমান",
+      "head_text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান",
       "head_type": "PERSON",
-      "relation_type": "member_of",
-      "tail_text": "আওয়ামী লীগ",
-      "tail_type": "ORGANIZATION",
-      "evidence_span": "আওয়ামী লীগ সাধারণ সম্পাদক শেখ মুজিবুর রহমান"
+      "relation_type": "signed_issued",
+      "tail_text": "ঐতিহাসিক ৬ দফা",
+      "tail_type": "DOCUMENT/TREATY/LAW",
+      "evidence_span": "এই পটভূমিতে ১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি লাহোরে অনুষ্ঠিত বিরোধী দলসমূহের এক সম্মেলনে বঙ্গবন্ধু শেখ মুজিবুর রহমান পূর্ব পাকিস্তানের স্বায়ত্তশাসন প্রতিষ্ঠার লক্ষ্যে ঐতিহাসিক ৬ দফা কর্মসূচি পেশ করেন।"
     },
     {
       "relation_id": "p009_r02",
-      "head_text": "আইয়ুব সরকার",
-      "head_type": "ORGANIZATION",
-      "relation_type": "signed_issued",
-      "tail_text": "৬ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "আইয়ুব সরকার একে ‘বিচ্ছিন্নতাবাদী কর্মসূচি’ হিসেবে আখ্যায়িত করে।"
-    },
-    {
-      "relation_id": "p009_r03",
-      "head_text": "পাকিস্তান সরকার",
-      "head_type": "ORGANIZATION",
-      "relation_type": "signed_issued",
-      "tail_text": "৬ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "পাকিস্তান সরকার ৬ দফা গ্রহণ না করে দমন-পীড়ন শুরু করলে"
+      "head_text": "আইয়ুব খান",
+      "head_type": "PERSON",
+      "relation_type": "occurred_on",
+      "tail_text": "৭ই জুন",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "এর প্রতিবাদে ৭ই জুন সারা পূর্ব পাকিস্তানে সর্বাত্মক হরতাল পালিত হয় এবং পুলিশের গুলিতে মনু মিয়াসহ অনেকে শহীদ হন।"
     }
   ],
-  "events": []
+  "events": [
+    {
+      "event_id": "p009_ev01",
+      "trigger_name": "৬ দফা দাবি উত্থাপন",
+      "event_type": "POLITICAL PROCLAMATION",
+      "date": "১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি",
+      "location": "লাহোর",
+      "participants": [
+        {
+          "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান",
+          "role": "leader"
+        }
+      ],
+      "causes": [
+        "১৯৬৫ সালের পাক-ভারত যুদ্ধে পূর্ব পাকিস্তানের নিরাপত্তাহীনতা"
+      ],
+      "consequences": [
+        "বাঙালির স্বাধিকার আন্দোলনের ভিত্তি রচিত হওয়া",
+        "৭ই জুনের সাধারণ ধর্মঘট"
+      ],
+      "evidence_span": "এই পটভূমিতে ১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি লাহোরে অনুষ্ঠিত বিরোধী দলসমূহের এক সম্মেলনে বঙ্গবন্ধু শেখ মুজিবুর রহমান পূর্ব পাকিস্তানের স্বায়ত্তশাসন প্রতিষ্ঠার লক্ষ্যে ঐতিহাসিক ৬ দফা কর্মসূচি পেশ করেন।"
+    }
+  ]
 }

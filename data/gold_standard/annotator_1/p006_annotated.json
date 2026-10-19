@@ -5,226 +5,177 @@
       "entity_id": "p006_e01",
       "name": "মুসলিম লীগ",
       "entity_type": "ORGANIZATION",
-      "char_start": 110,
-      "char_end": 120,
+      "char_start": 105,
+      "char_end": 115,
       "evidence_span": "মুসলিম লীগ"
     },
     {
       "entity_id": "p006_e02",
       "name": "১৯৫৩ সালের ১৪ই নভেম্বর",
       "entity_type": "DATE/PERIOD",
-      "char_start": 384,
-      "char_end": 406,
+      "char_start": 215,
+      "char_end": 237,
       "evidence_span": "১৯৫৩ সালের ১৪ই নভেম্বর"
     },
     {
       "entity_id": "p006_e03",
       "name": "যুক্তফ্রন্ট",
       "entity_type": "ORGANIZATION",
-      "char_start": 27,
-      "char_end": 38,
+      "char_start": 25,
+      "char_end": 36,
       "evidence_span": "যুক্তফ্রন্ট"
     },
     {
       "entity_id": "p006_e04",
       "name": "আওয়ামী মুসলিম লীগ",
       "entity_type": "ORGANIZATION",
-      "char_start": 497,
-      "char_end": 514,
+      "char_start": 238,
+      "char_end": 255,
       "evidence_span": "আওয়ামী মুসলিম লীগ"
     },
     {
       "entity_id": "p006_e05",
       "name": "কৃষক শ্রমিক পার্টি",
       "entity_type": "ORGANIZATION",
-      "char_start": 516,
-      "char_end": 534,
+      "char_start": 257,
+      "char_end": 275,
       "evidence_span": "কৃষক শ্রমিক পার্টি"
     },
     {
       "entity_id": "p006_e06",
       "name": "নেজামে ইসলাম",
       "entity_type": "ORGANIZATION",
-      "char_start": 536,
-      "char_end": 548,
+      "char_start": 277,
+      "char_end": 289,
       "evidence_span": "নেজামে ইসলাম"
     },
     {
       "entity_id": "p006_e07",
-      "name": "খেলাফতে রাব্বানী",
-      "entity_type": "ORGANIZATION",
-      "char_start": 550,
-      "char_end": 566,
-      "evidence_span": "খেলাফতে রাব্বানী"
-    },
-    {
-      "entity_id": "p006_e08",
       "name": "গণতন্ত্রী দল",
       "entity_type": "ORGANIZATION",
-      "char_start": 571,
-      "char_end": 583,
+      "char_start": 294,
+      "char_end": 306,
       "evidence_span": "গণতন্ত্রী দল"
     },
     {
+      "entity_id": "p006_e08",
+      "name": "মওলানা আবদুল হামিদ খান ভাসানী",
+      "entity_type": "PERSON",
+      "char_start": 333,
+      "char_end": 362,
+      "evidence_span": "মওলানা আবদুল হামিদ খান ভাসানী"
+    },
+    {
       "entity_id": "p006_e09",
-      "name": "১৯৫৪ সালের মার্চ মাস",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 626,
-      "char_end": 646,
-      "evidence_span": "১৯৫৪ সালের মার্চ মাস"
+      "name": "একে ফজলুল হক",
+      "entity_type": "PERSON",
+      "char_start": 364,
+      "char_end": 376,
+      "evidence_span": "একে ফজলুল হক"
     },
     {
       "entity_id": "p006_e10",
-      "name": "প্রাদেশিক পরিষদের নির্বাচন",
-      "entity_type": "EVENT",
-      "char_start": 315,
-      "char_end": 341,
-      "evidence_span": "প্রাদেশিক পরিষদের নির্বাচন"
+      "name": "হোসেন শহীদ সোহরাওয়ার্দী",
+      "entity_type": "PERSON",
+      "char_start": 381,
+      "char_end": 404,
+      "evidence_span": "হোসেন শহীদ সোহরাওয়ার্দী"
     },
     {
       "entity_id": "p006_e11",
-      "name": "যুক্তফ্রন্টের ২১ দফা",
+      "name": "২১ দফা",
       "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 705,
-      "char_end": 725,
-      "evidence_span": "যুক্তফ্রন্টের ২১ দফা"
+      "char_start": 494,
+      "char_end": 500,
+      "evidence_span": "২১ দফা"
     },
     {
       "entity_id": "p006_e12",
-      "name": "ঢাকা",
-      "entity_type": "LOCATION",
-      "char_start": 2204,
-      "char_end": 2208,
-      "evidence_span": "ঢাকা"
+      "name": "১৯৫৪ সালের মার্চ মাসে",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1824,
+      "char_end": 1845,
+      "evidence_span": "১৯৫৪ সালের মার্চ মাসে"
     },
     {
       "entity_id": "p006_e13",
-      "name": "রাজশাহী বিশ্ববিদ্যালয়",
-      "entity_type": "ORGANIZATION",
-      "char_start": 2211,
-      "char_end": 2232,
-      "evidence_span": "রাজশাহী বিশ্ববিদ্যালয়"
+      "name": "শেখ মুজিবুর রহমান",
+      "entity_type": "PERSON",
+      "char_start": 1988,
+      "char_end": 2005,
+      "evidence_span": "শেখ মুজিবুর রহমান"
     },
     {
       "entity_id": "p006_e14",
-      "name": "বর্ধমান হাউস",
-      "entity_type": "LOCATION",
-      "char_start": 2599,
-      "char_end": 2611,
-      "evidence_span": "বর্ধমান হাউস"
+      "name": "১৯৫৪ সালের ৩০শে মে",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 2204,
+      "char_end": 2222,
+      "evidence_span": "১৯৫৪ সালের ৩০শে মে"
     },
     {
       "entity_id": "p006_e15",
-      "name": "শহিদ মিনার",
-      "entity_type": "LOCATION",
-      "char_start": 2706,
-      "char_end": 2716,
-      "evidence_span": "শহিদ মিনার"
-    },
-    {
-      "entity_id": "p006_e16",
-      "name": "একুশে ফেব্রুয়ারি",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2738,
-      "char_end": 2754,
-      "evidence_span": "একুশে ফেব্রুয়ারি"
-    },
-    {
-      "entity_id": "p006_e17",
-      "name": "শহিদ দিবস",
-      "entity_type": "EVENT",
-      "char_start": 2757,
-      "char_end": 2766,
-      "evidence_span": "শহিদ দিবস"
-    },
-    {
-      "entity_id": "p006_e18",
-      "name": "লাহোর প্রস্তাব",
-      "entity_type": "DOCUMENT/TREATY/LAW",
-      "char_start": 2814,
-      "char_end": 2828,
-      "evidence_span": "লাহোর প্রস্তাব"
-    },
-    {
-      "entity_id": "p006_e19",
-      "name": "২০২৩",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 3017,
-      "char_end": 3021,
-      "evidence_span": "২০২৩"
+      "name": "ইস্কান্দার মির্জা",
+      "entity_type": "PERSON",
+      "char_start": 2293,
+      "char_end": 2310,
+      "evidence_span": "ইস্কান্দার মির্জা"
     }
   ],
   "relations": [
     {
       "relation_id": "p006_r01",
-      "head_text": "আওয়ামী মুসলিম লীগ",
-      "head_type": "ORGANIZATION",
+      "head_text": "একে ফজলুল হক",
+      "head_type": "PERSON",
       "relation_type": "member_of",
-      "tail_text": "যুক্তফ্রন্টের ২১ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "দলগুলো হলো: আওয়ামী মুসলিম লীগ, কৃষক শ্রমিক পার্টি, নেজামে ইসলাম, খেলাফতে রাব্বানী এবং গণতন্ত্রী দল। যুক্তফ্রন্টের নির্বাচনী প্রতীক ছিল নৌকা।"
+      "tail_text": "কৃষক শ্রমিক পার্টি",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "মওলানা আবদুল হামিদ খান ভাসানী, একে ফজলুল হক এবং হোসেন শহীদ সোহরাওয়ার্দী এই তিন প্রবীণ নেতার নেতৃত্বে যুক্তফ্রন্ট গঠিত হয়।"
     },
     {
       "relation_id": "p006_r02",
-      "head_text": "কৃষক শ্রমিক পার্টি",
-      "head_type": "ORGANIZATION",
+      "head_text": "মওলানা আবদুল হামিদ খান ভাসানী",
+      "head_type": "PERSON",
       "relation_type": "member_of",
-      "tail_text": "যুক্তফ্রন্টের ২১ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "দলগুলো হলো: আওয়ামী মুসলিম লীগ, কৃষক শ্রমিক পার্টি, নেজামে ইসলাম, খেলাফতে রাব্বানী এবং গণতন্ত্রী দল। যুক্তফ্রন্টের নির্বাচনী প্রতীক ছিল নৌকা।"
+      "tail_text": "যুক্তফ্রন্ট",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "মওলানা আবদুল হামিদ খান ভাসানী, একে ফজলুল হক এবং হোসেন শহীদ সোহরাওয়ার্দী এই তিন প্রবীণ নেতার নেতৃত্বে যুক্তফ্রন্ট গঠিত হয়।"
     },
     {
       "relation_id": "p006_r03",
-      "head_text": "নেজামে ইসলাম",
-      "head_type": "ORGANIZATION",
-      "relation_type": "member_of",
-      "tail_text": "যুক্তফ্রন্টের ২১ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "দলগুলো হলো: আওয়ামী মুসলিম লীগ, কৃষক শ্রমিক পার্টি, নেজামে ইসলাম, খেলাফতে রাব্বানী এবং গণতন্ত্রী দল। যুক্তফ্রন্টের নির্বাচনী প্রতীক ছিল নৌকা।"
-    },
-    {
-      "relation_id": "p006_r04",
-      "head_text": "খেলাফতে রাব্বানী",
-      "head_type": "ORGANIZATION",
-      "relation_type": "member_of",
-      "tail_text": "যুক্তফ্রন্টের ২১ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "দলগুলো হলো: আওয়ামী মুসলিম লীগ, কৃষক শ্রমিক পার্টি, নেজামে ইসলাম, খেলাফতে রাব্বানী এবং গণতন্ত্রী দল। যুক্তফ্রন্টের নির্বাচনী প্রতীক ছিল নৌকা।"
-    },
-    {
-      "relation_id": "p006_r05",
-      "head_text": "গণতন্ত্রী দল",
-      "head_type": "ORGANIZATION",
-      "relation_type": "member_of",
-      "tail_text": "যুক্তফ্রন্টের ২১ দফা",
-      "tail_type": "DOCUMENT/TREATY/LAW",
-      "evidence_span": "দলগুলো হলো: আওয়ামী মুসলিম লীগ, কৃষক শ্রমিক পার্টি, নেজামে ইসলাম, খেলাফতে রাব্বানী এবং গণতন্ত্রী দল। যুক্তফ্রন্টের নির্বাচনী প্রতীক ছিল নৌকা।"
+      "head_text": "ইস্কান্দার মির্জা",
+      "head_type": "PERSON",
+      "relation_type": "signed_issued",
+      "tail_text": "১৯৫৪ সালের ৩০শে মে",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "আদমজী পাটকলে দাঙ্গার অজুহাত তুলে ১৯৫৪ সালের ৩০শে মে মাত্র ৫৬ দিনের মাথায় যুক্তফ্রন্ট মন্ত্রিসভা ভেঙে দেয় এবং মেজর জেনারেল ইস্কান্দার মির্জা গভর্নর শাসন জারি করেন।"
     }
   ],
   "events": [
     {
       "event_id": "p006_ev01",
-      "trigger_name": "প্রাদেশিক পরিষদের নির্বাচন",
+      "trigger_name": "যুক্তফ্রন্টের নির্বাচনী বিজয়",
       "event_type": "ELECTION",
       "date": "১৯৫৪ সালের মার্চ মাস",
-      "location": "পূর্ববাংলা",
+      "location": "পূর্ব বাংলা",
       "participants": [
         {
           "name": "যুক্তফ্রন্ট",
-          "entity_type": "ORGANIZATION",
-          "role": "Contestant"
+          "role": "victor"
         },
         {
           "name": "মুসলিম লীগ",
-          "entity_type": "ORGANIZATION",
-          "role": "Contestant"
+          "role": "defeated"
         }
       ],
-      "causes": [],
-      "consequences": [
-        "যুক্তফ্রন্ট প্রাদেশিক সরকার গঠনের রায় লাভ করে।"
+      "causes": [
+        "২১ দফা কর্মসূচির বিপুল জনপ্রিয়তা ও মুসলিম লীগের অপশাসন"
       ],
-      "evidence_span": "১৯৫৪ সালের মার্চ মাসে প্রাদেশিক পরিষদের নির্বাচন অনুষ্ঠিত হয়।"
+      "consequences": [
+        "পূর্ব বাংলায় মুসলিম লীগের ভিত্তি ধসে পড়ে",
+        "হক মন্ত্রিসভা গঠন"
+      ],
+      "evidence_span": "১৯৫৪ সালের মার্চ মাসে অনুষ্ঠিত পূর্ব বাংলা প্রাদেশিক পরিষদের নির্বাচনে যুক্তফ্রন্ট ২২৩টি আসন পেয়ে নিরঙ্কুশ বিজয় লাভ করে এবং মুসলিম লীগ মাত্র ৯টি আসন পায়।"
     }
   ]
 }

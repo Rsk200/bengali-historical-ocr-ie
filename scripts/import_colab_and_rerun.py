@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""
+Colab Export Importer and Master Benchmark Re-runner.
+Automatically unzips and integrates colab_export.zip (containing EasyOCR, Surya,
+Marker, Qwen2-VL, BanglaBERT Arm B, and Open-Weight LLMs) into project directories,
+and re-runs the master benchmark suite to update all C2, C3, and A1-A3 results.
+"""
+
+import argparse
+import json
+import logging
+from pathlib import Path
+import shutil
+import sys
+import zipfile
+
+# Ensure root is in sys.path
+root_dir = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(root_dir))
+
+from src.run_dev_master_benchmark import (
+    execute_a1_correction_ablation,
+    execute_a2_chunking_ablation,
+    execute_a3_prompt_consistency_ablation,
+    execute_c2_ocr_selection,
+    execute_c3_error_propagation,
+    generate_dev_benchmark_report,
+    load_dev_gold
+)
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger("colab_importer")
+
+
+def find_colab_export(search_dirs: List[Path]) -> Optional[Path]:
+    """Finds colab_export.zip or colab_export directory."""
+    for d in search_dirs:
+        if not d.exists():
+            continue
+        # Check zip
+        zip_candidate = d / "colab_export.zip"
+        if zip_candidate.exists():
+            return zip_candidate
+        # Check folder
+        dir_candidate = d / "colab_export"
+        if dir_candidate.is_dir():
+            return dir_candidate
+    return None
+
+
+def copy_matching_json(src_dir: Path, dest_dir: Path, prefix: str = "p"):
+    """Copies all matching p*.json files from src_dir to dest_dir."""
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    count = 0
+    for f in src_dir.glob(f"{prefix}*.json"):
+        shutil.copy2(f, dest_dir / f.name)
+        count += 1
+    return count
+
+
+def import_colab_artifacts(export_path: Path) -> Dict[str, Any]:
+    """Unzips if necessary and copies artifacts to their destination directories."""
+    temp_dir = None
+    if export_path.is_file() and export_path.suffix.lower() == ".zip":
+        temp_dir = root_dir / "outputs" / "_temp_colab_unpack"
+        if temp_dir.exists():
+            shutil.rmtree(temp_dir)
+        temp_dir.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Extracting {export_path.name} to {temp_dir} ...")
+        with zipfile.ZipFile(export_path, "r") as zf:
+            zf.extractall(temp_dir)
+        source_root = temp_dir
+    else:
+        source_root = export_path
+
+    imported_summary = {"ocr": {}, "post_ocr": {}, "extractions": {}}
+
+    # 1. OCR outputs: outputs/ocr/{model}/
+    ocr_src = source_root / "outputs" / "ocr" if (source_root / "outputs" / "ocr").exists() else source_root / "ocr"
+    if ocr_src.exists():
+        for model_dir in ocr_src.iterdir():
+            if model_dir.is_dir():
+                target_dir = root_dir / "outputs" / "ocr" / model_dir.name
+                count = copy_matching_json(model_dir, target_dir)
+                imported_summary["ocr"][model_dir.name] = count
+                logger.info(f"Imported {count} OCR pages for model: {model_dir.name}")
+
+    # 2. Post-OCR outputs: outputs/post_ocr/{source}/{arm}/
+    post_src = source_root / "outputs" / "post_ocr" if (source_root / "outputs" / "post_ocr").exists() else source_root / "post_ocr"
+    if post_src.exists():
+        for src_engine in post_src.iterdir():
+            if src_engine.is_dir():
+                for arm_dir in src_engine.iterdir():
+                    if arm_dir.is_dir():
+                        target_dir = root_dir / "outputs" / "post_ocr" / src_engine.name / arm_dir.name
+                        count = copy_matching_json(arm_dir, target_dir)
+                        imported_summary["post_ocr"].setdefault(src_engine.name, {})[arm_dir.name] = count
+                        logger.info(f"Imported {count} Post-OCR pages for {src_engine.name} ({arm_dir.name})")
+
+    # 3. LLM Extractions: outputs/extractions/{source}/{model}/
+    ext_src = source_root / "outputs" / "extractions" if (source_root / "outputs" / "extractions").exists() else source_root / "extractions"
+    if ext_src.exists():
+        for src_engine in ext_src.iterdir():
+            if src_engine.is_dir():
+                for model_dir in src_engine.iterdir():
+                    if model_dir.is_dir():
+                        target_dir = root_dir / "outputs" / "extractions" / src_engine.name / model_dir.name
+                        count = copy_matching_json(model_dir, target_dir)
+                        imported_summary["extractions"].setdefault(src_engine.name, {})[model_dir.name] = count
+                        logger.info(f"Imported {count} LLM extractions for {src_engine.name} ({model_dir.name})")
+
+    # Clean up temp
+    if temp_dir and temp_dir.exists():
+        shutil.rmtree(temp_dir)
+
+    return imported_summary
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Import Colab outputs and re-run master benchmark.")
+    parser.add_argument("--zip_path", type=str, default=None, help="Explicit path to colab_export.zip")
+    args = parser.parse_args()
+
+    search_dirs = [
+        root_dir,
+        root_dir / "outputs",
+        Path.home() / "Downloads"
+    ]
+
+    target_export = Path(args.zip_path) if args.zip_path else find_colab_export(search_dirs)
+
+    if not target_export or not target_export.exists():
+        logger.warning(
+            f"No colab_export.zip or colab_export folder found in:\n" +
+            "\n".join([f"  - {d}" for d in search_dirs]) +
+            "\nPlease place 'colab_export.zip' in the project directory or provide --zip_path <path>."
+        )
+        sys.exit(1)
+
+    logger.info(f"Found Colab export package: {target_export}")
+    import_summary = import_colab_artifacts(target_export)
+    logger.info("Import summary: " + json.dumps(import_summary, indent=2))
+
+    # Re-running benchmark
+    logger.info("Triggering Master Development Benchmark suite on newly imported outputs...")
+    gold_data = load_dev_gold()
+
+    iaa_path = root_dir / "outputs" / "results" / "dev" / "iaa_summary.json"
+    with open(iaa_path, "r", encoding="utf-8") as f:
+        iaa_res = json.load(f)
+
+    c2_res = execute_c2_ocr_selection(gold_data)
+    c3_res = execute_c3_error_propagation(gold_data)
+    a1_res = execute_a1_correction_ablation(gold_data)
+    a2_res = execute_a2_chunking_ablation(gold_data)
+    a3_res = execute_a3_prompt_consistency_ablation(gold_data)
+
+    generate_dev_benchmark_report(iaa_res, c2_res, c3_res, a1_res, a2_res, a3_res)
+    logger.info("Successfully updated all benchmarks and regenerated dev_benchmark_report.md!")
+
+
+if __name__ == "__main__":
+    main()

@@ -3,201 +3,161 @@
   "entities": [
     {
       "entity_id": "p002_e01",
-      "name": "চৌধুরী খলীকুজ্জামান",
-      "entity_type": "PERSON",
-      "char_start": 74,
-      "char_end": 93,
-      "evidence_span": "চৌধুরী খলীকুজ্জামান"
-    },
-    {
-      "entity_id": "p002_e02",
-      "name": "ড. জিয়াউদ্দিন আহমদ",
-      "entity_type": "PERSON",
-      "char_start": 140,
-      "char_end": 158,
-      "evidence_span": "ড. জিয়াউদ্দিন আহমদ"
-    },
-    {
-      "entity_id": "p002_e03",
-      "name": "আবদুল হক",
-      "entity_type": "PERSON",
-      "char_start": 236,
-      "char_end": 244,
-      "evidence_span": "আবদুল হক"
-    },
-    {
-      "entity_id": "p002_e04",
-      "name": "ড. মুহম্মদ শহীদুল্লাহ",
-      "entity_type": "PERSON",
-      "char_start": 246,
-      "char_end": 267,
-      "evidence_span": "ড. মুহম্মদ শহীদুল্লাহ"
-    },
-    {
-      "entity_id": "p002_e05",
-      "name": "আবুল মনসুর আহমদ",
-      "entity_type": "PERSON",
-      "char_start": 269,
-      "char_end": 284,
-      "evidence_span": "আবুল মনসুর আহমদ"
-    },
-    {
-      "entity_id": "p002_e06",
-      "name": "ড. মুহাম্মদ এনামুল হক",
-      "entity_type": "PERSON",
-      "char_start": 289,
-      "char_end": 310,
-      "evidence_span": "ড. মুহাম্মদ এনামুল হক"
-    },
-    {
-      "entity_id": "p002_e07",
-      "name": "আবুল কাশেম",
-      "entity_type": "PERSON",
-      "char_start": 389,
-      "char_end": 399,
-      "evidence_span": "আবুল কাশেম"
-    },
-    {
-      "entity_id": "p002_e08",
-      "name": "তমদ্দুন মজলিস",
-      "entity_type": "ORGANIZATION",
-      "char_start": 431,
-      "char_end": 444,
-      "evidence_span": "তমদ্দুন মজলিস"
-    },
-    {
-      "entity_id": "p002_e09",
-      "name": "রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 836,
-      "char_end": 861,
-      "evidence_span": "রাষ্ট্রভাষা সংগ্রাম পরিষদ"
-    },
-    {
-      "entity_id": "p002_e10",
-      "name": "ঢাকা বিশ্ববিদ্যালয়",
-      "entity_type": "ORGANIZATION",
-      "char_start": 361,
-      "char_end": 379,
-      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়"
-    },
-    {
-      "entity_id": "p002_e11",
-      "name": "পাকিস্তান সরকার",
-      "entity_type": "ORGANIZATION",
-      "char_start": 953,
-      "char_end": 968,
-      "evidence_span": "পাকিস্তান সরকার"
-    },
-    {
-      "entity_id": "p002_e12",
-      "name": "ধীরেন্দ্রনাথ দত্ত",
-      "entity_type": "PERSON",
-      "char_start": 1066,
-      "char_end": 1083,
-      "evidence_span": "ধীরেন্দ্রনাথ দত্ত"
-    },
-    {
-      "entity_id": "p002_e13",
-      "name": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1257,
-      "char_end": 1291,
-      "evidence_span": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ"
-    },
-    {
-      "entity_id": "p002_e14",
-      "name": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ",
-      "entity_type": "ORGANIZATION",
-      "char_start": 1431,
-      "char_end": 1462,
-      "evidence_span": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ"
-    },
-    {
-      "entity_id": "p002_e15",
-      "name": "খাজা নাজিমুদ্দীন",
-      "entity_type": "PERSON",
-      "char_start": 1729,
-      "char_end": 1745,
-      "evidence_span": "খাজা নাজিমুদ্দীন"
-    },
-    {
-      "entity_id": "p002_e16",
       "name": "১৯৪৭ সালের ১৭ই মে",
       "entity_type": "DATE/PERIOD",
-      "char_start": 56,
-      "char_end": 73,
+      "char_start": 55,
+      "char_end": 72,
       "evidence_span": "১৯৪৭ সালের ১৭ই মে"
     },
     {
-      "entity_id": "p002_e17",
-      "name": "জুলাই মাস",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 98,
-      "char_end": 107,
-      "evidence_span": "জুলাই মাস"
+      "entity_id": "p002_e02",
+      "name": "চৌধুরী খলীকুজ্জামান",
+      "entity_type": "PERSON",
+      "char_start": 73,
+      "char_end": 92,
+      "evidence_span": "চৌধুরী খলীকুজ্জামান"
     },
     {
-      "entity_id": "p002_e18",
-      "name": "২রা সেপ্টেম্বর ১৯৪৭",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 411,
-      "char_end": 430,
-      "evidence_span": "২রা সেপ্টেম্বর ১৯৪৭"
+      "entity_id": "p002_e03",
+      "name": "আলিগড় বিশ্ববিদ্যালয়ের",
+      "entity_type": "ORGANIZATION",
+      "char_start": 108,
+      "char_end": 129,
+      "evidence_span": "আলিগড় বিশ্ববিদ্যালয়ের"
     },
     {
-      "entity_id": "p002_e19",
-      "name": "১৯৪৭ সালের ডিসেম্বর মাস",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 606,
-      "char_end": 629,
-      "evidence_span": "১৯৪৭ সালের ডিসেম্বর মাস"
+      "entity_id": "p002_e04",
+      "name": "ড. জিয়াউদ্দিন আহমদ",
+      "entity_type": "PERSON",
+      "char_start": 139,
+      "char_end": 157,
+      "evidence_span": "ড. জিয়াউদ্দিন আহমদ"
     },
     {
-      "entity_id": "p002_e20",
+      "entity_id": "p002_e05",
+      "name": "আবদুল হক",
+      "entity_type": "PERSON",
+      "char_start": 235,
+      "char_end": 243,
+      "evidence_span": "আবদুল হক"
+    },
+    {
+      "entity_id": "p002_e06",
+      "name": "ড. মুহম্মদ শহীদুল্লাহ",
+      "entity_type": "PERSON",
+      "char_start": 245,
+      "char_end": 266,
+      "evidence_span": "ড. মুহম্মদ শহীদুল্লাহ"
+    },
+    {
+      "entity_id": "p002_e07",
+      "name": "আবুল মনসুর আহমদ",
+      "entity_type": "PERSON",
+      "char_start": 268,
+      "char_end": 283,
+      "evidence_span": "আবুল মনসুর আহমদ"
+    },
+    {
+      "entity_id": "p002_e08",
+      "name": "ড. মুহাম্মদ এনামুল হক",
+      "entity_type": "PERSON",
+      "char_start": 288,
+      "char_end": 309,
+      "evidence_span": "ড. মুহাম্মদ এনামুল হক"
+    },
+    {
+      "entity_id": "p002_e09",
+      "name": "ঢাকা বিশ্ববিদ্যালয়ের",
+      "entity_type": "ORGANIZATION",
+      "char_start": 360,
+      "char_end": 380,
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের"
+    },
+    {
+      "entity_id": "p002_e10",
+      "name": "আবুল কাশেমের",
+      "entity_type": "PERSON",
+      "char_start": 388,
+      "char_end": 400,
+      "evidence_span": "আবুল কাশেমের"
+    },
+    {
+      "entity_id": "p002_e11",
+      "name": "তমদ্দুন মজলিস",
+      "entity_type": "ORGANIZATION",
+      "char_start": 430,
+      "char_end": 443,
+      "evidence_span": "তমদ্দুন মজলিস"
+    },
+    {
+      "entity_id": "p002_e12",
+      "name": "রাষ্ট্রভাষা সংগ্রাম পরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 835,
+      "char_end": 860,
+      "evidence_span": "রাষ্ট্রভাষা সংগ্রাম পরিষদ"
+    },
+    {
+      "entity_id": "p002_e13",
       "name": "১৯৪৮ সালের ২৫শে ফেব্রুয়ারি",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1015,
-      "char_end": 1041,
+      "char_start": 1014,
+      "char_end": 1040,
       "evidence_span": "১৯৪৮ সালের ২৫শে ফেব্রুয়ারি"
     },
     {
-      "entity_id": "p002_e21",
-      "name": "১৯৪৮ সালের ৪ঠা জানুয়ারি",
+      "entity_id": "p002_e14",
+      "name": "গণপরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1051,
+      "char_end": 1058,
+      "evidence_span": "গণপরিষদ"
+    },
+    {
+      "entity_id": "p002_e15",
+      "name": "ধীরেন্দ্রনাথ দত্ত",
+      "entity_type": "PERSON",
+      "char_start": 1065,
+      "char_end": 1082,
+      "evidence_span": "ধীরেন্দ্রনাথ দত্ত"
+    },
+    {
+      "entity_id": "p002_e16",
+      "name": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1256,
+      "char_end": 1290,
+      "evidence_span": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ"
+    },
+    {
+      "entity_id": "p002_e17",
+      "name": "১১ই মার্চ",
       "entity_type": "DATE/PERIOD",
-      "char_start": 1396,
-      "char_end": 1419,
-      "evidence_span": "১৯৪৮ সালের ৪ঠা জানুয়ারি"
+      "char_start": 1314,
+      "char_end": 1323,
+      "evidence_span": "১১ই মার্চ"
     },
     {
-      "entity_id": "p002_e22",
-      "name": "বাংলা ভাষা দাবি দিবস",
-      "entity_type": "EVENT",
-      "char_start": 1326,
-      "char_end": 1346,
-      "evidence_span": "বাংলা ভাষা দাবি দিবস"
+      "entity_id": "p002_e18",
+      "name": "খাজা নাজিমুদ্দীন",
+      "entity_type": "PERSON",
+      "char_start": 1728,
+      "char_end": 1744,
+      "evidence_span": "খাজা নাজিমুদ্দীন"
     },
     {
-      "entity_id": "p002_e23",
-      "name": "রাষ্ট্রভাষা আন্দোলন",
-      "entity_type": "EVENT",
-      "char_start": 2456,
-      "char_end": 2475,
-      "evidence_span": "রাষ্ট্রভাষা আন্দোলন"
-    },
-    {
-      "entity_id": "p002_e24",
-      "name": "২০২৩",
-      "entity_type": "DATE/PERIOD",
-      "char_start": 2575,
-      "char_end": 2579,
-      "evidence_span": "২০২৩"
+      "entity_id": "p002_e19",
+      "name": "৮ দফা চুক্তি",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 1789,
+      "char_end": 1801,
+      "evidence_span": "৮ দফা চুক্তি"
     }
   ],
   "relations": [
     {
       "relation_id": "p002_r01",
-      "head_text": "আবুল কাশেম",
+      "head_text": "আবুল কাশেমের",
       "head_type": "PERSON",
       "relation_type": "led_by",
       "tail_text": "তমদ্দুন মজলিস",
@@ -206,36 +166,48 @@
     },
     {
       "relation_id": "p002_r02",
-      "head_text": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ",
-      "head_type": "ORGANIZATION",
-      "relation_type": "occurred_on",
-      "tail_text": "১৯৪৮ সালের ৪ঠা জানুয়ারি",
-      "tail_type": "DATE/PERIOD",
-      "evidence_span": "১৯৪৮ সালের ৪ঠা জানুয়ারি প্রতিষ্ঠিত পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ"
+      "head_text": "ধীরেন্দ্রনাথ দত্ত",
+      "head_type": "PERSON",
+      "relation_type": "participated_in",
+      "tail_text": "গণপরিষদ",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "১৯৪৮ সালের ২৫শে ফেব্রুয়ারি পাকিস্তান গণপরিষদ সদস্য ধীরেন্দ্রনাথ দত্ত গণপরিষদের ভাষা হিসেবে উর্দু ও ইংরেজির পাশাপাশি বাংলা ব্যবহারের দাবি জানান।"
+    },
+    {
+      "relation_id": "p002_r03",
+      "head_text": "খাজা নাজিমুদ্দীন",
+      "head_type": "PERSON",
+      "relation_type": "signed_issued",
+      "tail_text": "৮ দফা চুক্তি",
+      "tail_type": "DOCUMENT/TREATY/LAW",
+      "evidence_span": "বাধ্য হয়ে পূর্ব পাকিস্তানের মুখ্যমন্ত্রী খাজা নাজিমুদ্দীন ১৫ই মার্চ রাষ্ট্রভাষা সংগ্রাম পরিষদের সঙ্গে ৮ দফা চুক্তিতে স্বাক্ষর করেন।"
     }
   ],
   "events": [
     {
       "event_id": "p002_ev01",
-      "trigger_name": "গড়ে ওঠে",
-      "event_type": "FORMATION",
-      "date": "২রা সেপ্টেম্বর ১৯৪৭",
+      "trigger_name": "৮ দফা চুক্তি স্বাক্ষর",
+      "event_type": "TREATY SIGNING",
+      "date": "১৯৪৮ সালের ১৫ই মার্চ",
       "location": "ঢাকা",
       "participants": [
         {
-          "name": "আবুল কাশেম",
-          "entity_type": "PERSON",
-          "role": "leader"
+          "name": "খাজা নাজিমুদ্দীন",
+          "role": "chief_minister"
         },
         {
-          "name": "তমদ্দুন মজলিস",
-          "entity_type": "ORGANIZATION",
-          "role": "organization"
+          "name": "রাষ্ট্রভাষা সংগ্রাম পরিষদ",
+          "role": "negotiator"
         }
       ],
-      "causes": [],
-      "consequences": [],
-      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের শিক্ষক আবুল কাশেমের নেতৃত্বে ২রা সেপ্টেম্বর ১৯৪৭ তমদ্দুন মজলিস নামক একটি সাংস্কৃতিক প্রতিষ্ঠান গড়ে ওঠে।"
+      "causes": [
+        "১১ই মার্চের ছাত্র ধর্মঘট ও গণবিক্ষোভ"
+      ],
+      "consequences": [
+        "গ্রেপ্তারকৃত বন্দীদের মুক্তি",
+        "বাংলাকে অন্যতম রাষ্ট্রভাষা করার সুপারিশ"
+      ],
+      "evidence_span": "বাধ্য হয়ে পূর্ব পাকিস্তানের মুখ্যমন্ত্রী খাজা নাজিমুদ্দীন ১৫ই মার্চ রাষ্ট্রভাষা সংগ্রাম পরিষদের সঙ্গে ৮ দফা চুক্তিতে স্বাক্ষর করেন।"
     }
   ]
 }
