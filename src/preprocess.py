@@ -10,7 +10,7 @@ Provides modular, switchable image preprocessing stages for Bengali OCR:
 """
 
 from pathlib import Path
-from typing import Dict, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 import cv2
 import numpy as np
 import yaml
@@ -243,3 +243,88 @@ def preprocess_image(
         out = apply_otsu_binarisation(out)
 
     return out
+
+
+def preprocess_split(
+    pages_csv_path: Union[str, Path] = "data/pages.csv",
+    split: str = "dev",
+    output_dir: Union[str, Path] = "data/preprocessed_scans/dev",
+    page_ids: Optional[List[str]] = None,
+    allow_test: bool = False,
+    config_path: Union[str, Path] = "configs/config.yaml"
+) -> List[Dict[str, Any]]:
+    """
+    Process images for a dataset split under the full OCR preprocessing pipeline:
+    greyscale -> median_blur -> clahe -> otsu -> deskew.
+    Saves processed images to output_dir and returns structured execution logs.
+    Strictly guards the held-out test set if allow_test=False.
+    """
+    # Guard held-out test split
+    if split == "test" and not allow_test:
+        cfg = {}
+        if Path(config_path).exists():
+            with open(config_path, "r", encoding="utf-8") as f:
+                cfg = yaml.safe_load(f) or {}
+        if cfg.get("test_set_read_only", True):
+            raise PermissionError(
+                "Held-out test set protection is ACTIVE! "
+                "Running preprocessing on 'test' split is prohibited during development. "
+                "Pass allow_test=True explicitly for final test execution."
+            )
+
+    csv_p = Path(pages_csv_path)
+    if not csv_p.exists():
+        raise FileNotFoundError(f"Pages manifest not found at: {csv_p}")
+
+    import pandas as pd
+    df = pd.read_csv(csv_p)
+    target_df = df[(df["split"] == split) & (df["page_type"] == "core_prose")]
+
+    if page_ids:
+        target_df = target_df[target_df["page_id"].isin(page_ids)]
+
+    out_p = Path(output_dir)
+    out_p.mkdir(parents=True, exist_ok=True)
+
+    results = []
+    for _, row in target_df.iterrows():
+        p_id = str(row["page_id"])
+        img_p = Path(str(row["image_path"]))
+        if not img_p.exists():
+            continue
+
+        raw_img = cv2.imread(str(img_p))
+        if raw_img is None:
+            continue
+
+        h, w = raw_img.shape[:2]
+        skew_angle = estimate_skew_angle(raw_img)
+
+        # Full preprocessing pipeline:
+        # 1. Greyscale
+        gray = to_greyscale(raw_img)
+        # 2. Median blur
+        blurred = apply_median_blur(gray, ksize=3)
+        # 3. CLAHE
+        clahe_img = apply_clahe(blurred, clip_limit=2.0, tile_grid_size=(8, 8))
+        # 4. Otsu binarisation
+        binary = apply_otsu_binarisation(clahe_img)
+        # 5. Deskew
+        deskewed = apply_deskew(binary, max_angle_deg=10.0)
+
+        dest_file = out_p / f"{p_id}.png"
+        cv2.imwrite(str(dest_file), deskewed)
+
+        rec = {
+            "page_id": p_id,
+            "book_page": int(row["book_page"]),
+            "width": w,
+            "height": h,
+            "detected_skew_deg": round(skew_angle, 4),
+            "output_path": str(dest_file),
+            "file_size_bytes": dest_file.stat().st_size
+        }
+        results.append(rec)
+
+    return results
+

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "p006",
+    "data": {
+      "image_url": "data/raw_scans/dev/p006.png",
+      "text": "<!-- Page: p006 (Chapter: ch01, Book Page: 6) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p006",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 6,
+      "layout_tags": "prose,enumerated_list_21_point"
+    }
+  },
+  {
+    "id": "p007",
+    "data": {
+      "image_url": "data/raw_scans/dev/p007.png",
+      "text": "<!-- Page: p007 (Chapter: ch01, Book Page: 7) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p007",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 7,
+      "layout_tags": "prose,activity_box"
+    }
+  },
+  {
+    "id": "p008",
+    "data": {
+      "image_url": "data/raw_scans/dev/p008.png",
+      "text": "<!-- Page: p008 (Chapter: ch01, Book Page: 8) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p008",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 8,
+      "layout_tags": "prose,statistical_table"
+    }
+  },
+  {
+    "id": "p009",
+    "data": {
+      "image_url": "data/raw_scans/dev/p009.png",
+      "text": "<!-- Page: p009 (Chapter: ch01, Book Page: 9) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p009",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 9,
+      "layout_tags": "prose,enumerated_list_6_point"
+    }
+  },
+  {
+    "id": "p010",
+    "data": {
+      "image_url": "data/raw_scans/dev/p010.png",
+      "text": "<!-- Page: p010 (Chapter: ch01, Book Page: 10) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p010",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 10,
+      "layout_tags": "prose,heading"
+    }
+  },
+  {
+    "id": "p011",
+    "data": {
+      "image_url": "data/raw_scans/dev/p011.png",
+      "text": "<!-- Page: p011 (Chapter: ch01, Book Page: 11) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p011",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 2,
+      "book_page": 11,
+      "layout_tags": "prose,heading"
+    }
+  }
+]

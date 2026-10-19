@@ -61,11 +61,17 @@ def get_annotation_schedule_week(page_id: str, chapter_id: str, page_type: str) 
 
 def prepare_label_studio_tasks(
     pages_csv_path: Union[str, Path] = "data/pages.csv",
-    output_json_path: Union[str, Path] = "data/gold_standard/label_studio_tasks.json"
+    output_json_path: Union[str, Path] = "data/gold_standard/label_studio_tasks.json",
+    weekly_output_dir: Optional[Union[str, Path]] = "data/gold_standard/label_studio_tasks"
 ) -> List[Dict[str, Any]]:
     """
     Read data/pages.csv and filter the 38 core_prose pages.
     Generates structured tasks with week metadata and transcription templates.
+    Also exports weekly JSON task batches to weekly_output_dir if provided:
+      - week1_pilot_p001_p005.json (5 pages)
+      - week2_dev_p006_p011.json (6 pages)
+      - week3_test_ch02_p014_p024.json (11 pages)
+      - week4_test_ch08_ch09.json (16 pages)
     """
     csv_p = Path(pages_csv_path)
     if not csv_p.exists():
@@ -113,7 +119,156 @@ def prepare_label_studio_tasks(
         json.dump(tasks, f, ensure_ascii=False, indent=2)
 
     logger.info(f"Generated {len(tasks)} Label Studio annotation tasks saved to {out_p}")
+
+    # Generate weekly files if weekly_output_dir is specified
+    if weekly_output_dir:
+        w_dir = Path(weekly_output_dir)
+        w_dir.mkdir(parents=True, exist_ok=True)
+
+        week_filenames = {
+            1: "week1_pilot_p001_p005.json",
+            2: "week2_dev_p006_p011.json",
+            3: "week3_test_ch02_p014_p024.json",
+            4: "week4_test_ch08_ch09.json"
+        }
+
+        for week_num, filename in week_filenames.items():
+            week_tasks = [t for t in tasks if t["data"]["schedule_week"] == week_num]
+            week_file = w_dir / filename
+            with open(week_file, "w", encoding="utf-8") as f:
+                json.dump(week_tasks, f, ensure_ascii=False, indent=2)
+            logger.info(f"Saved {len(week_tasks)} tasks for week {week_num} to {week_file}")
+
     return tasks
+
+
+def generate_transcription_workspace(
+    pages_csv_path: Union[str, Path] = "data/pages.csv",
+    output_base_dir: Union[str, Path] = "data/gold_standard",
+    split: str = "dev"
+) -> Dict[str, List[Path]]:
+    """
+    Generate pre-structured Markdown transcription workspace templates for dual annotators:
+      - data/gold_standard/annotator_1/{page_id}.md
+      - data/gold_standard/annotator_2/{page_id}.md
+    Includes specific structural placeholders:
+      - Pipe-table '| ... |' for statistical tables (p008)
+      - Numbered lists '১. ...' for enumerated lists (p002 8-point, p006 21-point, p009 6-point)
+      - Heading and Activity box blocks for core prose pages
+    """
+    csv_p = Path(pages_csv_path)
+    df = pd.read_csv(csv_p)
+    dev_df = df[(df["split"] == split) & (df["page_type"] == "core_prose")]
+
+    annotators = ["annotator_1", "annotator_2"]
+    created_files: Dict[str, List[Path]] = {a: [] for a in annotators}
+
+    for _, row in dev_df.iterrows():
+        p_id = str(row["page_id"])
+        b_page = int(row["book_page"])
+        ch_id = str(row["chapter_id"])
+        tags = str(row.get("layout_tags", ""))
+        img_p = str(row.get("image_path", ""))
+
+        # Build custom content template based on layout tags
+        header_block = (
+            f"# পেজ ট্রান্সক্রিপশন: {p_id} (বইয়ের পৃষ্ঠা: {b_page})\n"
+            f"- অধ্যায়: {ch_id} (বাংলাদেশ ও বিশ্বপরিচয়, নবম-দশম শ্রেণি)\n"
+            f"- লেআউট ট্যাগ: {tags}\n"
+            f"- স্ক্যান চিত্র: `{img_p}`\n"
+            f"- নির্দেশিকা: মূল স্ক্যান থেকে নির্ভুল বানান ও যতিচিহ্ন বজায় রেখে ট্রান্সক্রাইব করুন।\n\n"
+            "---\n\n"
+        )
+
+        body_template = ""
+        if p_id == "p001":
+            body_template = (
+                "## প্রথম অধ্যায়\n"
+                "## পূর্ববাংলার আন্দোলন ও জাতীয়তাবাদের উত্থান (১৯৪৭-১৯৭০)\n\n"
+                "### পরিচ্ছেদ ১.১ : বাঙালি জাতীয়তাবাদের বিকাশে ভাষা-আন্দোলন\n"
+                "#### ভাষা-আন্দোলনের পটভূমি\n\n"
+                "[এখানে পৃষ্ঠার মূল বর্ণনামূলক অনুচ্ছেদসমূহ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p002":
+            items = "\n".join([f"{i}. [দফা {i} এর বিবরণ...]" for i in ["১", "২", "৩", "৪", "৫", "৬", "৭", "৮"]])
+            body_template = (
+                "[এখানে সূচনা অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n\n"
+                "### ৮-দফা চুক্তি / কর্মসূচি:\n"
+                f"{items}\n\n"
+                "[এখানে পরবর্তী বর্ণনামূলক অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p003":
+            body_template = (
+                "[এখানে মূল অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n\n"
+                "> **একক কাজ / জোড়ায় কাজ / দলীয় কাজ:**\n"
+                "> [এখানে পাঠ্যবইয়ের অ্যাক্টিভিটি বক্সের বিষয়বস্তু লিখুন...]\n\n"
+                "[এখানে পরবর্তী অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p004":
+            body_template = (
+                "### [পরিচ্ছেদ বা অনুচ্ছেদের শিরোনাম]\n\n"
+                "[এখানে মূল বর্ণনামূলক অনুচ্ছেদসমূহ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p005":
+            body_template = (
+                "[এখানে মূল অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n\n"
+                "> **কাজ / বক্স:**\n"
+                "> [এখানে অ্যাক্টিভিটি বক্সের লেখা ট্রান্সক্রাইব করুন...]\n\n"
+                "[এখানে পরবর্তী বর্ণনামূলক অনুচ্ছেদ লিখুন...]\n"
+            )
+        elif p_id == "p006":
+            items = "\n".join([f"{i}. [দফা {i} এর বিবরণ...]" for i in [
+                "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "১০",
+                "১১", "১২", "১৩", "১৪", "১৫", "১৬", "১৭", "১৮", "১৯", "২০", "২১"
+            ]])
+            body_template = (
+                "### যুক্তফ্রন্টের ২১ দফা কর্মসূচি:\n"
+                f"{items}\n\n"
+                "[এখানে পরবর্তী মূল্যায়ন ও অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p007":
+            body_template = (
+                "[এখানে মূল অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n\n"
+                "> **কাজ:**\n"
+                "> [এখানে অ্যাক্টিভিটি বক্স ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p008":
+            body_template = (
+                "### পূর্ব ও পশ্চিম পাকিস্তানের অর্থনৈতিক ও প্রশাসনিক বৈষম্য:\n\n"
+                "| খাত / বিষয় | পূর্ব পাকিস্তান | পশ্চিম পাকিস্তান | বৈষম্যের অনুপাত / শতকরা হার |\n"
+                "| :--- | :--- | :--- | :--- |\n"
+                "| [উন্নয়ন ব্যয়] | [...] | [...] | [...] |\n"
+                "| [রাজস্ব ব্যয়] | [...] | [...] | [...] |\n"
+                "| [বৈদেশিক সাহায্য] | [...] | [...] | [...] |\n"
+                "| [আমদানি ও বৈদেশিক মুদ্রা] | [...] | [...] | [...] |\n\n"
+                "[এখানে টেবিল পরবর্তী ব্যাখ্যা ও বিশ্লেষণ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id == "p009":
+            items = "\n".join([f"{i}. [দফা {i} এর বিবরণ...]" for i in ["১", "২", "৩", "৪", "৫", "৬"]])
+            body_template = (
+                "### ঐতিহাসিক ৬ দফা কর্মসূচি:\n"
+                f"{items}\n\n"
+                "[এখানে ৬ দফার গুরুত্ব ও প্রেক্ষাপটের অনুচ্ছেদ ট্রান্সক্রাইব করুন...]\n"
+            )
+        elif p_id in ("p010", "p011"):
+            body_template = (
+                "### [পরিচ্ছেদ বা অনুচ্ছেদের শিরোনাম]\n\n"
+                "[এখানে মূল ঐতিহাসিক ঘটনা ও বর্ণনামূলক অনুচ্ছেদসমূহ ট্রান্সক্রাইব করুন...]\n"
+            )
+
+        full_content = header_block + body_template
+
+        for annotator in annotators:
+            a_dir = Path(output_base_dir) / annotator
+            a_dir.mkdir(parents=True, exist_ok=True)
+            out_file = a_dir / f"{p_id}.md"
+            with open(out_file, "w", encoding="utf-8") as f:
+                f.write(full_content)
+            created_files[annotator].append(out_file)
+
+    logger.info(f"Generated {len(created_files['annotator_1'])} templates each for Annotator 1 and Annotator 2.")
+    return created_files
+
 
 
 # ==============================================================================

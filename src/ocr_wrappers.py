@@ -215,14 +215,36 @@ class TesseractOCR(BaseOCRSystem):
     Tesseract 5 OCR with Bengali language model (ben + eng).
     """
 
-    def __init__(self, lang: str = "ben", psm: int = 3, **kwargs):
-        super().__init__(system_name="tesseract", **kwargs)
+    def __init__(
+        self,
+        lang: str = "ben",
+        psm: int = 3,
+        system_name: str = "tesseract",
+        tesseract_cmd: Optional[str] = None,
+        **kwargs
+    ):
+        super().__init__(system_name=system_name, **kwargs)
         self.lang = lang
         self.psm = psm
+        import os
+        self.tesseract_cmd = tesseract_cmd or os.environ.get("TESSERACT_PATH")
+        # Check standard default Windows install locations if not set
+        if not self.tesseract_cmd:
+            default_paths = [
+                r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+                r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+                os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe")
+            ]
+            for p in default_paths:
+                if Path(p).exists():
+                    self.tesseract_cmd = p
+                    break
 
     def _ocr_image(self, image_np: np.ndarray) -> Tuple[str, List[Dict[str, Any]]]:
         try:
             import pytesseract
+            if self.tesseract_cmd and Path(self.tesseract_cmd).exists():
+                pytesseract.pytesseract.tesseract_cmd = self.tesseract_cmd
             # Get word boxes and full text
             data = pytesseract.image_to_data(
                 image_np,
@@ -384,13 +406,51 @@ class GeminiOCR(BaseOCRSystem):
     Transcribes complex Bengali textbook layout including headers, footnotes, and lists.
     """
 
-    def __init__(self, model_name: str = "gemini-1.5-flash", **kwargs):
-        super().__init__(system_name="gemini_ocr", **kwargs)
+    def __init__(
+        self,
+        model_name: str = "gemini-1.5-flash",
+        system_name: str = "gemini_raw",
+        api_key: Optional[str] = None,
+        **kwargs
+    ):
+        super().__init__(system_name=system_name, **kwargs)
         self.model_name = model_name
+        import os
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
 
     def _ocr_image(self, image_np: np.ndarray) -> Tuple[str, List[Dict[str, Any]]]:
-        logger.info(f"Gemini OCR ({self.model_name}) interface ready. Transcribes high-resolution 300 DPI pages via multimodal API.")
-        return "", []
+        if not self.api_key:
+            logger.warning(
+                f"[{self.system_name}] GEMINI_API_KEY is not configured in environment or .env! "
+                f"Returning placeholder structure. See .env.example."
+            )
+            return "", []
+
+        try:
+            import google.generativeai as genai
+            from PIL import Image
+
+            genai.configure(api_key=self.api_key)
+            model = genai.GenerativeModel(self.model_name)
+            pil_img = Image.fromarray(cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB))
+
+            prompt = (
+                "Transcribe all text from this Bengali textbook page image verbatim. "
+                "Preserve all headings, numbered lists, and statistical tables. "
+                "Do not add any explanations or commentary."
+            )
+            response = model.generate_content([prompt, pil_img])
+            raw_text = response.text or ""
+
+            blocks = [
+                {"block_id": i, "text": para.strip()}
+                for i, para in enumerate(raw_text.split("\n\n"))
+                if para.strip()
+            ]
+            return raw_text, blocks
+        except Exception as e:
+            logger.error(f"[{self.system_name}] Gemini Vision API call failed: {e}")
+            return "", []
 
 
 class QwenVLOCR(BaseOCRSystem):

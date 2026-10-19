@@ -22,6 +22,7 @@ logs/
 # Raw large PDFs and 300 DPI scan images
 *.pdf
 data/raw_scans/
+data/preprocessed_scans/
 
 # Generated experiment outputs and runs
 outputs/

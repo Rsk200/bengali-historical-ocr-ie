@@ -1,0 +1,67 @@
+[
+  {
+    "id": "p001",
+    "data": {
+      "image_url": "data/raw_scans/dev/p001.png",
+      "text": "<!-- Page: p001 (Chapter: ch01, Book Page: 1) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p001",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 1,
+      "book_page": 1,
+      "layout_tags": "prose,heading"
+    }
+  },
+  {
+    "id": "p002",
+    "data": {
+      "image_url": "data/raw_scans/dev/p002.png",
+      "text": "<!-- Page: p002 (Chapter: ch01, Book Page: 2) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p002",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 1,
+      "book_page": 2,
+      "layout_tags": "prose,enumerated_list_8_point"
+    }
+  },
+  {
+    "id": "p003",
+    "data": {
+      "image_url": "data/raw_scans/dev/p003.png",
+      "text": "<!-- Page: p003 (Chapter: ch01, Book Page: 3) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p003",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 1,
+      "book_page": 3,
+      "layout_tags": "prose,activity_box"
+    }
+  },
+  {
+    "id": "p004",
+    "data": {
+      "image_url": "data/raw_scans/dev/p004.png",
+      "text": "<!-- Page: p004 (Chapter: ch01, Book Page: 4) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p004",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 1,
+      "book_page": 4,
+      "layout_tags": "prose,heading"
+    }
+  },
+  {
+    "id": "p005",
+    "data": {
+      "image_url": "data/raw_scans/dev/p005.png",
+      "text": "<!-- Page: p005 (Chapter: ch01, Book Page: 5) -->\n<!-- Human Transcription Instructions: Preserve all table columns '| ... |' and numbered lists '1. ...' -->\n\n",
+      "page_id": "p005",
+      "chapter_id": "ch01",
+      "split": "dev",
+      "schedule_week": 1,
+      "book_page": 5,
+      "layout_tags": "prose,activity_box"
+    }
+  }
+]
