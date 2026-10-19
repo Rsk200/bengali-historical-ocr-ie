@@ -1,0 +1,208 @@
+{
+  "page_id": "p005",
+  "entities": [
+    {
+      "entity_id": "p005_e01",
+      "name": "১৯৫৩ সাল",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 332,
+      "char_end": 340,
+      "evidence_span": "১৯৫৩ সাল"
+    },
+    {
+      "entity_id": "p005_e02",
+      "name": "২১শে ফেব্রুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 346,
+      "char_end": 361,
+      "evidence_span": "২১শে ফেব্রুয়ারি"
+    },
+    {
+      "entity_id": "p005_e03",
+      "name": "শহিদ দিবস",
+      "entity_type": "EVENT",
+      "char_start": 293,
+      "char_end": 302,
+      "evidence_span": "শহিদ দিবস"
+    },
+    {
+      "entity_id": "p005_e04",
+      "name": "১৯৯৯ সালের ১৭ই নভেম্বর",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 509,
+      "char_end": 531,
+      "evidence_span": "১৯৯৯ সালের ১৭ই নভেম্বর"
+    },
+    {
+      "entity_id": "p005_e05",
+      "name": "ইউনেস্কো",
+      "entity_type": "ORGANIZATION",
+      "char_start": 590,
+      "char_end": 598,
+      "evidence_span": "ইউনেস্কো"
+    },
+    {
+      "entity_id": "p005_e06",
+      "name": "বাংলাদেশ",
+      "entity_type": "LOCATION",
+      "char_start": 238,
+      "char_end": 246,
+      "evidence_span": "বাংলাদেশ"
+    },
+    {
+      "entity_id": "p005_e07",
+      "name": "আন্তর্জাতিক মাতৃভাষা দিবস",
+      "entity_type": "EVENT",
+      "char_start": 305,
+      "char_end": 330,
+      "evidence_span": "আন্তর্জাতিক মাতৃভাষা দিবস"
+    },
+    {
+      "entity_id": "p005_e08",
+      "name": "১৯৪৯ সালের ২৩শে জুন",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1905,
+      "char_end": 1924,
+      "evidence_span": "১৯৪৯ সালের ২৩শে জুন"
+    },
+    {
+      "entity_id": "p005_e09",
+      "name": "রোজ গার্ডেন",
+      "entity_type": "LOCATION",
+      "char_start": 1931,
+      "char_end": 1942,
+      "evidence_span": "রোজ গার্ডেন"
+    },
+    {
+      "entity_id": "p005_e10",
+      "name": "ঢাকা",
+      "entity_type": "LOCATION",
+      "char_start": 1925,
+      "char_end": 1929,
+      "evidence_span": "ঢাকা"
+    },
+    {
+      "entity_id": "p005_e11",
+      "name": "মওলানা আবদুল হামিদ খান ভাসানী",
+      "entity_type": "PERSON",
+      "char_start": 2065,
+      "char_end": 2094,
+      "evidence_span": "মওলানা আবদুল হামিদ খান ভাসানী"
+    },
+    {
+      "entity_id": "p005_e12",
+      "name": "শামসুল হক",
+      "entity_type": "PERSON",
+      "char_start": 2122,
+      "char_end": 2131,
+      "evidence_span": "শামসুল হক"
+    },
+    {
+      "entity_id": "p005_e13",
+      "name": "শেখ মুজিবুর রহমান",
+      "entity_type": "PERSON",
+      "char_start": 2153,
+      "char_end": 2170,
+      "evidence_span": "শেখ মুজিবুর রহমান"
+    },
+    {
+      "entity_id": "p005_e14",
+      "name": "১৯৫৫ সাল",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 2554,
+      "char_end": 2562,
+      "evidence_span": "১৯৫৫ সাল"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "p005_r01",
+      "head_text": "শহিদ দিবস",
+      "head_type": "EVENT",
+      "relation_type": "occurred_on",
+      "tail_text": "১৯৫৩ সাল",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "১৯৫৩ সাল থেকে ২১শে ফেব্রুয়ারি ‘শহিদ দিবস’ হিসেবে দেশব্যাপী পালিত হয়ে আসছে।"
+    },
+    {
+      "relation_id": "p005_r02",
+      "head_text": "ইউনেস্কো",
+      "head_type": "ORGANIZATION",
+      "relation_type": "signed_issued",
+      "tail_text": "আন্তর্জাতিক মাতৃভাষা দিবস",
+      "tail_type": "EVENT",
+      "evidence_span": "১৯৯৯ সালের ১৭ই নভেম্বর জাতিসংঘের শিক্ষা, বিজ্ঞান ও সংস্কৃতিবিষয়ক অঙ্গ প্রতিষ্ঠান ইউনেস্কো বাংলাদেশের ২১শে ফেব্রুয়ারির শহিদ দিবসকে ‘আন্তর্জাতিক মাতৃভাষা দিবস’ (International Mother Language Day) হিসেবে স্বীকৃতি প্রদান করে।"
+    },
+    {
+      "relation_id": "p005_r03",
+      "head_text": "ইউনেস্কো",
+      "head_type": "ORGANIZATION",
+      "relation_type": "occurred_on",
+      "tail_text": "১৯৯৯ সালের ১৭ই নভেম্বর",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "১৯৯৯ সালের ১৭ই নভেম্বর জাতিসংঘের শিক্ষা, বিজ্ঞান ও সংস্কৃতিবিষয়ক অঙ্গ প্রতিষ্ঠান ইউনেস্কো বাংলাদেশের ২১শে ফেব্রুয়ারির শহিদ দিবসকে ‘আন্তর্জাতিক মাতৃভাষা দিবস’"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "p005_ev01",
+      "trigger_name": "শহিদ দিবস",
+      "event_type": "COMMEMORATION",
+      "date": "১৯৫৩ সাল থেকে ২১শে ফেব্রুয়ারি",
+      "location": "দেশব্যাপী",
+      "participants": [],
+      "causes": [],
+      "consequences": [],
+      "evidence_span": "১৯৫৩ সাল থেকে ২১শে ফেব্রুয়ারি ‘শহিদ দিবস’ হিসেবে দেশব্যাপী পালিত হয়ে আসছে।"
+    },
+    {
+      "event_id": "p005_ev02",
+      "trigger_name": "স্বীকৃতি প্রদান",
+      "event_type": "RECOGNITION",
+      "date": "১৯৯৯ সালের ১৭ই নভেম্বর",
+      "location": "বাংলাদেশ",
+      "participants": [
+        {
+          "name": "ইউনেস্কো",
+          "entity_type": "ORGANIZATION",
+          "role": "Recognizer"
+        }
+      ],
+      "causes": [],
+      "consequences": [],
+      "evidence_span": "১৯৯৯ সালের ১৭ই নভেম্বর জাতিসংঘের শিক্ষা, বিজ্ঞান ও সংস্কৃতিবিষয়ক অঙ্গ প্রতিষ্ঠান ইউনেস্কো বাংলাদেশের ২১শে ফেব্রুয়ারির শহিদ দিবসকে ‘আন্তর্জাতিক মাতৃভাষা দিবস’ (International Mother Language Day) হিসেবে স্বীকৃতি প্রদান করে।"
+    },
+    {
+      "event_id": "p005_ev03",
+      "trigger_name": "গঠন",
+      "event_type": "FORMATION",
+      "date": "১৯৪৯ সালের ২৩শে জুন",
+      "location": "ঢাকার রোজ গার্ডেন",
+      "participants": [
+        {
+          "name": "পূর্ব পাকিস্তান আওয়ামী মুসলিম লীগ",
+          "entity_type": "ORGANIZATION",
+          "role": "formed_organization"
+        },
+        {
+          "name": "মওলানা আবদুল হামিদ খান ভাসানী",
+          "entity_type": "PERSON",
+          "role": "president"
+        },
+        {
+          "name": "শামসুল হক",
+          "entity_type": "PERSON",
+          "role": "general_secretary"
+        },
+        {
+          "name": "শেখ মুজিবুর রহমান",
+          "entity_type": "PERSON",
+          "role": "joint_secretary"
+        }
+      ],
+      "causes": [],
+      "consequences": [],
+      "evidence_span": "১৯৪৯ সালের ২৩শে জুন ঢাকার রোজ গার্ডেনে এক সম্মেলনের মাধ্যমে ‘পূর্ব পাকিস্তান আওয়ামী মুসলিম লীগ’ গঠন করা হয়।"
+    }
+  ]
+}

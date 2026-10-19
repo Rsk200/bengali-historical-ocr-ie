@@ -182,7 +182,7 @@ def compute_target_accuracy(
 
     for ent in gold_entities:
         e_type = ent.get("entity_type", ent.get("type", "GENERAL"))
-        e_text = ent.get("text", "").strip()
+        e_text = ent.get("name", ent.get("text", "")).strip()
         if not e_text:
             continue
 

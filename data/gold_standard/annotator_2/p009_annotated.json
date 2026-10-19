@@ -1,0 +1,155 @@
+{
+  "page_id": "p009",
+  "entities": [
+    {
+      "entity_id": "p009_e01",
+      "name": "১৯৬৫ সাল",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 72,
+      "char_end": 80,
+      "evidence_span": "১৯৬৫ সাল"
+    },
+    {
+      "entity_id": "p009_e02",
+      "name": "পাকিস্তান",
+      "entity_type": "LOCATION",
+      "char_start": 82,
+      "char_end": 91,
+      "evidence_span": "পাকিস্তান"
+    },
+    {
+      "entity_id": "p009_e03",
+      "name": "ভারত",
+      "entity_type": "LOCATION",
+      "char_start": 94,
+      "char_end": 98,
+      "evidence_span": "ভারত"
+    },
+    {
+      "entity_id": "p009_e04",
+      "name": "পূর্ববঙ্গ",
+      "entity_type": "LOCATION",
+      "char_start": 138,
+      "char_end": 147,
+      "evidence_span": "পূর্ববঙ্গ"
+    },
+    {
+      "entity_id": "p009_e05",
+      "name": "পূর্ব পাকিস্তান",
+      "entity_type": "LOCATION",
+      "char_start": 161,
+      "char_end": 176,
+      "evidence_span": "পূর্ব পাকিস্তান"
+    },
+    {
+      "entity_id": "p009_e06",
+      "name": "আইয়ুব খান",
+      "entity_type": "PERSON",
+      "char_start": 772,
+      "char_end": 781,
+      "evidence_span": "আইয়ুব খান"
+    },
+    {
+      "entity_id": "p009_e07",
+      "name": "শেখ মুজিবুর রহমান",
+      "entity_type": "PERSON",
+      "char_start": 811,
+      "char_end": 828,
+      "evidence_span": "শেখ মুজিবুর রহমান"
+    },
+    {
+      "entity_id": "p009_e08",
+      "name": "৬ দফা",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 58,
+      "char_end": 63,
+      "evidence_span": "৬ দফা"
+    },
+    {
+      "entity_id": "p009_e09",
+      "name": "১১ দফা",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 912,
+      "char_end": 918,
+      "evidence_span": "১১ দফা"
+    },
+    {
+      "entity_id": "p009_e10",
+      "name": "২১ দফা",
+      "entity_type": "DOCUMENT/TREATY/LAW",
+      "char_start": 921,
+      "char_end": 927,
+      "evidence_span": "২১ দফা"
+    },
+    {
+      "entity_id": "p009_e11",
+      "name": "১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1154,
+      "char_end": 1180,
+      "evidence_span": "১৯৬৬ সালের ৫-৬ই ফেব্রুয়ারি"
+    },
+    {
+      "entity_id": "p009_e12",
+      "name": "লাহোর",
+      "entity_type": "LOCATION",
+      "char_start": 1181,
+      "char_end": 1186,
+      "evidence_span": "লাহোর"
+    },
+    {
+      "entity_id": "p009_e13",
+      "name": "আওয়ামী লীগ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1237,
+      "char_end": 1247,
+      "evidence_span": "আওয়ামী লীগ"
+    },
+    {
+      "entity_id": "p009_e14",
+      "name": "আইয়ুব সরকার",
+      "entity_type": "ORGANIZATION",
+      "char_start": 2224,
+      "char_end": 2235,
+      "evidence_span": "আইয়ুব সরকার"
+    },
+    {
+      "entity_id": "p009_e15",
+      "name": "পাকিস্তান সরকার",
+      "entity_type": "ORGANIZATION",
+      "char_start": 2589,
+      "char_end": 2604,
+      "evidence_span": "পাকিস্তান সরকার"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "p009_r01",
+      "head_text": "শেখ মুজিবুর রহমান",
+      "head_type": "PERSON",
+      "relation_type": "member_of",
+      "tail_text": "আওয়ামী লীগ",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "আওয়ামী লীগ সাধারণ সম্পাদক শেখ মুজিবুর রহমান"
+    },
+    {
+      "relation_id": "p009_r02",
+      "head_text": "আইয়ুব সরকার",
+      "head_type": "ORGANIZATION",
+      "relation_type": "signed_issued",
+      "tail_text": "৬ দফা",
+      "tail_type": "DOCUMENT/TREATY/LAW",
+      "evidence_span": "আইয়ুব সরকার একে ‘বিচ্ছিন্নতাবাদী কর্মসূচি’ হিসেবে আখ্যায়িত করে।"
+    },
+    {
+      "relation_id": "p009_r03",
+      "head_text": "পাকিস্তান সরকার",
+      "head_type": "ORGANIZATION",
+      "relation_type": "signed_issued",
+      "tail_text": "৬ দফা",
+      "tail_type": "DOCUMENT/TREATY/LAW",
+      "evidence_span": "পাকিস্তান সরকার ৬ দফা গ্রহণ না করে দমন-পীড়ন শুরু করলে"
+    }
+  ],
+  "events": []
+}

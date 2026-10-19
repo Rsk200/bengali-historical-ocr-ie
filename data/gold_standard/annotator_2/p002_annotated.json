@@ -1,0 +1,241 @@
+{
+  "page_id": "p002",
+  "entities": [
+    {
+      "entity_id": "p002_e01",
+      "name": "চৌধুরী খলীকুজ্জামান",
+      "entity_type": "PERSON",
+      "char_start": 74,
+      "char_end": 93,
+      "evidence_span": "চৌধুরী খলীকুজ্জামান"
+    },
+    {
+      "entity_id": "p002_e02",
+      "name": "ড. জিয়াউদ্দিন আহমদ",
+      "entity_type": "PERSON",
+      "char_start": 140,
+      "char_end": 158,
+      "evidence_span": "ড. জিয়াউদ্দিন আহমদ"
+    },
+    {
+      "entity_id": "p002_e03",
+      "name": "আবদুল হক",
+      "entity_type": "PERSON",
+      "char_start": 236,
+      "char_end": 244,
+      "evidence_span": "আবদুল হক"
+    },
+    {
+      "entity_id": "p002_e04",
+      "name": "ড. মুহম্মদ শহীদুল্লাহ",
+      "entity_type": "PERSON",
+      "char_start": 246,
+      "char_end": 267,
+      "evidence_span": "ড. মুহম্মদ শহীদুল্লাহ"
+    },
+    {
+      "entity_id": "p002_e05",
+      "name": "আবুল মনসুর আহমদ",
+      "entity_type": "PERSON",
+      "char_start": 269,
+      "char_end": 284,
+      "evidence_span": "আবুল মনসুর আহমদ"
+    },
+    {
+      "entity_id": "p002_e06",
+      "name": "ড. মুহাম্মদ এনামুল হক",
+      "entity_type": "PERSON",
+      "char_start": 289,
+      "char_end": 310,
+      "evidence_span": "ড. মুহাম্মদ এনামুল হক"
+    },
+    {
+      "entity_id": "p002_e07",
+      "name": "আবুল কাশেম",
+      "entity_type": "PERSON",
+      "char_start": 389,
+      "char_end": 399,
+      "evidence_span": "আবুল কাশেম"
+    },
+    {
+      "entity_id": "p002_e08",
+      "name": "তমদ্দুন মজলিস",
+      "entity_type": "ORGANIZATION",
+      "char_start": 431,
+      "char_end": 444,
+      "evidence_span": "তমদ্দুন মজলিস"
+    },
+    {
+      "entity_id": "p002_e09",
+      "name": "রাষ্ট্রভাষা সংগ্রাম পরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 836,
+      "char_end": 861,
+      "evidence_span": "রাষ্ট্রভাষা সংগ্রাম পরিষদ"
+    },
+    {
+      "entity_id": "p002_e10",
+      "name": "ঢাকা বিশ্ববিদ্যালয়",
+      "entity_type": "ORGANIZATION",
+      "char_start": 361,
+      "char_end": 379,
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়"
+    },
+    {
+      "entity_id": "p002_e11",
+      "name": "পাকিস্তান সরকার",
+      "entity_type": "ORGANIZATION",
+      "char_start": 953,
+      "char_end": 968,
+      "evidence_span": "পাকিস্তান সরকার"
+    },
+    {
+      "entity_id": "p002_e12",
+      "name": "ধীরেন্দ্রনাথ দত্ত",
+      "entity_type": "PERSON",
+      "char_start": 1066,
+      "char_end": 1083,
+      "evidence_span": "ধীরেন্দ্রনাথ দত্ত"
+    },
+    {
+      "entity_id": "p002_e13",
+      "name": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1257,
+      "char_end": 1291,
+      "evidence_span": "সর্বদলীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ"
+    },
+    {
+      "entity_id": "p002_e14",
+      "name": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ",
+      "entity_type": "ORGANIZATION",
+      "char_start": 1431,
+      "char_end": 1462,
+      "evidence_span": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ"
+    },
+    {
+      "entity_id": "p002_e15",
+      "name": "খাজা নাজিমুদ্দীন",
+      "entity_type": "PERSON",
+      "char_start": 1729,
+      "char_end": 1745,
+      "evidence_span": "খাজা নাজিমুদ্দীন"
+    },
+    {
+      "entity_id": "p002_e16",
+      "name": "১৯৪৭ সালের ১৭ই ম",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 56,
+      "char_end": 72,
+      "evidence_span": "১৯৪৭ সালের ১৭ই ম"
+    },
+    {
+      "entity_id": "p002_e17",
+      "name": "জুলাই মাস",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 98,
+      "char_end": 107,
+      "evidence_span": "জুলাই মাস"
+    },
+    {
+      "entity_id": "p002_e18",
+      "name": "২রা সেপ্টেম্বর ১৯৪৭",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 411,
+      "char_end": 430,
+      "evidence_span": "২রা সেপ্টেম্বর ১৯৪৭"
+    },
+    {
+      "entity_id": "p002_e19",
+      "name": "১৯৪৭ সালের ডিসেম্বর মাস",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 606,
+      "char_end": 629,
+      "evidence_span": "১৯৪৭ সালের ডিসেম্বর মাস"
+    },
+    {
+      "entity_id": "p002_e20",
+      "name": "১৯৪৮ সালের ২৫শে ফেব্রুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1015,
+      "char_end": 1041,
+      "evidence_span": "১৯৪৮ সালের ২৫শে ফেব্রুয়ারি"
+    },
+    {
+      "entity_id": "p002_e21",
+      "name": "১৯৪৮ সালের ৪ঠা জানুয়ারি",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 1396,
+      "char_end": 1419,
+      "evidence_span": "১৯৪৮ সালের ৪ঠা জানুয়ারি"
+    },
+    {
+      "entity_id": "p002_e22",
+      "name": "বাংলা ভাষা দাবি দিবস",
+      "entity_type": "EVENT",
+      "char_start": 1326,
+      "char_end": 1346,
+      "evidence_span": "বাংলা ভাষা দাবি দিবস"
+    },
+    {
+      "entity_id": "p002_e23",
+      "name": "রাষ্ট্রভাষা আন্দোলন",
+      "entity_type": "EVENT",
+      "char_start": 2456,
+      "char_end": 2475,
+      "evidence_span": "রাষ্ট্রভাষা আন্দোলন"
+    },
+    {
+      "entity_id": "p002_e24",
+      "name": "২০২৩",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 2575,
+      "char_end": 2579,
+      "evidence_span": "২০২৩"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "p002_r01",
+      "head_text": "আবুল কাশেম",
+      "head_type": "PERSON",
+      "relation_type": "led_by",
+      "tail_text": "তমদ্দুন মজলিস",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের শিক্ষক আবুল কাশেমের নেতৃত্বে ২রা সেপ্টেম্বর ১৯৪৭ তমদ্দুন মজলিস নামক একটি সাংস্কৃতিক প্রতিষ্ঠান গড়ে ওঠে।"
+    },
+    {
+      "relation_id": "p002_r02",
+      "head_text": "পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ",
+      "head_type": "ORGANIZATION",
+      "relation_type": "occurred_on",
+      "tail_text": "১৯৪৮ সালের ৪ঠা জানুয়ারি",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "১৯৪৮ সালের ৪ঠা জানুয়ারি প্রতিষ্ঠিত পূর্ব পাকিস্তান মুসলিম ছাত্রলীগ"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "p002_ev01",
+      "trigger_name": "গড়ে ওঠে",
+      "event_type": "FORMATION",
+      "date": "২রা সেপ্টেম্বর ১৯৪৭",
+      "location": "ঢাকা",
+      "participants": [
+        {
+          "name": "আবুল কাশেম",
+          "entity_type": "PERSON",
+          "role": "leader"
+        },
+        {
+          "name": "তমদ্দুন মজলিস",
+          "entity_type": "ORGANIZATION",
+          "role": "organization"
+        }
+      ],
+      "causes": [],
+      "consequences": [],
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়ের শিক্ষক আবুল কাশেমের নেতৃত্বে ২রা সেপ্টেম্বর ১৯৪৭ তমদ্দুন মজলিস নামক একটি সাংস্কৃতিক প্রতিষ্ঠান গড়ে ওঠে।"
+    }
+  ]
+}

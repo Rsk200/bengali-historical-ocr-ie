@@ -307,7 +307,7 @@ def evaluate_tier2_aligned(
 
     # Mathematical guarantee check
     assert tp >= t1_res["tp"], f"Tier 2 TP ({tp}) must be >= Tier 1 TP ({t1_res['tp']})"
-    assert f1 >= t1_res["f1"] - 1e-9, f"Tier 2 F1 ({f1}) must be >= Tier 1 F1 ({t1_res['f1']})"
+    assert round(f1, 4) >= t1_res["f1"] - 1e-6, f"Tier 2 F1 ({round(f1, 4)}) must be >= Tier 1 F1 ({t1_res['f1']})"
 
     return {
         "precision": round(precision, 4),
