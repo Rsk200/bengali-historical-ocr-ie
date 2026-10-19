@@ -428,7 +428,7 @@ class GeminiOCR(BaseOCRSystem):
 
     def __init__(
         self,
-        model_name: str = "gemini-1.5-flash",
+        model_name: str = "gemini-3.8-flash",
         system_name: str = "gemini_raw",
         api_key: Optional[str] = None,
         **kwargs
