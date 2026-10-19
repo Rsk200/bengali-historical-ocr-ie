@@ -6,3 +6,6 @@ pyyaml==6.0.2
 pydantic==2.9.2
 jiwer==3.0.4
 rapidfuzz==3.9.7
+pytesseract==0.3.13
+python-dotenv==1.0.1
+google-generativeai==0.8.6

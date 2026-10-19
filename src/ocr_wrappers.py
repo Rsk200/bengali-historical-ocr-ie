@@ -10,6 +10,7 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 import json
 import logging
+import os
 from pathlib import Path
 import shutil
 import time
@@ -18,6 +19,9 @@ import cv2
 import numpy as np
 import pandas as pd
 import yaml
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from src.normalise import normalise_bangla_text
 from src.preprocess import preprocess_image
@@ -233,6 +237,8 @@ class TesseractOCR(BaseOCRSystem):
             default_paths = [
                 r"C:\Program Files\Tesseract-OCR\tesseract.exe",
                 r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+                r"C:\Users\Yaad\Tesseract-OCR\tesseract.exe",
+                str(Path.home() / "Tesseract-OCR" / "tesseract.exe"),
                 os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe")
             ]
             for p in default_paths:
@@ -240,22 +246,36 @@ class TesseractOCR(BaseOCRSystem):
                     self.tesseract_cmd = p
                     break
 
+        # Auto-configure TESSDATA_PREFIX
+        tessdata_env = os.environ.get("TESSDATA_PREFIX")
+        if not tessdata_env and self.tesseract_cmd:
+            candidate_tessdata = Path(self.tesseract_cmd).parent / "tessdata"
+            if candidate_tessdata.exists():
+                os.environ["TESSDATA_PREFIX"] = str(candidate_tessdata)
+
     def _ocr_image(self, image_np: np.ndarray) -> Tuple[str, List[Dict[str, Any]]]:
         try:
             import pytesseract
             if self.tesseract_cmd and Path(self.tesseract_cmd).exists():
                 pytesseract.pytesseract.tesseract_cmd = self.tesseract_cmd
+                if "TESSDATA_PREFIX" not in os.environ:
+                    cand = Path(self.tesseract_cmd).parent / "tessdata"
+                    if cand.exists():
+                        os.environ["TESSDATA_PREFIX"] = str(cand)
+
+            tess_config = f"--psm {self.psm}"
+
             # Get word boxes and full text
             data = pytesseract.image_to_data(
                 image_np,
                 lang=self.lang,
-                config=f"--psm {self.psm}",
+                config=tess_config,
                 output_type=pytesseract.Output.DICT
             )
             raw_text = pytesseract.image_to_string(
                 image_np,
                 lang=self.lang,
-                config=f"--psm {self.psm}"
+                config=tess_config
             )
             blocks = []
             cur_block_id = -1
