@@ -141,7 +141,8 @@ def test_annotation_utils_and_iaa():
         }]
     }]
 
-    converted_files = convert_label_studio_to_gold(mock_ls_task, output_base_dir="data/gold_standard")
+    test_out_dir = Path("outputs/test_gold_tmp")
+    converted_files = convert_label_studio_to_gold(mock_ls_task, output_base_dir=str(test_out_dir))
     assert len(converted_files) == 1
     gold_file = converted_files[0]
     with open(gold_file, "r", encoding="utf-8") as f:
@@ -155,6 +156,11 @@ def test_annotation_utils_and_iaa():
         slice_text = gold_record["gold_text"][ent["char_start"]:ent["char_end"]]
         assert slice_text == ent["name"], f"Slice mismatch: '{slice_text}' != '{ent['name']}'"
     print("  [Pass] Label Studio to Gold Converter: exact character offsets verified.")
+
+    # Cleanup temp test files
+    import shutil
+    if test_out_dir.exists():
+        shutil.rmtree(test_out_dir, ignore_errors=True)
 
     # 1.4 Verify Inter-Annotator Agreement (IAA) F1
     annotator_1 = {

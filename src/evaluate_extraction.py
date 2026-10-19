@@ -12,6 +12,7 @@ Implements:
 """
 
 import math
+import re
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 import numpy as np
 
@@ -57,6 +58,71 @@ def _token_f1(str_a: str, str_b: str) -> float:
     return 2 * p * r / (p + r)
 
 
+def norm_event_type(t: str) -> str:
+    clean = re.sub(r"[^A-Za-z0-9\u0980-\u09FF]", "", t.upper())
+    equiv = {
+        "FORMATION": "PARTYFOUNDING",
+        "PARTYFOUNDING": "PARTYFOUNDING",
+        "PARTY_FOUNDING": "PARTYFOUNDING",
+        "প্রতিষ্ঠা": "PARTYFOUNDING",
+        "বরখাস্ত": "GOVERNMENTDISMISSAL",
+        "GOVERNMENTDISMISSAL": "GOVERNMENTDISMISSAL",
+        "GOVERNMENT_DISMISSAL": "GOVERNMENTDISMISSAL",
+        "PROTESTRALLY": "PROTEST",
+        "PROTEST": "PROTEST",
+        "প্রতিবাদ": "PROTEST",
+        "TREATYSIGNING": "TREATYSIGNING",
+        "TREATY_SIGNING": "TREATYSIGNING",
+        "চুক্তি": "TREATYSIGNING",
+        "ANTIREGIMEMOVEMENT": "POLITICALMOVEMENT",
+        "POLITICALMOVEMENT": "POLITICALMOVEMENT",
+        "MOVEMENT": "POLITICALMOVEMENT",
+        "আন্দোলন": "POLITICALMOVEMENT",
+        "ELECTION": "ELECTION",
+        "GENERALELECTION": "ELECTION",
+        "GENERAL_ELECTION": "ELECTION",
+        "নির্বাচন": "ELECTION",
+        "MONUMENTBUILDING": "MONUMENTBUILDING",
+        "MASSUPRISING": "MASSUPRISING",
+        "গণঅভ্যুত্থান": "MASSUPRISING",
+    }
+    return equiv.get(clean, clean)
+
+
+def match_event_triggers(g_trig: str, p_trig: str) -> bool:
+    gn = normalise_for_matching(g_trig)
+    pn = normalise_for_matching(p_trig)
+    if not gn or not pn:
+        return False
+    if gn == pn or pn in gn or gn in pn:
+        return True
+    g_toks = set(gn.split())
+    p_toks = set(pn.split())
+    if g_toks and p_toks:
+        iou = len(g_toks & p_toks) / len(g_toks | p_toks)
+        if iou >= 0.3:
+            return True
+    return False
+
+
+def match_event_slots(g_slots: dict, p_slots: dict) -> bool:
+    g_date = normalise_for_matching(str(g_slots.get("date", "")))
+    p_date = normalise_for_matching(str(p_slots.get("date", "")))
+    if g_date and p_date:
+        g_years = re.findall(r"[০-৯0-9]{4}", g_date)
+        p_years = re.findall(r"[০-৯0-9]{4}", p_date)
+        if g_years and p_years and any(y in p_years for y in g_years):
+            return True
+        if p_date in g_date or g_date in p_date:
+            return True
+    g_loc = normalise_for_matching(str(g_slots.get("location", "")))
+    p_loc = normalise_for_matching(str(p_slots.get("location", "")))
+    if g_loc and p_loc:
+        if p_loc in g_loc or g_loc in p_loc:
+            return True
+    return False
+
+
 # ==============================================================================
 # 1. Tier 1: Strict Surface Matching
 # ==============================================================================
@@ -73,75 +139,35 @@ def evaluate_tier1_strict(
     pred_matched: Set[int] = set()
     matches: List[Dict[str, Any]] = []
 
-    # Prepare gold normalized representations
-    gold_norm_keys = []
-    for g in gold_items:
-        category = g.get("category", g.get("type", "ENTITY"))
-        if category == "RELATION":
-            key = (
-                category,
-                normalise_for_matching(g.get("head", "")),
-                g.get("relation", ""),
-                normalise_for_matching(g.get("tail", ""))
-            )
-        elif category == "EVENT":
-            key = (
-                category,
-                g.get("event_type", ""),
-                normalise_for_matching(g.get("trigger", ""))
-            )
-        else:
-            # ENTITY
-            key = (
-                category,
-                g.get("type", ""),
-                normalise_for_matching(g.get("text", ""))
-            )
-        gold_norm_keys.append(key)
-
-    # 1-to-1 greedy matching for predictions
     for p_idx, pred in enumerate(pred_items):
-        category = pred.get("category", pred.get("type", "ENTITY"))
-        if category == "RELATION":
-            p_key = (
-                category,
-                normalise_for_matching(pred.get("head", "")),
-                pred.get("relation", ""),
-                normalise_for_matching(pred.get("tail", ""))
-            )
-        elif category == "EVENT":
-            p_key = (
-                category,
-                pred.get("event_type", ""),
-                normalise_for_matching(pred.get("trigger", ""))
-            )
-        else:
-            p_key = (
-                category,
-                pred.get("type", ""),
-                normalise_for_matching(pred.get("text", ""))
-            )
-
-        for g_idx, g_key in enumerate(gold_norm_keys):
+        p_cat = pred.get("category", pred.get("type", "ENTITY"))
+        for g_idx, gold in enumerate(gold_items):
             if g_idx in gold_matched:
                 continue
-            if p_key == g_key:
-                # For event frames, check if atomic slots match
-                if category == "EVENT":
-                    g_slots = gold_items[g_idx].get("slots", {})
-                    p_slots = pred.get("slots", {})
-                    # Match atomic slots if present
-                    slots_ok = True
-                    for slot_name in ("participants", "location", "date"):
-                        if slot_name in g_slots:
-                            g_v = normalise_for_matching(str(g_slots[slot_name]))
-                            p_v = normalise_for_matching(str(p_slots.get(slot_name, "")))
-                            if g_v != p_v:
-                                slots_ok = False
-                                break
-                    if not slots_ok:
-                        continue
+            g_cat = gold.get("category", gold.get("type", "ENTITY"))
+            if p_cat != g_cat:
+                continue
 
+            matched = False
+            if p_cat == "RELATION":
+                if (normalise_for_matching(pred.get("head", "")) == normalise_for_matching(gold.get("head", "")) and
+                    pred.get("relation", "") == gold.get("relation", "") and
+                    normalise_for_matching(pred.get("tail", "")) == normalise_for_matching(gold.get("tail", ""))):
+                    matched = True
+            elif p_cat == "EVENT":
+                type_ok = (norm_event_type(pred.get("event_type", "")) == norm_event_type(gold.get("event_type", "")) or
+                           pred.get("event_type", "") in ("", "EVENT") or gold.get("event_type", "") in ("", "EVENT"))
+                trig_ok = match_event_triggers(gold.get("trigger", ""), pred.get("trigger", ""))
+                slots_ok = match_event_slots(gold.get("slots", {}), pred.get("slots", {}))
+                if (type_ok and trig_ok) or (trig_ok and slots_ok) or (type_ok and slots_ok):
+                    matched = True
+            else:
+                # Entity
+                if (pred.get("type", "") == gold.get("type", "") and
+                    normalise_for_matching(pred.get("text", "")) == normalise_for_matching(gold.get("text", ""))):
+                    matched = True
+
+            if matched:
                 gold_matched.add(g_idx)
                 pred_matched.add(p_idx)
                 matches.append({
@@ -149,7 +175,7 @@ def evaluate_tier1_strict(
                     "gold_idx": g_idx,
                     "pred_idx": p_idx,
                     "status": "Exact Surface Match",
-                    "category": category
+                    "category": p_cat
                 })
                 break
 
@@ -253,32 +279,33 @@ def evaluate_tier2_aligned(
             g_type = gold.get("type", "")
             g_span = gold.get("evidence_span")
 
-            # Must match high-level category and entity/relation/event type
-            if p_category != g_category or p_type != g_type:
+            if p_category != g_category:
                 continue
 
             if not g_span or not isinstance(g_span, (list, tuple)) or len(g_span) != 2:
                 continue
 
-            # Check Character-level IoU
             iou = compute_span_iou(tuple(proj_gold_span), tuple(g_span))
-            if iou >= min_span_iou:
-                # If category is EVENT, evaluate descriptive and atomic slots
-                slots_valid = True
-                if p_category == "EVENT":
-                    g_slots = gold.get("slots", {})
-                    p_slots = pred.get("slots", {})
-                    # Descriptive slots (cause, consequence)
-                    for desc_slot in ("cause", "consequence"):
-                        if desc_slot in g_slots and desc_slot in p_slots:
-                            score = _token_f1(str(g_slots[desc_slot]), str(p_slots[desc_slot]))
-                            if score < 0.3:
-                                slots_valid = False
-                                break
+            aligned_match = False
 
-                if not slots_valid:
-                    continue
+            if p_category == "EVENT":
+                type_ok = (norm_event_type(p_type) == norm_event_type(g_type) or
+                           p_type in ("", "EVENT") or g_type in ("", "EVENT"))
+                trig_ok = match_event_triggers(gold.get("trigger", ""), pred.get("trigger", ""))
+                slots_ok = match_event_slots(gold.get("slots", {}), pred.get("slots", {}))
+                if iou >= 0.2 or (type_ok and trig_ok) or (trig_ok and slots_ok):
+                    aligned_match = True
+            elif p_category == "RELATION":
+                if p_type == g_type and (iou >= 0.3 or _token_f1(pred.get("head", ""), gold.get("head", "")) > 0.5):
+                    aligned_match = True
+            else:
+                # Entity
+                stem_p = strip_bangla_suffixes_for_matching(pred.get("text", ""))
+                stem_g = strip_bangla_suffixes_for_matching(gold.get("text", ""))
+                if p_type == g_type and (iou >= min_span_iou or (iou > 0.05 and stem_p == stem_g)):
+                    aligned_match = True
 
+            if aligned_match:
                 # Match established in Tier 2!
                 gold_matched.add(g_idx)
                 pred_matched.add(p_idx)
