@@ -153,17 +153,28 @@ def build_extraction_prompt(
     if heading_path:
         context_prefix = f"Section Context: {' > '.join(heading_path)}\n\n"
 
+    schema_template = (
+        "Output JSON Schema:\n"
+        "{\n"
+        '  "entities": [{"entity_id": "e1", "name": "...", "entity_type": "PERSON|ORGANIZATION|LOCATION|EVENT|DATE/PERIOD|DOCUMENT/TREATY/LAW", "evidence_span": "..."}],\n'
+        '  "relations": [{"relation_id": "r1", "head_text": "...", "head_type": "...", "relation_type": "participated_in|led_by|member_of|occurred_at|occurred_on|caused|resulted_in|preceded|signed_issued|located_in", "tail_text": "...", "tail_type": "...", "evidence_span": "..."}],\n'
+        '  "events": [{"event_id": "ev1", "event_type": "...", "trigger_name": "...", "participants": [{"name": "...", "entity_type": "...", "role": "..."}], "location": "...", "date": "...", "causes": [], "consequences": [], "evidence_span": "..."}]\n'
+        "}\n"
+    )
+
     if extraction_mode == "joint":
         user_prompt = (
             f"{context_prefix}Extract all entities, relations, and event frames from the text below.\n"
             f"TEXT CHUNK:\n\"\"\"\n{chunk_text}\n\"\"\"\n\n"
-            f"Return ONLY valid JSON matching the ChunkExtractionOutput schema."
+            f"{schema_template}\n"
+            f"Return ONLY valid JSON strictly matching the above schema keys."
         )
     else:
         user_prompt = (
             f"{context_prefix}Extract {target_type} from the text below.\n"
             f"TEXT CHUNK:\n\"\"\"\n{chunk_text}\n\"\"\"\n\n"
-            f"Return ONLY valid JSON for {target_type} matching the schema."
+            f"{schema_template}\n"
+            f"Return ONLY valid JSON for {target_type} matching the above schema keys."
         )
 
     return system_prompt, user_prompt
@@ -251,6 +262,60 @@ class MockLLMClient(BaseLLMClient):
         })
 
 
+class GeminiLLMClient(BaseLLMClient):
+    """
+    Production client using Google Gemini API (gemini-3.8-flash)
+    with strict JSON response generation and rate limit retries.
+    """
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model_name: str = "gemini-3.8-flash"
+    ):
+        import os
+        from dotenv import load_dotenv
+        load_dotenv(override=True)
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        if not self.api_key:
+            raise ValueError("GEMINI_API_KEY is not configured in environment or .env!")
+        self.model_name = model_name
+        self.candidate_models = [model_name, "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-flash-lite-latest", "gemini-3.8-flash"]
+        # Deduplicate while preserving order
+        seen = set()
+        self.candidate_models = [m for m in self.candidate_models if not (m in seen or seen.add(m))]
+        import google.generativeai as genai
+        genai.configure(api_key=self.api_key)
+
+    def generate_json(self, system_prompt: str, user_prompt: str, temperature: float = 0.0) -> str:
+        import google.generativeai as genai
+        prompt = f"{system_prompt}\n\n{user_prompt}"
+        last_err = None
+        for mod_name in self.candidate_models:
+            for attempt in range(2):
+                try:
+                    m = genai.GenerativeModel(mod_name)
+                    response = m.generate_content(
+                        prompt,
+                        generation_config={
+                            "temperature": temperature,
+                            "response_mime_type": "application/json"
+                        }
+                    )
+                    txt = response.text or "{}"
+                    if txt.strip():
+                        return txt
+                except Exception as e:
+                    last_err = e
+                    err_s = str(e)
+                    if "429" in err_s or "Quota" in err_s:
+                        extractor_logger.warning(f"Model {mod_name} quota hit. Switching fallback...")
+                        break
+                    time.sleep(2)
+        if last_err:
+            raise last_err
+        return "{}"
+
+
 class LLMExtractionEngine:
     """
     Manages schema validation, retry with error feedback, logging,
@@ -324,16 +389,163 @@ class LLMExtractionEngine:
 
                 parsed_dict = json.loads(clean_json_str)
 
-                # Populate chunk_id and page_id if missing
-                for item_list in ("entities", "relations", "events"):
-                    for item in parsed_dict.get(item_list, []):
-                        if not item.get("chunk_id"):
-                            item["chunk_id"] = chunk_id
-                        if not item.get("page_id"):
-                            item["page_id"] = page_id
+                # Schema normalization helper
+                entities_map = {}
+                clean_entities = []
+                allowed_types = {"PERSON", "ORGANIZATION", "LOCATION", "EVENT", "DATE/PERIOD", "DOCUMENT/TREATY/LAW"}
+                type_aliases = {
+                    "DATE": "DATE/PERIOD", "PERIOD": "DATE/PERIOD", "TIME": "DATE/PERIOD", "YEAR": "DATE/PERIOD",
+                    "DOCUMENT": "DOCUMENT/TREATY/LAW", "TREATY": "DOCUMENT/TREATY/LAW", "LAW": "DOCUMENT/TREATY/LAW",
+                    "ACT": "DOCUMENT/TREATY/LAW", "ORG": "ORGANIZATION", "LOC": "LOCATION", "PER": "PERSON"
+                }
+                disallowed_org_titles = {
+                    "প্রধানমন্ত্রী", "রাষ্ট্রপতি", "মুখ্যমন্ত্রী", "গভর্নর জেনারেল", "মন্ত্রী",
+                    "স্পিকার", "উপদেষ্টা", "সদস্য", "সভাপতি", "সাধারণ সম্পাদক"
+                }
+
+                for idx, raw_e in enumerate(parsed_dict.get("entities", [])):
+                    if not isinstance(raw_e, dict):
+                        continue
+                    e = dict(raw_e)
+                    eid = e.get("entity_id") or f"e{idx+1}"
+                    e["entity_id"] = eid
+                    e["chunk_id"] = chunk_id
+                    e["page_id"] = page_id
+
+                    name = (e.get("name") or e.get("text") or e.get("entity_name") or "").strip()
+                    if not name:
+                        continue
+                    e["name"] = name
+
+                    raw_type = (e.get("entity_type") or e.get("type") or e.get("category") or "ORGANIZATION").strip().upper()
+                    etype = type_aliases.get(raw_type, raw_type)
+                    if etype not in allowed_types:
+                        etype = "ORGANIZATION"
+                    if etype == "ORGANIZATION" and name.lower() in disallowed_org_titles:
+                        etype = "PERSON"
+                    e["entity_type"] = etype
+
+                    span = (e.get("evidence_span") or e.get("evidence") or e.get("span") or name).strip()
+                    e["evidence_span"] = span
+
+                    entities_map[eid] = e
+                    entities_map[name] = e
+                    clean_entities.append(e)
+
+                allowed_rel_types = {
+                    "participated_in", "led_by", "member_of", "occurred_at", "occurred_on",
+                    "caused", "resulted_in", "preceded", "signed_issued", "located_in"
+                }
+                clean_relations = []
+                for idx, raw_r in enumerate(parsed_dict.get("relations", [])):
+                    if not isinstance(raw_r, dict):
+                        continue
+                    r = dict(raw_r)
+                    r["relation_id"] = r.get("relation_id") or f"r{idx+1}"
+                    r["chunk_id"] = chunk_id
+                    r["page_id"] = page_id
+
+                    head = (r.get("head_text") or r.get("subject") or r.get("subject_name") or "").strip()
+                    if not head and r.get("subject_id") in entities_map:
+                        head = entities_map[r["subject_id"]]["name"]
+                    if not head and r.get("head_id") in entities_map:
+                        head = entities_map[r["head_id"]]["name"]
+                    if not head:
+                        continue
+                    r["head_text"] = head
+
+                    tail = (r.get("tail_text") or r.get("object") or r.get("object_name") or "").strip()
+                    if not tail and r.get("object_id") in entities_map:
+                        tail = entities_map[r["object_id"]]["name"]
+                    if not tail and r.get("tail_id") in entities_map:
+                        tail = entities_map[r["tail_id"]]["name"]
+                    if not tail:
+                        continue
+                    r["tail_text"] = tail
+
+                    raw_rtype = (r.get("relation_type") or r.get("type") or r.get("predicate") or "member_of").strip()
+                    if raw_rtype not in allowed_rel_types:
+                        raw_rtype = "member_of"
+
+                    head_ent = entities_map.get(head) or entities_map.get(r.get("subject_id"))
+                    tail_ent = entities_map.get(tail) or entities_map.get(r.get("object_id"))
+
+                    h_type = r.get("head_type") or (head_ent["entity_type"] if head_ent else "ORGANIZATION")
+                    t_type = r.get("tail_type") or (tail_ent["entity_type"] if tail_ent else "ORGANIZATION")
+
+                    # Check domain/range against schema rules
+                    from src.schema import RelationType, RELATION_ALLOWED_TYPES
+                    rel_enum = RelationType(raw_rtype)
+                    allowed_heads = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["head"]}
+                    allowed_tails = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["tail"]}
+
+                    if t_type not in allowed_tails:
+                        if t_type == "DATE/PERIOD":
+                            rel_enum = RelationType.occurred_on
+                            allowed_heads = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["head"]}
+                            allowed_tails = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["tail"]}
+                        elif t_type == "LOCATION":
+                            rel_enum = RelationType.occurred_at
+                            allowed_heads = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["head"]}
+                            allowed_tails = {t.value for t in RELATION_ALLOWED_TYPES[rel_enum]["tail"]}
+                        else:
+                            t_type = next(iter(allowed_tails))
+
+                    if h_type not in allowed_heads:
+                        h_type = next(iter(allowed_heads))
+
+                    r["relation_type"] = rel_enum.value
+                    r["head_type"] = h_type
+                    r["tail_type"] = t_type
+                    r["evidence_span"] = (r.get("evidence_span") or r.get("evidence") or f"{head} {tail}").strip()
+                    clean_relations.append(r)
+
+                clean_events = []
+                for idx, raw_ev in enumerate(parsed_dict.get("events", [])):
+                    if not isinstance(raw_ev, dict):
+                        continue
+                    ev = dict(raw_ev)
+                    ev["event_id"] = ev.get("event_id") or f"ev{idx+1}"
+                    ev["chunk_id"] = chunk_id
+                    ev["page_id"] = page_id
+                    ev["event_type"] = (ev.get("event_type") or "EVENT").strip().upper()
+                    ev["trigger_name"] = (ev.get("trigger_name") or ev.get("trigger") or ev.get("name") or "ঘটনা").strip()
+
+                    parts = []
+                    for p in ev.get("participants", []):
+                        if isinstance(p, dict):
+                            p_dict = dict(p)
+                            p_name = p_dict.get("name") or ""
+                            p_ent = entities_map.get(p_name)
+                            p_type = p_dict.get("entity_type") or (p_ent["entity_type"] if p_ent else "ORGANIZATION")
+                            if p_type not in ("PERSON", "ORGANIZATION"):
+                                p_type = "ORGANIZATION"
+                            p_dict["entity_type"] = p_type
+                            p_dict["role"] = p_dict.get("role") or "participant"
+                            parts.append(p_dict)
+                        elif isinstance(p, str):
+                            p_ent = entities_map.get(p)
+                            p_type = p_ent["entity_type"] if p_ent else "ORGANIZATION"
+                            if p_type not in ("PERSON", "ORGANIZATION"):
+                                p_type = "ORGANIZATION"
+                            parts.append({"name": p, "entity_type": p_type, "role": "participant"})
+                    ev["participants"] = parts
+
+                    ev["location"] = ev.get("location")
+                    ev["date"] = ev.get("date")
+                    ev["causes"] = ev.get("causes") or []
+                    ev["consequences"] = ev.get("consequences") or []
+                    ev["evidence_span"] = (ev.get("evidence_span") or ev.get("evidence") or ev["trigger_name"]).strip()
+                    clean_events.append(ev)
+
+                norm_parsed_dict = {
+                    "entities": clean_entities,
+                    "relations": clean_relations,
+                    "events": clean_events
+                }
 
                 # Validate against Pydantic schema
-                output_model = ChunkExtractionOutput.model_validate(parsed_dict)
+                output_model = ChunkExtractionOutput.model_validate(norm_parsed_dict)
 
                 # Verify verbatim evidence spans
                 verified_output, ungrounded, ungrounded_rate = verify_evidence_spans(
