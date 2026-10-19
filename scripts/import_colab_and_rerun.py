@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Colab Export Importer and Master Benchmark Re-runner.
+Colab Export Importer and Master Benchmark Re-runner (Phase 1, 2 & 5).
 Automatically unzips and integrates colab_export.zip (containing EasyOCR, Surya,
-Marker, Qwen2-VL, BanglaBERT Arm B, and Open-Weight LLMs) into project directories,
-and re-runs the master benchmark suite to update all C2, C3, and A1-A3 results.
+Marker, Qwen2-VL, BanglaBERT Arm B, and Open-Weight Qwen2.5-7B) into project directories,
+re-runs the master benchmark suite across C2, C3, and A1-A3, and synchronizes the
+regenerated Dev Benchmark Report.
 """
 
 import argparse
@@ -13,6 +14,7 @@ from pathlib import Path
 import shutil
 import sys
 import zipfile
+from typing import Any, Dict, List, Optional
 
 # Ensure root is in sys.path
 root_dir = Path(__file__).resolve().parent.parent
@@ -33,22 +35,22 @@ logger = logging.getLogger("colab_importer")
 
 
 def find_colab_export(search_dirs: List[Path]) -> Optional[Path]:
-    """Finds colab_export.zip or colab_export directory."""
+    """Finds colab_export.zip or colab_export directory in candidate locations."""
     for d in search_dirs:
         if not d.exists():
             continue
-        # Check zip
-        zip_candidate = d / "colab_export.zip"
-        if zip_candidate.exists():
+        # Check zip file
+        zip_candidate = d / "colab_export.zip" if d.is_dir() else d
+        if zip_candidate.is_file() and zip_candidate.name.endswith(".zip"):
             return zip_candidate
-        # Check folder
+        # Check directory
         dir_candidate = d / "colab_export"
         if dir_candidate.is_dir():
             return dir_candidate
     return None
 
 
-def copy_matching_json(src_dir: Path, dest_dir: Path, prefix: str = "p"):
+def copy_matching_json(src_dir: Path, dest_dir: Path, prefix: str = "p") -> int:
     """Copies all matching p*.json files from src_dir to dest_dir."""
     dest_dir.mkdir(parents=True, exist_ok=True)
     count = 0
@@ -102,7 +104,7 @@ def import_colab_artifacts(export_path: Path) -> Dict[str, Any]:
     if ext_src.exists():
         for src_engine in ext_src.iterdir():
             if src_engine.is_dir():
-                for model_dir in src_engine.iterdir():
+                for model_dir in ext_src.iterdir():
                     if model_dir.is_dir():
                         target_dir = root_dir / "outputs" / "extractions" / src_engine.name / model_dir.name
                         count = copy_matching_json(model_dir, target_dir)
@@ -116,47 +118,78 @@ def import_colab_artifacts(export_path: Path) -> Dict[str, Any]:
     return imported_summary
 
 
+def sync_report_to_artifact():
+    """Synchronizes regenerated dev_benchmark_report.md to artifact directory."""
+    src_rep = root_dir / "outputs" / "results" / "dev" / "dev_benchmark_report.md"
+    art_rep = Path("C:/Users/Yaad/.gemini/antigravity/brain/741db29d-032f-4cf6-88f8-879ce460bd3a/dev_benchmark_report.md")
+    if src_rep.exists() and art_rep.parent.exists():
+        try:
+            shutil.copy2(src_rep, art_rep)
+            logger.info(f"Synchronized Dev Benchmark Report to artifact: {art_rep}")
+        except Exception as e:
+            logger.warning(f"Could not sync artifact report: {e}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Import Colab outputs and re-run master benchmark.")
     parser.add_argument("--zip_path", type=str, default=None, help="Explicit path to colab_export.zip")
+    parser.add_argument("--rerun-only", action="store_true", help="Re-run benchmark without importing new zip")
     args = parser.parse_args()
 
     search_dirs = [
-        root_dir,
+        root_dir / "outputs" / "colab_export.zip",
+        root_dir / "colab_export.zip",
+        Path.home() / "Downloads" / "colab_export.zip",
         root_dir / "outputs",
+        root_dir,
         Path.home() / "Downloads"
     ]
 
     target_export = Path(args.zip_path) if args.zip_path else find_colab_export(search_dirs)
 
-    if not target_export or not target_export.exists():
-        logger.warning(
-            f"No colab_export.zip or colab_export folder found in:\n" +
-            "\n".join([f"  - {d}" for d in search_dirs]) +
-            "\nPlease place 'colab_export.zip' in the project directory or provide --zip_path <path>."
-        )
-        sys.exit(1)
+    if not args.rerun_only:
+        if not target_export or not target_export.exists():
+            logger.warning(
+                f"No colab_export.zip found in search paths:\n" +
+                "\n".join([f"  - {d}" for d in search_dirs]) +
+                "\nPlease place 'colab_export.zip' in 'outputs/' or provide '--zip_path <path>'."
+            )
+            print("\nTip: To re-run the benchmark with currently available local outputs, run:")
+            print("  python scripts/import_colab_and_rerun.py --rerun-only\n")
+            sys.exit(1)
 
-    logger.info(f"Found Colab export package: {target_export}")
-    import_summary = import_colab_artifacts(target_export)
-    logger.info("Import summary: " + json.dumps(import_summary, indent=2))
+        logger.info(f"Found Colab export package: {target_export}")
+        import_summary = import_colab_artifacts(target_export)
+        logger.info("Import summary: " + json.dumps(import_summary, indent=2))
+    else:
+        logger.info("Skipping unpack (--rerun-only specified). Re-running benchmark with current outputs.")
 
     # Re-running benchmark
-    logger.info("Triggering Master Development Benchmark suite on newly imported outputs...")
+    logger.info("Triggering Master Development Benchmark suite on available outputs...")
     gold_data = load_dev_gold()
 
     iaa_path = root_dir / "outputs" / "results" / "dev" / "iaa_summary.json"
-    with open(iaa_path, "r", encoding="utf-8") as f:
-        iaa_res = json.load(f)
+    if iaa_path.exists():
+        with open(iaa_path, "r", encoding="utf-8") as f:
+            iaa_res = json.load(f)
+    else:
+        logger.error(f"IAA summary not found at {iaa_path}")
+        sys.exit(1)
 
     c2_res = execute_c2_ocr_selection(gold_data)
     c3_res = execute_c3_error_propagation(gold_data)
-    a1_res = execute_a1_correction_ablation(gold_data)
-    a2_res = execute_a2_chunking_ablation(gold_data)
+    a1_res = execute_a1_correction_ablation(gold_data, c3_res["condition_performances"])
+    a2_res = execute_a2_chunking_ablation(gold_data, c3_res["condition_performances"])
     a3_res = execute_a3_prompt_consistency_ablation(gold_data)
 
     generate_dev_benchmark_report(iaa_res, c2_res, c3_res, a1_res, a2_res, a3_res)
-    logger.info("Successfully updated all benchmarks and regenerated dev_benchmark_report.md!")
+    sync_report_to_artifact()
+
+    print("\n" + "=" * 70)
+    print("COLAB IMPORT & MASTER DEV BENCHMARK RE-RUN COMPLETE!")
+    print(f"Strong OCR: {c2_res['selected_strong_ocr']} | Weaker OCR: {c2_res['selected_weaker_ocr']}")
+    print("Updated Report: outputs/results/dev/dev_benchmark_report.md")
+    print("=" * 70 + "\n")
 
 
 if __name__ == "__main__":
