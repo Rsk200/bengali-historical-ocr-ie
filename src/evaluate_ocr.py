@@ -136,17 +136,25 @@ def compute_correction_metrics(
 
     raw_cer = raw_eval["cer"]
     post_cer = post_eval["cer"]
+    raw_wer = raw_eval["wer"]
+    post_wer = post_eval["wer"]
 
     change_ratio = (ccr / raw_cer) if raw_cer > 0 else 0.0
-    cer_reduction = raw_cer - post_cer
+    cer_reduction = round(raw_cer - post_cer, 4)
+    wer_reduction = round(raw_wer - post_wer, 4)
 
     return {
         "ccr": round(ccr, 4),
         "wcr": round(wcr, 4),
         "raw_cer": round(raw_cer, 4),
         "post_cer": round(post_cer, 4),
+        "corrected_cer": round(post_cer, 4),
+        "raw_wer": round(raw_wer, 4),
+        "post_wer": round(post_wer, 4),
+        "corrected_wer": round(post_wer, 4),
         "change_ratio": round(change_ratio, 4),
-        "cer_reduction": round(cer_reduction, 4)
+        "cer_reduction": cer_reduction,
+        "wer_reduction": wer_reduction
     }
 
 
