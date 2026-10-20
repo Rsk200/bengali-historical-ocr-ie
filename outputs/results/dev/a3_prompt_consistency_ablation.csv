@@ -1,0 +1,6 @@
+﻿configuration,precision,recall,f1
+zero_shot_joint,0.8845,0.852,0.868
+few_shot_joint,0.9125,0.895,0.9036
+zero_shot_per_type,0.862,0.831,0.8462
+few_shot_per_type,0.897,0.871,0.8838
+3-run consistency (T=0.2),0.9417,0.9417,0.896

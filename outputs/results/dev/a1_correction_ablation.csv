@@ -1,0 +1,7 @@
+﻿source,arm,mean_cer,mean_wer,mean_ccr,mean_wcr,mean_change_ratio,downstream_tier1_f1,downstream_tier2_f1
+gemini_raw,arm_a,0.0212,0.067,0.0,0.0,0.0,0.5683,0.6108
+gemini_raw,arm_b,0.0352,0.1011,0.0173,0.0745,5.2124,0.5317,0.5715
+gemini_raw,arm_c,0.0222,0.0693,0.0015,0.005,0.0015,0.5713,0.6141
+tesseract_raw,arm_a,0.1514,0.3244,0.0,0.0,0.0,0.4862,0.5504
+tesseract_raw,arm_b,0.1545,0.2668,0.0284,0.16,0.2675,0.491,0.5558
+tesseract_raw,arm_c,0.2048,0.3329,0.1106,0.173,0.1106,0.4795,0.5428

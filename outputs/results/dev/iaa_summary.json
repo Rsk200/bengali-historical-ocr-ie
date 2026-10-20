@@ -1,0 +1,14 @@
+{
+  "n_pages": 11,
+  "total_gold_entities": 192,
+  "total_gold_relations": 28,
+  "total_gold_events": 11,
+  "mean_entity_exact_f1": 0.7716,
+  "mean_entity_relaxed_f1": 0.8779,
+  "mean_relation_tuple_f1": 0.8485,
+  "mean_event_atomic_slot_f1": 1.0,
+  "mean_event_descriptive_slot_f1": 0.9091,
+  "cohen_kappa_on_aligned_spans": 0.993,
+  "observed_label_agreement": 0.9945,
+  "n_aligned_spans": 182
+}

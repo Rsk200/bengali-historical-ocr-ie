@@ -1,0 +1,118 @@
+{
+  "condition_performances": {
+    "oracle": {
+      "tier1_precision": 1.0,
+      "tier1_recall": 1.0,
+      "tier1_f1": 1.0,
+      "tier2_precision": 1.0,
+      "tier2_recall": 1.0,
+      "tier2_f1": 1.0,
+      "unsupported_rate": 0.0,
+      "categories": {
+        "entities": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        },
+        "relations": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        },
+        "events": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        }
+      }
+    },
+    "strong_ocr (gemini_raw)": {
+      "tier1_precision": 0.5023,
+      "tier1_recall": 0.6769,
+      "tier1_f1": 0.5683,
+      "tier2_precision": 0.5429,
+      "tier2_recall": 0.7228,
+      "tier2_f1": 0.6108,
+      "unsupported_rate": 0.0251,
+      "categories": {
+        "entities": {
+          "tier1_f1": 0.6551,
+          "tier2_f1": 0.7076
+        },
+        "relations": {
+          "tier1_f1": 0.1854,
+          "tier2_f1": 0.1854
+        },
+        "events": {
+          "tier1_f1": 0.4076,
+          "tier2_f1": 0.4076
+        }
+      }
+    },
+    "weaker_ocr (tesseract_raw)": {
+      "tier1_precision": 0.459,
+      "tier1_recall": 0.5393,
+      "tier1_f1": 0.4862,
+      "tier2_precision": 0.5222,
+      "tier2_recall": 0.6085,
+      "tier2_f1": 0.5504,
+      "unsupported_rate": 0.2189,
+      "categories": {
+        "entities": {
+          "tier1_f1": 0.5745,
+          "tier2_f1": 0.6323
+        },
+        "relations": {
+          "tier1_f1": 0.0793,
+          "tier2_f1": 0.2086
+        },
+        "events": {
+          "tier1_f1": 0.3546,
+          "tier2_f1": 0.3546
+        }
+      }
+    }
+  },
+  "error_attributions": {
+    "strong_ocr (gemini_raw)": {
+      "oracle_f1": 1.0,
+      "tier1_f1": 0.5683,
+      "tier2_f1": 0.6108,
+      "total_ocr_cost": 0.4317,
+      "surface_spelling_loss": 0.0425,
+      "structural_comprehension_loss": 0.3892
+    },
+    "weaker_ocr (tesseract_raw)": {
+      "oracle_f1": 1.0,
+      "tier1_f1": 0.4862,
+      "tier2_f1": 0.5504,
+      "total_ocr_cost": 0.5138,
+      "surface_spelling_loss": 0.0642,
+      "structural_comprehension_loss": 0.4496
+    }
+  },
+  "cer_bins": {
+    "low_cer_under_2pct": {
+      "n_pages": 9,
+      "mean_f1_drop": 0.4144
+    },
+    "moderate_cer_2_to_5pct": {
+      "n_pages": 2,
+      "mean_f1_drop": 0.5201
+    },
+    "high_cer_over_5pct": {
+      "n_pages": 11,
+      "mean_f1_drop": 0.5119
+    }
+  },
+  "predictor_analysis": {
+    "cer_vs_f1_drop_correlation": 0.2093,
+    "target_acc_vs_f1_drop_correlation": -0.1488,
+    "stronger_predictor": "Average CER"
+  },
+  "mcnemar_test": {
+    "statistic": 32.0294,
+    "p_value": 0.0,
+    "b": 34,
+    "c": 0,
+    "total_discordant": 34,
+    "method": "continuity_corrected_chi2"
+  }
+}

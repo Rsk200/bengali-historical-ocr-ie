@@ -1,0 +1,54 @@
+{
+  "prompt_paradigm_comparison": {
+    "zero_shot_joint": {
+      "precision": 0.8845,
+      "recall": 0.852,
+      "f1": 0.868
+    },
+    "few_shot_joint": {
+      "precision": 0.9125,
+      "recall": 0.895,
+      "f1": 0.9036
+    },
+    "zero_shot_per_type": {
+      "precision": 0.862,
+      "recall": 0.831,
+      "f1": 0.8462
+    },
+    "few_shot_per_type": {
+      "precision": 0.897,
+      "recall": 0.871,
+      "f1": 0.8838
+    }
+  },
+  "consistency_analysis": {
+    "temperature": 0.2,
+    "n_runs": 3,
+    "mean_run_f1": 0.896,
+    "std_run_f1": 0.0037,
+    "pairwise_agreement_f1_mean": 0.9417,
+    "pairwise_agreement_f1_std": 0.0029
+  },
+  "foundation_model_comparison": {
+    "gemini_3_8_flash": {
+      "model_name": "Gemini 3.8 Flash",
+      "paradigm": "Cloud API (Proprietary)",
+      "tier1_precision": 0.5023,
+      "tier1_recall": 0.6769,
+      "tier1_f1": 0.5683,
+      "tier2_f1": 0.6108,
+      "unsupported_rate": 0.0251,
+      "schema_validity_rate": 1.0
+    },
+    "qwen2_5_7b": {
+      "model_name": "Qwen2.5-7B-Instruct",
+      "paradigm": "4-bit NF4 GPU (Colab T4)",
+      "tier1_precision": 0.0601,
+      "tier1_recall": 0.0317,
+      "tier1_f1": 0.0412,
+      "tier2_f1": 0.0412,
+      "unsupported_rate": 0.0132,
+      "schema_validity_rate": 0.2632
+    }
+  }
+}

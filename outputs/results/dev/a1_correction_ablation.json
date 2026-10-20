@@ -1,0 +1,72 @@
+{
+  "gemini_raw": {
+    "arm_a": {
+      "source": "gemini_raw",
+      "arm": "arm_a",
+      "mean_cer": 0.0212,
+      "mean_wer": 0.067,
+      "mean_ccr": 0.0,
+      "mean_wcr": 0.0,
+      "mean_change_ratio": 0.0,
+      "downstream_tier1_f1": 0.5683,
+      "downstream_tier2_f1": 0.6108
+    },
+    "arm_b": {
+      "source": "gemini_raw",
+      "arm": "arm_b",
+      "mean_cer": 0.0352,
+      "mean_wer": 0.1011,
+      "mean_ccr": 0.0173,
+      "mean_wcr": 0.0745,
+      "mean_change_ratio": 5.2124,
+      "downstream_tier1_f1": 0.5317,
+      "downstream_tier2_f1": 0.5715
+    },
+    "arm_c": {
+      "source": "gemini_raw",
+      "arm": "arm_c",
+      "mean_cer": 0.0222,
+      "mean_wer": 0.0693,
+      "mean_ccr": 0.0015,
+      "mean_wcr": 0.005,
+      "mean_change_ratio": 0.0015,
+      "downstream_tier1_f1": 0.5713,
+      "downstream_tier2_f1": 0.6141
+    }
+  },
+  "tesseract_raw": {
+    "arm_a": {
+      "source": "tesseract_raw",
+      "arm": "arm_a",
+      "mean_cer": 0.1514,
+      "mean_wer": 0.3244,
+      "mean_ccr": 0.0,
+      "mean_wcr": 0.0,
+      "mean_change_ratio": 0.0,
+      "downstream_tier1_f1": 0.4862,
+      "downstream_tier2_f1": 0.5504
+    },
+    "arm_b": {
+      "source": "tesseract_raw",
+      "arm": "arm_b",
+      "mean_cer": 0.1545,
+      "mean_wer": 0.2668,
+      "mean_ccr": 0.0284,
+      "mean_wcr": 0.16,
+      "mean_change_ratio": 0.2675,
+      "downstream_tier1_f1": 0.491,
+      "downstream_tier2_f1": 0.5558
+    },
+    "arm_c": {
+      "source": "tesseract_raw",
+      "arm": "arm_c",
+      "mean_cer": 0.2048,
+      "mean_wer": 0.3329,
+      "mean_ccr": 0.1106,
+      "mean_wcr": 0.173,
+      "mean_change_ratio": 0.1106,
+      "downstream_tier1_f1": 0.4795,
+      "downstream_tier2_f1": 0.5428
+    }
+  }
+}

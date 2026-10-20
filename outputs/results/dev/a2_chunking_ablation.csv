@@ -1,0 +1,10 @@
+﻿source,strategy,total_chunks,mean_chunk_chars,min_chunk_chars,max_chunk_chars,downstream_extraction_f1
+gemini_raw,S1,19,1531.4,126,2487,0.5683
+gemini_raw,S2,18,1733.2,438,2487,0.5399
+gemini_raw,S3,374,77.8,2,522,0.4473
+tesseract_raw,S1,18,1476.4,44,2471,0.4862
+tesseract_raw,S2,17,1667.9,375,2467,0.4619
+tesseract_raw,S3,295,90.1,5,303,0.2952
+tesseract_preproc,S1,18,1465.7,71,2496,0.4911
+tesseract_preproc,S2,16,1741.8,380,2493,0.4665
+tesseract_preproc,S3,289,91.3,5,419,0.2957

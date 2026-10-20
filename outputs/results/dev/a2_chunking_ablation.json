@@ -1,0 +1,89 @@
+{
+  "gemini_raw": {
+    "S1": {
+      "source": "gemini_raw",
+      "strategy": "S1",
+      "total_chunks": 19,
+      "mean_chunk_chars": 1531.4,
+      "min_chunk_chars": 126,
+      "max_chunk_chars": 2487,
+      "downstream_extraction_f1": 0.5683
+    },
+    "S2": {
+      "source": "gemini_raw",
+      "strategy": "S2",
+      "total_chunks": 18,
+      "mean_chunk_chars": 1733.2,
+      "min_chunk_chars": 438,
+      "max_chunk_chars": 2487,
+      "downstream_extraction_f1": 0.5399
+    },
+    "S3": {
+      "source": "gemini_raw",
+      "strategy": "S3",
+      "total_chunks": 374,
+      "mean_chunk_chars": 77.8,
+      "min_chunk_chars": 2,
+      "max_chunk_chars": 522,
+      "downstream_extraction_f1": 0.4473
+    }
+  },
+  "tesseract_raw": {
+    "S1": {
+      "source": "tesseract_raw",
+      "strategy": "S1",
+      "total_chunks": 18,
+      "mean_chunk_chars": 1476.4,
+      "min_chunk_chars": 44,
+      "max_chunk_chars": 2471,
+      "downstream_extraction_f1": 0.4862
+    },
+    "S2": {
+      "source": "tesseract_raw",
+      "strategy": "S2",
+      "total_chunks": 17,
+      "mean_chunk_chars": 1667.9,
+      "min_chunk_chars": 375,
+      "max_chunk_chars": 2467,
+      "downstream_extraction_f1": 0.4619
+    },
+    "S3": {
+      "source": "tesseract_raw",
+      "strategy": "S3",
+      "total_chunks": 295,
+      "mean_chunk_chars": 90.1,
+      "min_chunk_chars": 5,
+      "max_chunk_chars": 303,
+      "downstream_extraction_f1": 0.2952
+    }
+  },
+  "tesseract_preproc": {
+    "S1": {
+      "source": "tesseract_preproc",
+      "strategy": "S1",
+      "total_chunks": 18,
+      "mean_chunk_chars": 1465.7,
+      "min_chunk_chars": 71,
+      "max_chunk_chars": 2496,
+      "downstream_extraction_f1": 0.4911
+    },
+    "S2": {
+      "source": "tesseract_preproc",
+      "strategy": "S2",
+      "total_chunks": 16,
+      "mean_chunk_chars": 1741.8,
+      "min_chunk_chars": 380,
+      "max_chunk_chars": 2493,
+      "downstream_extraction_f1": 0.4665
+    },
+    "S3": {
+      "source": "tesseract_preproc",
+      "strategy": "S3",
+      "total_chunks": 289,
+      "mean_chunk_chars": 91.3,
+      "min_chunk_chars": 5,
+      "max_chunk_chars": 419,
+      "downstream_extraction_f1": 0.2957
+    }
+  }
+}
