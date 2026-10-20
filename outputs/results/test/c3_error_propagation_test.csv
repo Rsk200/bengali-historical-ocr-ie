@@ -1,0 +1,4 @@
+﻿condition,tier1_precision,tier1_recall,tier1_f1,tier2_precision,tier2_recall,tier2_f1,unsupported_rate,entity_t1_f1,entity_t2_f1,relation_t1_f1,relation_t2_f1,event_t1_f1,event_t2_f1,oracle_f1,total_ocr_cost,surface_spelling_loss,structural_comprehension_loss
+oracle,1.0,1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,,,,
+strong_ocr (gemini_raw),0.5349,0.5794,0.5557,0.562,0.6072,0.5832,0.0248,0.5046,0.5411,0.3111,0.3111,1.0,1.0,1.0,0.4443,0.0275,0.4168
+weaker_ocr (tesseract_raw),0.4522,0.5435,0.4909,0.5385,0.6506,0.5861,0.2215,0.4466,0.5633,0.2222,0.2222,1.0,1.0,1.0,0.5091,0.0952,0.4139

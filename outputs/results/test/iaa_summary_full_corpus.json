@@ -1,0 +1,13 @@
+{
+  "n_pages_total": 38,
+  "total_entities": 383,
+  "total_relations": 74,
+  "total_events": 38,
+  "mean_entity_exact_f1": 0.9339,
+  "mean_entity_relaxed_f1": 0.9647,
+  "mean_relation_tuple_f1": 0.9561,
+  "mean_event_atomic_slot_f1": 1.0,
+  "mean_event_descriptive_slot_f1": 0.9737,
+  "cohen_kappa_on_aligned_spans": 0.9627,
+  "n_aligned_spans": 383
+}

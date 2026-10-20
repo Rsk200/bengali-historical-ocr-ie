@@ -1,0 +1,118 @@
+{
+  "condition_performances": {
+    "oracle": {
+      "tier1_precision": 1.0,
+      "tier1_recall": 1.0,
+      "tier1_f1": 1.0,
+      "tier2_precision": 1.0,
+      "tier2_recall": 1.0,
+      "tier2_f1": 1.0,
+      "unsupported_rate": 0.0,
+      "categories": {
+        "entities": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        },
+        "relations": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        },
+        "events": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        }
+      }
+    },
+    "strong_ocr (gemini_raw)": {
+      "tier1_precision": 0.5349,
+      "tier1_recall": 0.5794,
+      "tier1_f1": 0.5557,
+      "tier2_precision": 0.562,
+      "tier2_recall": 0.6072,
+      "tier2_f1": 0.5832,
+      "unsupported_rate": 0.0248,
+      "categories": {
+        "entities": {
+          "tier1_f1": 0.5046,
+          "tier2_f1": 0.5411
+        },
+        "relations": {
+          "tier1_f1": 0.3111,
+          "tier2_f1": 0.3111
+        },
+        "events": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        }
+      }
+    },
+    "weaker_ocr (tesseract_raw)": {
+      "tier1_precision": 0.4522,
+      "tier1_recall": 0.5435,
+      "tier1_f1": 0.4909,
+      "tier2_precision": 0.5385,
+      "tier2_recall": 0.6506,
+      "tier2_f1": 0.5861,
+      "unsupported_rate": 0.2215,
+      "categories": {
+        "entities": {
+          "tier1_f1": 0.4466,
+          "tier2_f1": 0.5633
+        },
+        "relations": {
+          "tier1_f1": 0.2222,
+          "tier2_f1": 0.2222
+        },
+        "events": {
+          "tier1_f1": 1.0,
+          "tier2_f1": 1.0
+        }
+      }
+    }
+  },
+  "error_attributions": {
+    "strong_ocr (gemini_raw)": {
+      "oracle_f1": 1.0,
+      "tier1_f1": 0.5557,
+      "tier2_f1": 0.5832,
+      "total_ocr_cost": 0.4443,
+      "surface_spelling_loss": 0.0275,
+      "structural_comprehension_loss": 0.4168
+    },
+    "weaker_ocr (tesseract_raw)": {
+      "oracle_f1": 1.0,
+      "tier1_f1": 0.4909,
+      "tier2_f1": 0.5861,
+      "total_ocr_cost": 0.5091,
+      "surface_spelling_loss": 0.0952,
+      "structural_comprehension_loss": 0.4139
+    }
+  },
+  "cer_bins": {
+    "low_cer_under_2pct": {
+      "n_pages": 27,
+      "mean_f1_drop": 0.4443
+    },
+    "moderate_cer_2_to_5pct": {
+      "n_pages": 0,
+      "mean_f1_drop": 0.0
+    },
+    "high_cer_over_5pct": {
+      "n_pages": 27,
+      "mean_f1_drop": 0.5091
+    }
+  },
+  "predictor_analysis": {
+    "cer_vs_f1_drop_correlation": 0.5183,
+    "target_acc_vs_f1_drop_correlation": -0.4131,
+    "stronger_predictor": "Average CER"
+  },
+  "mcnemar_test": {
+    "statistic": 134.0074,
+    "p_value": 0.0,
+    "b": 136,
+    "c": 0,
+    "total_discordant": 136,
+    "method": "continuity_corrected_chi2"
+  }
+}

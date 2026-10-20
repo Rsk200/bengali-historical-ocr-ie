@@ -1,0 +1,325 @@
+{
+  "split": "test",
+  "n_pages": 27,
+  "rankings": [
+    {
+      "system_name": "qwen_vl",
+      "mean_cer": 0.003,
+      "median_cer": 0.0031,
+      "cer_ci_lower": 0.0023,
+      "cer_ci_upper": 0.0042,
+      "mean_wer": 0.0371,
+      "median_wer": 0.0455,
+      "wer_ci_lower": 0.0321,
+      "wer_ci_upper": 0.0417,
+      "target_acc_raw": 0.9969,
+      "target_acc_norm": 0.9969,
+      "target_acc_stem": 0.9969,
+      "person_acc": 1.0,
+      "date_acc": 0.9375,
+      "location_acc": 1.0,
+      "composite_score": 0.9939
+    },
+    {
+      "system_name": "gemini_raw",
+      "mean_cer": 0.0131,
+      "median_cer": 0.0142,
+      "cer_ci_lower": 0.0122,
+      "cer_ci_upper": 0.014,
+      "mean_wer": 0.1934,
+      "median_wer": 0.2195,
+      "wer_ci_lower": 0.1782,
+      "wer_ci_upper": 0.2071,
+      "target_acc_raw": 1.0,
+      "target_acc_norm": 1.0,
+      "target_acc_stem": 1.0,
+      "person_acc": 1.0,
+      "date_acc": 1.0,
+      "location_acc": 1.0,
+      "composite_score": 0.9869
+    },
+    {
+      "system_name": "marker_ocr",
+      "mean_cer": 0.0415,
+      "median_cer": 0.0433,
+      "cer_ci_lower": 0.0399,
+      "cer_ci_upper": 0.0428,
+      "mean_wer": 0.0556,
+      "median_wer": 0.0568,
+      "wer_ci_lower": 0.0533,
+      "wer_ci_upper": 0.0576,
+      "target_acc_raw": 1.0,
+      "target_acc_norm": 1.0,
+      "target_acc_stem": 1.0,
+      "person_acc": 1.0,
+      "date_acc": 1.0,
+      "location_acc": 1.0,
+      "composite_score": 0.9585
+    },
+    {
+      "system_name": "easyocr",
+      "mean_cer": 0.0428,
+      "median_cer": 0.041,
+      "cer_ci_lower": 0.0409,
+      "cer_ci_upper": 0.0447,
+      "mean_wer": 0.3125,
+      "median_wer": 0.3293,
+      "wer_ci_lower": 0.3,
+      "wer_ci_upper": 0.324,
+      "target_acc_raw": 0.9365,
+      "target_acc_norm": 0.9365,
+      "target_acc_stem": 0.9538,
+      "person_acc": 0.9383,
+      "date_acc": 0.8958,
+      "location_acc": 0.9479,
+      "composite_score": 0.8964
+    },
+    {
+      "system_name": "surya",
+      "mean_cer": 0.0594,
+      "median_cer": 0.0584,
+      "cer_ci_lower": 0.0571,
+      "cer_ci_upper": 0.0616,
+      "mean_wer": 0.4056,
+      "median_wer": 0.4268,
+      "wer_ci_lower": 0.3895,
+      "wer_ci_upper": 0.4209,
+      "target_acc_raw": 0.7586,
+      "target_acc_norm": 0.7586,
+      "target_acc_stem": 0.7758,
+      "person_acc": 0.8571,
+      "date_acc": 0.875,
+      "location_acc": 0.8646,
+      "composite_score": 0.7135
+    },
+    {
+      "system_name": "tesseract_preproc",
+      "mean_cer": 0.0361,
+      "median_cer": 0.0356,
+      "cer_ci_lower": 0.0351,
+      "cer_ci_upper": 0.0371,
+      "mean_wer": 0.4575,
+      "median_wer": 0.4545,
+      "wer_ci_lower": 0.4377,
+      "wer_ci_upper": 0.4759,
+      "target_acc_raw": 0.6588,
+      "target_acc_norm": 0.6588,
+      "target_acc_stem": 0.6588,
+      "person_acc": 0.567,
+      "date_acc": 0.2812,
+      "location_acc": 0.9132,
+      "composite_score": 0.635
+    },
+    {
+      "system_name": "tesseract_raw",
+      "mean_cer": 0.111,
+      "median_cer": 0.1078,
+      "cer_ci_lower": 0.1081,
+      "cer_ci_upper": 0.1136,
+      "mean_wer": 0.7306,
+      "median_wer": 0.7159,
+      "wer_ci_lower": 0.7107,
+      "wer_ci_upper": 0.7485,
+      "target_acc_raw": 0.2183,
+      "target_acc_norm": 0.2183,
+      "target_acc_stem": 0.2888,
+      "person_acc": 0.017,
+      "date_acc": 0.5625,
+      "location_acc": 0.4167,
+      "composite_score": 0.1941
+    }
+  ],
+  "selected_strong_ocr": "gemini_raw",
+  "selected_weaker_ocr": "tesseract_raw",
+  "detailed_metrics": {
+    "marker_ocr": {
+      "mean_cer": 0.0415,
+      "median_cer": 0.0433,
+      "cer_95_ci": [
+        0.0399,
+        0.0428
+      ],
+      "mean_wer": 0.0556,
+      "median_wer": 0.0568,
+      "wer_95_ci": [
+        0.0533,
+        0.0576
+      ],
+      "target_accuracy": {
+        "overall_raw": 1.0,
+        "overall_normalised": 1.0,
+        "overall_stemmed": 1.0,
+        "person_normalised": 1.0,
+        "date_normalised": 1.0,
+        "location_normalised": 1.0,
+        "normalised_95_ci": [
+          1.0,
+          1.0
+        ]
+      },
+      "composite_score": 0.9585
+    },
+    "gemini_raw": {
+      "mean_cer": 0.0131,
+      "median_cer": 0.0142,
+      "cer_95_ci": [
+        0.0122,
+        0.014
+      ],
+      "mean_wer": 0.1934,
+      "median_wer": 0.2195,
+      "wer_95_ci": [
+        0.1782,
+        0.2071
+      ],
+      "target_accuracy": {
+        "overall_raw": 1.0,
+        "overall_normalised": 1.0,
+        "overall_stemmed": 1.0,
+        "person_normalised": 1.0,
+        "date_normalised": 1.0,
+        "location_normalised": 1.0,
+        "normalised_95_ci": [
+          1.0,
+          1.0
+        ]
+      },
+      "composite_score": 0.9869
+    },
+    "qwen_vl": {
+      "mean_cer": 0.003,
+      "median_cer": 0.0031,
+      "cer_95_ci": [
+        0.0023,
+        0.0042
+      ],
+      "mean_wer": 0.0371,
+      "median_wer": 0.0455,
+      "wer_95_ci": [
+        0.0321,
+        0.0417
+      ],
+      "target_accuracy": {
+        "overall_raw": 0.9969,
+        "overall_normalised": 0.9969,
+        "overall_stemmed": 0.9969,
+        "person_normalised": 1.0,
+        "date_normalised": 0.9375,
+        "location_normalised": 1.0,
+        "normalised_95_ci": [
+          0.9907,
+          1.0
+        ]
+      },
+      "composite_score": 0.9939
+    },
+    "easyocr": {
+      "mean_cer": 0.0428,
+      "median_cer": 0.041,
+      "cer_95_ci": [
+        0.0409,
+        0.0447
+      ],
+      "mean_wer": 0.3125,
+      "median_wer": 0.3293,
+      "wer_95_ci": [
+        0.3,
+        0.324
+      ],
+      "target_accuracy": {
+        "overall_raw": 0.9365,
+        "overall_normalised": 0.9365,
+        "overall_stemmed": 0.9538,
+        "person_normalised": 0.9383,
+        "date_normalised": 0.8958,
+        "location_normalised": 0.9479,
+        "normalised_95_ci": [
+          0.9002,
+          0.9717
+        ]
+      },
+      "composite_score": 0.8964
+    },
+    "tesseract_raw": {
+      "mean_cer": 0.111,
+      "median_cer": 0.1078,
+      "cer_95_ci": [
+        0.1081,
+        0.1136
+      ],
+      "mean_wer": 0.7306,
+      "median_wer": 0.7159,
+      "wer_95_ci": [
+        0.7107,
+        0.7485
+      ],
+      "target_accuracy": {
+        "overall_raw": 0.2183,
+        "overall_normalised": 0.2183,
+        "overall_stemmed": 0.2888,
+        "person_normalised": 0.017,
+        "date_normalised": 0.5625,
+        "location_normalised": 0.4167,
+        "normalised_95_ci": [
+          0.1748,
+          0.2558
+        ]
+      },
+      "composite_score": 0.1941
+    },
+    "surya": {
+      "mean_cer": 0.0594,
+      "median_cer": 0.0584,
+      "cer_95_ci": [
+        0.0571,
+        0.0616
+      ],
+      "mean_wer": 0.4056,
+      "median_wer": 0.4268,
+      "wer_95_ci": [
+        0.3895,
+        0.4209
+      ],
+      "target_accuracy": {
+        "overall_raw": 0.7586,
+        "overall_normalised": 0.7586,
+        "overall_stemmed": 0.7758,
+        "person_normalised": 0.8571,
+        "date_normalised": 0.875,
+        "location_normalised": 0.8646,
+        "normalised_95_ci": [
+          0.7112,
+          0.7992
+        ]
+      },
+      "composite_score": 0.7135
+    },
+    "tesseract_preproc": {
+      "mean_cer": 0.0361,
+      "median_cer": 0.0356,
+      "cer_95_ci": [
+        0.0351,
+        0.0371
+      ],
+      "mean_wer": 0.4575,
+      "median_wer": 0.4545,
+      "wer_95_ci": [
+        0.4377,
+        0.4759
+      ],
+      "target_accuracy": {
+        "overall_raw": 0.6588,
+        "overall_normalised": 0.6588,
+        "overall_stemmed": 0.6588,
+        "person_normalised": 0.567,
+        "date_normalised": 0.2812,
+        "location_normalised": 0.9132,
+        "normalised_95_ci": [
+          0.6079,
+          0.7103
+        ]
+      },
+      "composite_score": 0.635
+    }
+  }
+}
