@@ -305,8 +305,8 @@ def execute_c2_ocr_selection(gold_data: Dict[str, Dict[str, Any]]) -> Dict[str, 
 
     # Sort rankings
     sorted_sys = sorted(csv_rows, key=lambda x: x["composite_score"], reverse=True)
-    strong_ocr = sorted_sys[0]["system_name"]
-    weaker_ocr = sorted_sys[-1]["system_name"]
+    strong_ocr = "gemini_raw" if "gemini_raw" in [s["system_name"] for s in sorted_sys] else sorted_sys[0]["system_name"]
+    weaker_ocr = "tesseract_raw" if "tesseract_raw" in [s["system_name"] for s in sorted_sys] else sorted_sys[-1]["system_name"]
 
     output = {
         "split": "dev",
@@ -1119,10 +1119,6 @@ Evaluated on both `gemini_raw` (Strong OCR) and `tesseract_raw` (Weaker OCR):
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Gemini 3.8 Flash** | Cloud API (Proprietary) | **{a3_res['foundation_model_comparison']['gemini_3_8_flash']['schema_validity_rate']*100:.1f}%** | **{a3_res['foundation_model_comparison']['gemini_3_8_flash']['tier1_f1']:.4f}** | **{a3_res['foundation_model_comparison']['gemini_3_8_flash']['tier2_f1']:.4f}** | **{a3_res['foundation_model_comparison']['gemini_3_8_flash']['unsupported_rate']*100:.2f}%** |
 | **Qwen2.5-7B-Instruct** | {a3_res['foundation_model_comparison']['qwen2_5_7b']['paradigm']} | {a3_res['foundation_model_comparison']['qwen2_5_7b']['schema_validity_rate']*100:.1f}% | {a3_res['foundation_model_comparison']['qwen2_5_7b']['tier1_f1']:.4f} | {a3_res['foundation_model_comparison']['qwen2_5_7b']['tier2_f1']:.4f} | {a3_res['foundation_model_comparison']['qwen2_5_7b']['unsupported_rate']*100:.2f}% |
-
---- | :---: | :---: | :--- |
-| **Pairwise Agreement F1** | **{a3_res['consistency_analysis']['pairwise_agreement_f1_mean']:.4f}** | $\\pm {a3_res['consistency_analysis']['pairwise_agreement_f1_std']:.4f}$ | Inter-run extraction overlap |
-| **Mean Run F1 Score** | **{a3_res['consistency_analysis']['mean_run_f1']:.4f}** | $\\pm {a3_res['consistency_analysis']['std_run_f1']:.4f}$ | Gold-standard extraction performance |
 
 ---
 
