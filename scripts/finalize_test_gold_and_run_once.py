@@ -103,8 +103,8 @@ def compute_full_corpus_iaa(dev_gold: Dict[str, Any], test_gold: Dict[str, Any])
         ann1_dir = root_dir / "data" / "gold_standard" / ("annotator_1" if pid.startswith("p00") or pid in ["p010", "p011"] else "annotator_1_test")
         ann2_dir = root_dir / "data" / "gold_standard" / ("annotator_2" if pid.startswith("p00") or pid in ["p010", "p011"] else "annotator_2_test")
 
-        a1_f = ann1_dir / f"{pid}_ann.json"
-        a2_f = ann2_dir / f"{pid}_ann.json"
+        a1_f = ann1_dir / f"{pid}.json" if (ann1_dir / f"{pid}.json").exists() else ann1_dir / f"{pid}_ann.json"
+        a2_f = ann2_dir / f"{pid}.json" if (ann2_dir / f"{pid}.json").exists() else ann2_dir / f"{pid}_ann.json"
 
         if a1_f.exists() and a2_f.exists():
             with open(a1_f, "r", encoding="utf-8") as f1, open(a2_f, "r", encoding="utf-8") as f2:

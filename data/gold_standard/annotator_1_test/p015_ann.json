@@ -1,0 +1,155 @@
+{
+  "book_page": 15,
+  "chapter_id": "ch02",
+  "gold_text": "১৫\nবাংলাদেশ ও বিশ্বপরিচয়\n\n২৫শে মার্চের কালরাত ও গণহত্যা\n১৯৭১ সালের ২৫শে মার্চ মধ্যরাতে পাকিস্তানি হানাদার বাহিনী নিরস্ত্র ও ঘুমন্ত বাঙালির ওপর ইতিহাসের বর্বরোচিত আক্রমণ চালায়। এই সামরিক অভিযানের সাংকেতিক নাম ছিল 'অপারেশন সার্চলাইট'। ঢাকা বিশ্ববিদ্যালয়, পিলখানা তৎকালীন ইপিআর সদর দপ্তর, রাজারবাগ পুলিশ লাইনস এবং পুরান ঢাকাসহ বিভিন্ন স্থানে নির্বিচারে গণহত্যা চালানো হয়। ঢাকা বিশ্ববিদ্যালয়ের ইকবাল হল (বর্তমান জহুরুল হক হল), জগন্নাথ হল ও রোকেয়া হলে নির্মম হত্যাকাণ্ড ঘটে। অধ্যাপক ড. গোবিন্দচন্দ্র দেব, অধ্যাপক এ এন এম ফাইজুল কবীর এবং সন্তোষচন্দ্র ভট্টাচার্যসহ বহু শিক্ষক-বুদ্ধিজীবীকে এ রাতে হত্যা করা হয়। এক রাতেই ঢাকায় বহু নিরীহ মানুষ প্রাণ হারান। এই বর্বরোচিত হত্যাযজ্ঞ বিশ্ববিবেককে স্তম্ভিত করে দেয়।",
+  "entities": [
+    {
+      "entity_id": "p015_e01",
+      "name": "১৯৭১ সালের ২৫শে মার্চ",
+      "entity_type": "DATE/PERIOD",
+      "char_start": 56,
+      "char_end": 77,
+      "evidence_span": "১৯৭১ সালের ২৫শে মার্চ"
+    },
+    {
+      "entity_id": "p015_e02",
+      "name": "পাকিস্তানি হানাদার বাহিনী",
+      "entity_type": "ORGANIZATION",
+      "char_start": 87,
+      "char_end": 112,
+      "evidence_span": "পাকিস্তানি হানাদার বাহিনী"
+    },
+    {
+      "entity_id": "p015_e03",
+      "name": "অপারেশন সার্চলাইট",
+      "entity_type": "EVENT",
+      "char_start": 213,
+      "char_end": 230,
+      "evidence_span": "অপারেশন সার্চলাইট"
+    },
+    {
+      "entity_id": "p015_e04",
+      "name": "ঢাকা বিশ্ববিদ্যালয়",
+      "entity_type": "ORGANIZATION",
+      "char_start": 233,
+      "char_end": 251,
+      "evidence_span": "ঢাকা বিশ্ববিদ্যালয়"
+    },
+    {
+      "entity_id": "p015_e05",
+      "name": "পিলখানা",
+      "entity_type": "LOCATION",
+      "char_start": 253,
+      "char_end": 260,
+      "evidence_span": "পিলখানা"
+    },
+    {
+      "entity_id": "p015_e06",
+      "name": "ইপিআর",
+      "entity_type": "ORGANIZATION",
+      "char_start": 269,
+      "char_end": 274,
+      "evidence_span": "ইপিআর"
+    },
+    {
+      "entity_id": "p015_e07",
+      "name": "রাজারবাগ পুলিশ লাইনস",
+      "entity_type": "LOCATION",
+      "char_start": 286,
+      "char_end": 306,
+      "evidence_span": "রাজারবাগ পুলিশ লাইনস"
+    },
+    {
+      "entity_id": "p015_e08",
+      "name": "পুরান ঢাকা",
+      "entity_type": "LOCATION",
+      "char_start": 311,
+      "char_end": 321,
+      "evidence_span": "পুরান ঢাকা"
+    },
+    {
+      "entity_id": "p015_e09",
+      "name": "জগন্নাথ হল",
+      "entity_type": "LOCATION",
+      "char_start": 423,
+      "char_end": 433,
+      "evidence_span": "জগন্নাথ হল"
+    },
+    {
+      "entity_id": "p015_e10",
+      "name": "অধ্যাপক ড. গোবিন্দচন্দ্র দেব",
+      "entity_type": "PERSON",
+      "char_start": 470,
+      "char_end": 498,
+      "evidence_span": "অধ্যাপক ড. গোবিন্দচন্দ্র দেব"
+    },
+    {
+      "entity_id": "p015_e11",
+      "name": "অধ্যাপক এ এন এম ফাইজুল কবীর",
+      "entity_type": "PERSON",
+      "char_start": 500,
+      "char_end": 527,
+      "evidence_span": "অধ্যাপক এ এন এম ফাইজুল কবীর"
+    },
+    {
+      "entity_id": "p015_e12",
+      "name": "সন্তোষচন্দ্র ভট্টাচার্য",
+      "entity_type": "PERSON",
+      "char_start": 532,
+      "char_end": 555,
+      "evidence_span": "সন্তোষচন্দ্র ভট্টাচার্য"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "p015_r01",
+      "head_text": "পাকিস্তানি হানাদার বাহিনী",
+      "head_type": "ORGANIZATION",
+      "relation_type": "caused",
+      "tail_text": "অপারেশন সার্চলাইট",
+      "tail_type": "EVENT",
+      "evidence_span": "এই সামরিক অভিযানের সাংকেতিক নাম ছিল 'অপারেশন সার্চলাইট'।"
+    },
+    {
+      "relation_id": "p015_r02",
+      "head_text": "অপারেশন সার্চলাইট",
+      "head_type": "EVENT",
+      "relation_type": "occurred_on",
+      "tail_text": "১৯৭১ সালের ২৫শে মার্চ",
+      "tail_type": "DATE/PERIOD",
+      "evidence_span": "১৫ বাংলাদেশ ও বিশ্বপরিচয়  ২৫শে মার্চের কালরাত ও গণহত্যা ১৯৭১ সালের ২৫শে মার্চ মধ্যরাতে পাকিস্তানি হানাদার বাহিনী নিরস্ত্র ও ঘুমন্ত বাঙালির ওপর ইতিহাসের বর্বরোচিত আক্রমণ চালায়।"
+    },
+    {
+      "relation_id": "p015_r03",
+      "head_text": "অধ্যাপক ড. গোবিন্দচন্দ্র দেব",
+      "head_type": "PERSON",
+      "relation_type": "member_of",
+      "tail_text": "ঢাকা বিশ্ববিদ্যালয়",
+      "tail_type": "ORGANIZATION",
+      "evidence_span": "অধ্যাপক ড. গোবিন্দচন্দ্র দেব, অধ্যাপক এ এন এম ফাইজুল কবীর এবং সন্তোষচন্দ্র ভট্টাচার্যসহ বহু শিক্ষক-বুদ্ধিজীবীকে এ রাতে হত্যা করা হয়।"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "p015_ev01",
+      "trigger_name": "বর্বরোচিত আক্রমণ",
+      "event_type": "MILITARY_ATTACK",
+      "date": "১৯৭১ সালের ২৫শে মার্চ",
+      "location": "ঢাকা বিশ্ববিদ্যালয়",
+      "participants": [
+        {
+          "name": "পাকিস্তানি হানাদার বাহিনী",
+          "role": "perpetrator"
+        }
+      ],
+      "causes": [
+        "বাঙালির স্বাধিকার আন্দোলন দমন"
+      ],
+      "consequences": [
+        "বহু নিরীহ মানুষ প্রাণ হারান"
+      ],
+      "evidence_span": "এই সামরিক অভিযানের সাংকেতিক নাম ছিল 'অপারেশন সার্চলাইট'।"
+    }
+  ],
+  "annotator_id": "annotator_1_test"
+}

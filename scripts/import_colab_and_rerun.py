@@ -62,58 +62,30 @@ def copy_matching_json(src_dir: Path, dest_dir: Path, prefix: str = "p") -> int:
 
 def import_colab_artifacts(export_path: Path) -> Dict[str, Any]:
     """Unzips if necessary and copies artifacts to their destination directories."""
-    temp_dir = None
+    imported_summary = {"ocr": {}, "post_ocr": {}, "correction": {}, "extractions": {}}
+
     if export_path.is_file() and export_path.suffix.lower() == ".zip":
-        temp_dir = root_dir / "outputs" / "_temp_colab_unpack"
-        if temp_dir.exists():
-            shutil.rmtree(temp_dir)
-        temp_dir.mkdir(parents=True, exist_ok=True)
-        logger.info(f"Extracting {export_path.name} to {temp_dir} ...")
+        logger.info(f"Extracting {export_path.name} directly into {root_dir} ...")
         with zipfile.ZipFile(export_path, "r") as zf:
-            zf.extractall(temp_dir)
-        source_root = temp_dir
-    else:
-        source_root = export_path
+            zf.extractall(root_dir)
+        logger.info("Extraction complete!")
 
-    imported_summary = {"ocr": {}, "post_ocr": {}, "extractions": {}}
+    # Check imported directories
+    for mod in ["easyocr", "marker_ocr", "surya", "qwen_vl"]:
+        p = root_dir / "outputs" / "ocr" / mod
+        if p.exists():
+            imported_summary["ocr"][mod] = len(list(p.glob("*.json")))
 
-    # 1. OCR outputs: outputs/ocr/{model}/
-    ocr_src = source_root / "outputs" / "ocr" if (source_root / "outputs" / "ocr").exists() else source_root / "ocr"
-    if ocr_src.exists():
-        for model_dir in ocr_src.iterdir():
-            if model_dir.is_dir():
-                target_dir = root_dir / "outputs" / "ocr" / model_dir.name
-                count = copy_matching_json(model_dir, target_dir)
-                imported_summary["ocr"][model_dir.name] = count
-                logger.info(f"Imported {count} OCR pages for model: {model_dir.name}")
-
-    # 2. Post-OCR outputs: outputs/post_ocr/{source}/{arm}/
-    post_src = source_root / "outputs" / "post_ocr" if (source_root / "outputs" / "post_ocr").exists() else source_root / "post_ocr"
-    if post_src.exists():
-        for src_engine in post_src.iterdir():
-            if src_engine.is_dir():
-                for arm_dir in src_engine.iterdir():
-                    if arm_dir.is_dir():
-                        target_dir = root_dir / "outputs" / "post_ocr" / src_engine.name / arm_dir.name
-                        count = copy_matching_json(arm_dir, target_dir)
-                        imported_summary["post_ocr"].setdefault(src_engine.name, {})[arm_dir.name] = count
-                        logger.info(f"Imported {count} Post-OCR pages for {src_engine.name} ({arm_dir.name})")
-
-    # 3. LLM Extractions: outputs/extractions/{source}/{model}/
-    ext_src = source_root / "outputs" / "extractions" if (source_root / "outputs" / "extractions").exists() else source_root / "extractions"
-    if ext_src.exists():
-        for src_engine in ext_src.iterdir():
-            if src_engine.is_dir():
-                for model_dir in ext_src.iterdir():
-                    if model_dir.is_dir():
-                        target_dir = root_dir / "outputs" / "extractions" / src_engine.name / model_dir.name
-                        count = copy_matching_json(model_dir, target_dir)
-                        imported_summary["extractions"].setdefault(src_engine.name, {})[model_dir.name] = count
-                        logger.info(f"Imported {count} LLM extractions for {src_engine.name} ({model_dir.name})")
-
-    # Clean up temp
-    if temp_dir and temp_dir.exists():
-        shutil.rmtree(temp_dir)
+    for src in ["gemini_raw", "tesseract_raw"]:
+        p_post = root_dir / "outputs" / "post_ocr" / src / "arm_b"
+        if p_post.exists():
+            imported_summary["post_ocr"].setdefault(src, {})["arm_b"] = len(list(p_post.glob("*.json")))
+        p_corr = root_dir / "outputs" / "correction" / "arm_b" / src
+        if p_corr.exists():
+            imported_summary["correction"].setdefault(src, {})["arm_b"] = len(list(p_corr.glob("*.json")))
+        p_ext = root_dir / "outputs" / "extractions" / src / "qwen2_5_7b"
+        if p_ext.exists():
+            imported_summary["extractions"].setdefault(src, {})["qwen2_5_7b"] = len(list(p_ext.glob("*.json")))
 
     return imported_summary
 
